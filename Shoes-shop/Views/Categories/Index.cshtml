@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Shoes_shop.Models.Category>
+@{
+    ViewData["Title"] = "Index | Categories";
+}
+<h1>Index of category</h1>
+
+@if(!Model.Any()){
+
+    <div class="alert alert-warning">
+        No category of ad added yet!
+    </div>
+}else{
+    <table class="table my-3">
+        <thead>
+            <tr>
+                <th>Ctegory Name</th>
+                <th>Category Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+
+                    <td>
+                        <a href="@Url.Action("Edit", "AdCategory", new { id = category.Id })" class="btn btn-primary">
+                            Edit
+                        </a>
+                        <a href="@Url.Action("Details", "AdCategory", new { id = category.Id })" class="btn btn-success">
+                            Details
+                        </a>
+                        <a href="javascript:;" class="btn btn-danger js-delete" data-id="@category.Id">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
