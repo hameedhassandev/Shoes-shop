@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+9++pIPNFy8Izk+KkRDZMH2Gc9OBK6QGCiMPUPaSmii72viQ+WykUTYXiYUZtQlrUj6UjGSLEdPpFVRD+WcWaQ==",
+  "dgSpecHash": "CL8sE8ykjMRAa35CR0V+zKPwy/hyQ6S85TiUPxfrk1Z1nmMvxxpEEr+wmydHhGOls4hYY4yjyNkxdGk+5uXpVg==",
   "success": true,
   "projectFilePath": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\Shoes-shop.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Hameed\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Hameed\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\linqkit\\1.2.2\\linqkit.1.2.2.nupkg.sha512",
@@ -13,7 +15,7 @@
     "C:\\Users\\Hameed\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\6.0.7\\microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.7.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.7\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.7.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.7\\microsoft.aspnetcore.identity.ui.6.0.7.nupkg.sha512",
-    "C:\\Users\\Hameed\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
+    "C:\\Users\\Hameed\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.7\\microsoft.entityframeworkcore.6.0.7.nupkg.sha512",

@@ -2,7 +2,11 @@
 @{
     ViewData["Title"] = "Index | Categories";
 }
-<h1>Index of category</h1>
+<h1>Manage Categories</h1>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">
+    Add New Category
+</a>
 
 @if(!Model.Any()){
 
@@ -26,10 +30,10 @@
                     <td>@category.Description</td>
 
                     <td>
-                        <a href="@Url.Action("Edit", "AdCategory", new { id = category.Id })" class="btn btn-primary">
+                        <a href="@Url.Action("Edit", "Categories", new { id = category.Id })" class="btn btn-primary">
                             Edit
                         </a>
-                        <a href="@Url.Action("Details", "AdCategory", new { id = category.Id })" class="btn btn-success">
+                        <a href="@Url.Action("Details", "Categories", new { id = category.Id })" class="btn btn-success">
                             Details
                         </a>
                         <a href="javascript:;" class="btn btn-danger js-delete" data-id="@category.Id">

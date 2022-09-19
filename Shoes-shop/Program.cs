@@ -17,6 +17,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
           .AddDefaultTokenProviders()
           .AddDefaultUI();
 
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddControllersWithViews();
 
