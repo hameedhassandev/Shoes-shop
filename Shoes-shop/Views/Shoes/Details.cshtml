@@ -1,0 +1,63 @@
+﻿@model Shoes_shop.Models.Shoes
+
+@{
+    ViewData["Title"] = "Shoes | Details";
+}
+
+<div class="content mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <label class="control-label">Image</label>
+                    <br />
+
+                    <img id="FrontImage" src="~/images/@Model.ImageURL" alt="shoes_img" width="150" height="150" style="border:1px;" />
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" readonly />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="control-label">Category</label>
+                    <input asp-for="@Model.Category.Name" class="form-control" readonly />
+                </div>
+
+                <div class="form-group my-3">
+                    <label asp-for="ShortDescription" class="control-label"></label>
+                    <textarea asp-for="ShortDescription" class="form-control" readonly></textarea>
+                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                </div>
+
+
+
+                <div class="form-group my-3">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" readonly />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="NumberInStock" class="control-label"></label>
+                    <input asp-for="NumberInStock" class="form-control" readonly />
+                    <span asp-validation-for="NumberInStock" class="text-danger"></span>
+                </div>
+     
+                <div class="checkbox my-3">
+                    <input asp-for="IsShoesOfTheWeek" disabled="disabled"/>
+                    <label asp-for="IsShoesOfTheWeek"></label>
+                </div>
+                <div class="form-group">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Edit</a>
+                    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

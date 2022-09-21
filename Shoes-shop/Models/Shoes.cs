@@ -13,14 +13,20 @@ namespace Shoes_shop.Models
         public string Name { get; set; } = string.Empty;
 
         [StringLength(150)]
+
+        [Display(Name = "Short Description")]
         public string ShortDescription { get; set; } = string.Empty;
         public double Price { get; set; }
-        public string ImageURL { get; set; } = string.Empty;    
+        public string ImageURL { get; set; } = string.Empty;
+
+        [Display(Name = "Shoes Of The Week")]
         public bool IsShoesOfTheWeek { get; set; }
 
         [NotMapped]
         [Display(Name = "Upload Image")]
         public IFormFile? ImageFile { get; set; }
+
+        [Display(Name = "Number In Stock")]
         public int NumberInStock { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }

@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+input:checked {
+    height: 20px;
+    width: 20px;
+}

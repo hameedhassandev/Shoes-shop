@@ -11,23 +11,23 @@
 
         <hr />
         <div class="row">
-            <div class="col-md-4">
-                <div class="form-group">
+            <div class="col-md-4"> 
+                <div class="form-group my-3">
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" readonly />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-3">
                     <label asp-for="Description" class="control-label"></label>
                     <textarea asp-for="Description" class="form-control" readonly>
                    </textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
-                <div class="form-check">
+                <div class="form-check my-3">
                     <input type="checkbox" id="checkme" />
                     <label class="form-check-label">Yes, confirm delete</label>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-3">
 
                     <form asp-action="DeleteConfirm">
                         <input type="hidden" asp-for="Id" />

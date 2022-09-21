@@ -37,11 +37,13 @@
                 Price (L.E)
             </th>
             <th>
-                Number In Stock
+                No. In Stock
             </th>
-           
+       
             
-            <th ></th>
+            <th >
+                Action
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -69,9 +71,9 @@
             
           
             <td >
-                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square">Edit</i></a> |
-                <a class="btn btn-outline-info"  asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye">Details</i></a> |
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash">Delete</i></a>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-success"  asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

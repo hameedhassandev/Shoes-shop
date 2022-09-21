@@ -3,11 +3,12 @@
     ViewData["Title"] = "Index | Categories";
 }
 <h1>Manage Categories</h1>
-
+<hr />
+<div class="text-white">
 <a href="@Url.Action("Create")" class="btn btn-primary">
     Add New Category
 </a>
-
+</div>
 @if(!Model.Any()){
 
     <div class="alert alert-warning">

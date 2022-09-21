@@ -14,19 +14,19 @@
             <div class="col-md-4">
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
+                    <div class="form-group my-3">
                         <label asp-for="Name" class="control-label"></label>
                         <input asp-for="Name" class="form-control" autocomplete="off"/>
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group my-3">
                         <label asp-for="Description" class="control-label"></label>
                         <textarea asp-for="Description" class="form-control" >
                         </textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group my-4">
+                    <div class="form-group my-3">
                         <input type="submit" value="Update" class="btn btn-primary" />
                         <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
                     </div>

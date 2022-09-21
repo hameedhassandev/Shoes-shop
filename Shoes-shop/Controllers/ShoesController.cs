@@ -126,6 +126,24 @@ namespace Shoes_shop.Controllers
 
             return View(shoes);
         }
+
+        //post delete shoes by id
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirm(int id)
+        {
+
+            var shoes = ShoesRepository.Get(id);
+            if (shoes == null)
+                return NotFound();
+
+            ShoesRepository.Delete(shoes);
+            ShoesRepository.CommitChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
     }
 
 
