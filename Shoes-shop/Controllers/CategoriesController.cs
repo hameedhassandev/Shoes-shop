@@ -88,7 +88,7 @@ namespace Shoes_shop.Controllers
         }
 
         //get delete category with id
-        public IActionResult DeleteConfirm(int id)
+        public IActionResult Delete(int id)
         {
             var category = _context.Get(id);
             if (category == null)
@@ -101,7 +101,7 @@ namespace Shoes_shop.Controllers
         //post delete category with id
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteConfirm(int id)
         {
 
             var category = _context.Get(id);

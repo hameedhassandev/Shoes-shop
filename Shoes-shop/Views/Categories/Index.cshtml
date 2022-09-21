@@ -36,7 +36,7 @@
                         <a href="@Url.Action("Details", "Categories", new { id = category.Id })" class="btn btn-success">
                             Details
                         </a>
-                        <a href="javascript:;" class="btn btn-danger js-delete" data-id="@category.Id">
+                        <a href="@Url.Action("Delete", "Categories", new { id = category.Id })" class="btn btn-danger">
                             Delete
                         </a>
                     </td>
