@@ -50,7 +50,7 @@ namespace Shoes_shop.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(category);
-                _context.SaveChanges();
+                _context.CommitChanges();
                 return RedirectToAction("Index");
 
             }
@@ -74,13 +74,17 @@ namespace Shoes_shop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind("Id,Name,Description")] Category category)
         {
-            if (id != category.Id)
+            if (id == null)
                 return NotFound();
+
+            var cat = _context.Get(id);
+
+            cat.Name = category.Name;
+            cat.Description = category.Description;
 
             if (ModelState.IsValid)
             {
-                _context.Update(category);
-                _context.SaveChanges();
+                _context.CommitChanges();
                 return RedirectToAction(nameof(Index));
             }
 
@@ -109,7 +113,7 @@ namespace Shoes_shop.Controllers
                 return NotFound();
 
             _context.Delete(category);
-            _context.SaveChanges();
+            _context.CommitChanges();
 
             return RedirectToAction(nameof(Index));
         }

@@ -11,6 +11,6 @@ namespace Shoes_shop.Models.Repositories
         IEnumerable<T> All();
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
         T FindOne(Expression<Func<T, bool>> predicate);
-        void SaveChanges();
+        void CommitChanges();
     }
 }

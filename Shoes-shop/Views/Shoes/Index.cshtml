@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Shoes_shop.Models.Shoes>
+
+@{
+    ViewData["Title"] = "Index | Shoes";
+}
+
+<h1>Shoes List</h1>
+<hr/>
+@if(!Model.Any()){
+
+    <div class="alert alert-warning">
+        No Shoes added yet!
+    </div>
+}else{
+<div class="content mt-5">
+<div class="text-white">
+     <a href="@Url.Action("Create")"  class="btn btn-primary">  
+         Add New Shoes
+     </a>
+</div><br />
+    <table class="table">
+    <thead>
+        <tr>
+             <th>
+                Image
+            </th>
+            <th>
+                Shoes Name
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+               Short Description
+            </th>
+            <th>
+                Price (L.E)
+            </th>
+            <th>
+                Number In Stock
+            </th>
+           
+            
+            <th ></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="align-middle">
+               <img src="~/images/@item.ImageURL" style="width:75px;height:75px" />
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+           <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td class="align-middle" style="max-width: 200px;   overflow: hidden;text-overflow: ellipsis ; white-space: nowrap; ">
+
+                @Html.DisplayFor(modelItem => item.ShortDescription)
+            </td >
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.NumberInStock)
+            </td class="align-middle">
+            
+          
+            <td >
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square">Edit</i></a> |
+                <a class="btn btn-outline-info"  asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye">Details</i></a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash">Delete</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+}

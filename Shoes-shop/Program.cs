@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Shoes_shop.Data;
 using Shoes_shop.Models.Repositories;
 using Shoes_shop.Models;
+using Shoes_shop.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,8 @@ builder.Services.AddScoped<IShoesRepository, ShoesRepository>();
 builder.Services.AddScoped<GenericRepository<Order>, OrderRepository>();
 builder.Services.AddScoped<GenericRepository<OrderDetail>, OrderDetailsRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepoService>();
+builder.Services.AddScoped<IImageHandler, ImageHandler>();
+
 
 var app = builder.Build();
 
@@ -33,12 +36,16 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    app.UseExceptionHandler("/Home/Error");
+
 }
 else
 {
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+    app.UseExceptionHandler("/Home/Error");
+
 }
 
 app.UseHttpsRedirection();

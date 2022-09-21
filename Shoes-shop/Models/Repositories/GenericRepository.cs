@@ -43,7 +43,7 @@ namespace Shoes_shop.Models.Repositories
 
         }
 
-        public void SaveChanges()
+        public void CommitChanges()
         {
             Context.SaveChanges();  
         }
