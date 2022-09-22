@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "czf6XobRB9WkGrk9iPFjiSQtmM/ZMgBB9anTyEaa8TE=",
+  "Hash": "nCotmlqtpzB/72nwtb9J+MGvLacFhChXWWDvEcuT1b8=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\88_o.jpg"
+    },
+    {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\defult.png",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/defult.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\defult.png"
     },
     {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\js\\site.js",

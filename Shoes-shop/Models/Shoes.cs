@@ -28,6 +28,8 @@ namespace Shoes_shop.Models
 
         [Display(Name = "Number In Stock")]
         public int NumberInStock { get; set; }
+
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
         public ICollection<Cart>? carts { get; set; }

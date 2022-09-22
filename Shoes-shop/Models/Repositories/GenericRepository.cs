@@ -19,6 +19,7 @@ namespace Shoes_shop.Models.Repositories
         public virtual IEnumerable<T> All()
         {
             return Context.Set<T>().ToList();
+          //  return Context.Set<T>().Skip(1).Take(2).ToList();
         }
 
         public virtual T Delete(T entity)
