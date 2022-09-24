@@ -10,16 +10,6 @@ namespace Shoes_shop.Helpers
             webHostEnvironment = webhost;
 
         }
-        public void RemoveImage(string imgPath)
-        {
-            string image = Path.Combine(webHostEnvironment.WebRootPath, "images", imgPath);
-            FileInfo fileInfo = new FileInfo(image);
-            if (fileInfo != null)
-            {
-                File.Delete(image);
-                fileInfo.Delete();
-            }
-        }
 
         public string UploadImage(Shoes shoes)
         {

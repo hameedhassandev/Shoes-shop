@@ -1,0 +1,76 @@
+﻿@model Shoes_shop.Models.Shoes
+
+@{
+    ViewData["Title"] = "Delete | Shoes";
+}
+
+<div class="content mt-5">
+
+    <div class="container">
+        <h3 class="text-danger">Delete  @Model.Name ! </h3>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group my-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" readonly />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label class="control-label">Category</label>
+                    <input asp-for="@Model.Category.Name" class="form-control" readonly />
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="ShortDescription" class="control-label"></label>
+                    <textarea asp-for="ShortDescription" class="form-control" readonly>
+                   </textarea>
+                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                </div>   
+                <div class="form-group my-3">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" readonly/>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="NumberInStock" class="control-label"></label>
+                    <input asp-for="NumberInStock" class="form-control" readonly/>
+                    <span asp-validation-for="NumberInStock" class="text-danger"></span>
+                </div>
+           
+                <div class="form-check my-3">
+                    <input type="checkbox" id="checkme" />
+                    <label class="form-check-label">Yes, confirm delete</label>
+                </div>
+                <div class="form-group my-3">
+
+                    <form asp-action="DeleteConfirm">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Delete" class="btn btn-danger" disabled="disabled" id="deleteId" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
+                    </form>
+
+                </div>
+           
+
+            </div>
+            <div class="col-6">
+                <img id="FrontImage" src="~/images/@Model.ImageURL" alt="shoes_img" width="500" height="500" style="border:1px;margin-top:20px;margin-left:120px;" />
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var checker = document.getElementById('checkme');
+    var deleteBtn = document.getElementById('deleteId');
+    // when unchecked or checked, run the function
+    checker.onchange = function () {
+        if (this.checked) {
+            deleteBtn.disabled = false;
+        } else {
+            deleteBtn.disabled = true;
+        }
+    }
+</script>             

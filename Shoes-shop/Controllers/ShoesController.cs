@@ -100,9 +100,8 @@ namespace Shoes_shop.Controllers
 
             if (ModelState.IsValid)
             {
-                if (shoes.ImageURL != null)
+                if (shoes.ImageFile != null)
                 {
-                    ImageHandler.RemoveImage(shoes.ImageURL);
                     shoes.ImageURL = ImageHandler.UploadImage(shoes);
 
                 }
