@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Shoes_shop.Helpers;
 using Shoes_shop.Models;
 using Shoes_shop.Models.Repositories;
 using System.Linq.Expressions;
 
 namespace Shoes_shop.Controllers
 {
+    [Authorize(Roles = RolesName.AdminRole)]
+
     public class CategoriesController : Controller
     {
         private readonly IBaseRepository<Category> _context;
@@ -16,7 +19,6 @@ namespace Shoes_shop.Controllers
             _context = context; 
         }
 
-        [AllowAnonymous]
         public IActionResult Index()
         {
             var categories = _context.All();
@@ -24,7 +26,6 @@ namespace Shoes_shop.Controllers
         }
 
         //get details by id
-        [AllowAnonymous]
         public IActionResult Details(int id)
         {
             var category = _context.Get(id);

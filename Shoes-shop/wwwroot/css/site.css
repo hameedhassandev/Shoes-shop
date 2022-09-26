@@ -15,7 +15,9 @@ html {
 
 body {
   margin-bottom: 60px;
-}
+  /*dark mood*/
+/*  filter : invert(1);
+*/}
 
 input:checked {
     height: 20px;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yl5MJZnx2nXm0Y+GQ4FmgEXZrhO8fF4riQRJPY5ejTQ=",
+  "Hash": "bzX8XAqgv3Yehxj7A7fcJLOC+XWPkW7mFHjVl73BA74=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\4421_.jpeg"
+    },
+    {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\699fcf43-5c35-4abe-afb4-985cd5f55a30_4421_.jpeg",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/699fcf43-5c35-4abe-afb4-985cd5f55a30_4421_.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\699fcf43-5c35-4abe-afb4-985cd5f55a30_4421_.jpeg"
     },
     {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\88_o.jpg",
