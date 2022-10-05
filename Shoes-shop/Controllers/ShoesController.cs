@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Shoes_shop.Helpers;
 using Shoes_shop.Models;
 using Shoes_shop.Models.Repositories;
+using Shoes_shop.ViewModels;
+using System.Linq.Expressions;
 
 namespace Shoes_shop.Controllers
 {
@@ -140,6 +143,24 @@ namespace Shoes_shop.Controllers
             ShoesRepository.CommitChanges();
 
             return RedirectToAction(nameof(Index));
+        }
+
+
+        [AllowAnonymous]
+        public IActionResult ShoesDetails(int id)
+        {
+            ViewData["addMessage"] = TempData["message"];
+            var shoes = ShoesRepository.Get(id);
+            //make exp. 
+            Expression<Func<Shoes,bool>> predicate = e=> e.CategoryId == shoes.CategoryId && e.Id != shoes.Id;
+
+            var relatedShoes = ShoesRepository.GetRelatedShoes(predicate)
+            .Select(e => _mapper.Map<ShoesViewModel>(e));
+
+            ViewBag.RelatedShoes = relatedShoes;
+
+            return View("ShoesDetails", _mapper.Map<ShoesViewModel>(shoes));
+
         }
 
 

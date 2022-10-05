@@ -14,5 +14,8 @@ After Confirm Delete
 ![catAfter](https://user-images.githubusercontent.com/57669085/191618149-5ca13b42-12bf-418d-84b9-b27e468f174a.PNG)
 List All Shoes
 ![shoes1](https://user-images.githubusercontent.com/57669085/191617314-a004fada-ba20-4276-ab80-1558149bc918.PNG)
-Shoes Details 
-![shoes2](https://user-images.githubusercontent.com/57669085/191617319-3f0596d7-8e57-4a5a-9887-9ba2bfc597c9.PNG)
+![creaye](https://user-images.githubusercontent.com/57669085/192346899-976ff160-095b-4d7c-9454-56df6ebd207a.PNG)
+![editShoes](https://user-images.githubusercontent.com/57669085/192347421-0e7d2c0e-a5e4-4cdb-bea2-984ba88aa227.PNG)
+![details](https://user-images.githubusercontent.com/57669085/192347425-a43b8993-225b-4cbe-a267-6e6096f9d272.PNG)
+![beforDelete](https://user-images.githubusercontent.com/57669085/192347428-56937edc-4c10-4f09-9665-bc776b2f6695.PNG)
+![confirmDelete](https://user-images.githubusercontent.com/57669085/192347432-7785931f-858b-4548-aedb-b444d42bb67c.PNG)
