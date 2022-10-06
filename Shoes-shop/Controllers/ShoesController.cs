@@ -11,6 +11,8 @@ using System.Linq.Expressions;
 
 namespace Shoes_shop.Controllers
 {
+    [Authorize(Roles = RolesName.AdminRole)]
+
     public class ShoesController : Controller
     {
 
@@ -51,7 +53,7 @@ namespace Shoes_shop.Controllers
             if (shoes == null)
                 return NotFound();
 
-            return View(shoes); 
+            return View(shoes);
         }
 
         //get create shoes form
@@ -151,21 +153,64 @@ namespace Shoes_shop.Controllers
         {
             ViewData["addMessage"] = TempData["message"];
             var shoes = ShoesRepository.Get(id);
-            //make exp. 
-            Expression<Func<Shoes,bool>> predicate = e=> e.CategoryId == shoes.CategoryId && e.Id != shoes.Id;
+            //make exp. to get all related shoeses with the same category exept selected shoes
+            Expression<Func<Shoes, bool>> predicate = e => e.CategoryId == shoes.CategoryId && e.Id != shoes.Id;
 
             var relatedShoes = ShoesRepository.GetRelatedShoes(predicate)
             .Select(e => _mapper.Map<ShoesViewModel>(e));
 
             ViewBag.RelatedShoes = relatedShoes;
 
-            return View("ShoesDetails", _mapper.Map<ShoesViewModel>(shoes));
+            return View(nameof(ShoesDetails), _mapper.Map<ShoesViewModel>(shoes));
+
+        }
+
+        private string ValidationMassage(int shoesID, int qty)
+        {
+            string massage = string.Empty;
+            var shoes = ShoesRepository.Get(shoesID);
+            if (qty == 0)
+            {
+                massage = "Quantity of shoes cannot be zero!";
+
+            }
+            else if (shoes.NumberInStock == 0)
+            {
+                massage = "Shoes is out of stock!";
+
+            }
+            else if (shoes.NumberInStock < qty)
+            {
+                massage = "Quantity is not available!";
+
+            }
+            else if (User.Identity.Name == null)
+            {
+                massage = "Unauthorized, kindly sign in";
+            }
+            return massage;
+        }
+
+        public async Task<IActionResult> AddToCart(int shoesID, int qty)
+        {
+            var massageValue = ValidationMassage(shoesID, qty);
+            var shoes = ShoesRepository.Get(shoesID);
+
+            if (massageValue != null)
+                TempData["message"] = massageValue;
+
+
+            //in case no validation massage
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+
+            CartRepository.AddItem(user.Id, shoesID, qty);
+            TempData["message"] = "Added to Cart Successfully!";
+
+            return RedirectToAction(nameof(ShoesDetails), new { id = shoes.Id });
 
         }
 
 
+
     }
-
-
-   
 }

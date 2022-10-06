@@ -1,0 +1,21 @@
+﻿@using Shoes_shop.ViewModels
+@model ShoesViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <img src="~/images/@Model.ImageURL" alt="related_shoes"/>
+            @if (@Model.NumberInStock == 0)
+            {
+                <h4 class="text-danger">not avalilable now!</h4>            
+            }
+
+                <img src="~/images/@Model.ImageURL"/>
+        </div>
+    </div>
+        <div>
+        <a asp-controller="Shoes" asp-action="ShoesDetails" asp-route-id="@Model.Id" class="btn btn-primary">@Model.Name</a>
+            <h3>@Model.Price L.E</h3>
+        </div>
+
+    </div>

@@ -1,0 +1,28 @@
+﻿@using Shoes_shop.ViewModels
+@model ShoesViewModel
+
+
+
+<section class="product-details spad">
+    <div class="container">
+        <h1>@Model.Name</h1>
+        <h2>@Model.Price L.E</h2>
+        <p>@Model.Description</p>
+        <h3>available : @Model.NumberInStock</h3>
+    </div>
+    <img src="~/images/@Model.ImageURL" alt="shoes_image">
+       <dive>
+           
+        @foreach (var item in   ViewBag.RelatedShoes)
+        {
+            <partial name="_ShoesItem" model="@item" />
+        }
+       </div>
+</section>
+
+@if (ViewData["addMessage"] != null)
+{
+    <script>
+        @*alert("@ViewData["addMessage"]");*@
+    </script>
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bzX8XAqgv3Yehxj7A7fcJLOC+XWPkW7mFHjVl73BA74=",
+  "Hash": "rhQZJf9chIckWYuKSfn5osZwy02VjQwVllBIivYz/qs=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\14990c0f-be85-4c82-9f2b-45e31c3e46b0_javas.PNG",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/14990c0f-be85-4c82-9f2b-45e31c3e46b0_javas.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\14990c0f-be85-4c82-9f2b-45e31c3e46b0_javas.PNG"
+    },
+    {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\2ee0a28f-442f-426d-9cf5-15455c1b118c_88_o.jpg",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1137,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\4421_.jpeg"
+    },
+    {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\5a93ed80-1883-43ef-b01c-7f82d0e64893_download.jpg",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/5a93ed80-1883-43ef-b01c-7f82d0e64893_download.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\5a93ed80-1883-43ef-b01c-7f82d0e64893_download.jpg"
     },
     {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\699fcf43-5c35-4abe-afb4-985cd5f55a30_4421_.jpeg",
@@ -1173,6 +1207,23 @@
       "OriginalItemSpec": "wwwroot\\images\\88_o.jpg"
     },
     {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\b0c3a10a-f0cc-40b7-8eb0-275794a39966_Snapchat-243112207.jpg",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/b0c3a10a-f0cc-40b7-8eb0-275794a39966_Snapchat-243112207.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\b0c3a10a-f0cc-40b7-8eb0-275794a39966_Snapchat-243112207.jpg"
+    },
+    {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\CATM-P91338-120820-F21-000.jpg",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1205,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\defult.png"
+    },
+    {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\ffac6a93-de1e-4dc5-8330-3c6e4e34e2bf_88_o.jpg",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/ffac6a93-de1e-4dc5-8330-3c6e4e34e2bf_88_o.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ffac6a93-de1e-4dc5-8330-3c6e4e34e2bf_88_o.jpg"
     },
     {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\js\\site.js",

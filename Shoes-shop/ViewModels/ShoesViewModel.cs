@@ -10,6 +10,6 @@
 
         public int NumberInStock { get; set; }
 
-        public string ImgPath { get; set; } = string.Empty; 
+        public string ImageURL { get; set; } = string.Empty; 
     }
 }
