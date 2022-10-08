@@ -4,25 +4,27 @@ using System.Linq.Expressions;
 
 namespace Shoes_shop.Models.Repositories
 {
-    public class OrderRepository : GenericRepository<Order>
+    public class OrderService : IOrderService
     {
-        public OrderRepository(ApplicationDbContext _Context) : base(_Context)
+        private readonly ApplicationDbContext Context;
+        public OrderService(ApplicationDbContext context)
         {
+            Context = context;  
         }
 
-        public override Order Add(Order entity) 
+        public Order Add(Order entity) 
         { 
             Context.orders.Add(entity);
             Context.SaveChanges();
             return Context.orders.FirstOrDefault(o => o.UserId == entity.UserId && o.dateTime == entity.dateTime);
         }
 
-        public override IEnumerable<Order> All()
+        public IEnumerable<Order> All()
         {
             return Context.orders.ToList();
         }
 
-        public override Order Delete(Order entity)
+        public Order Delete(Order entity)
         {
             Context.orders.Remove(entity);
             Context.SaveChanges();
@@ -30,17 +32,18 @@ namespace Shoes_shop.Models.Repositories
         }
 
         //order by desc using datetime  
-        public override IEnumerable<Order> Find(Expression<Func<Order, bool>> predicate)
+        public IEnumerable<Order> Find(Expression<Func<Order, bool>> predicate)
         {
            return Context.orders.Include(o => o.OrderDetails).Where(predicate).OrderByDescending(o => o.dateTime).ToList();
         }
 
-        public override Order Get(int id)
+
+        public Order GetOrder(int id)
         {
            return Context.orders.Include(o=>o.User).FirstOrDefault(o => o.Id == id); 
         }
 
-        public override Order Update(Order entity)
+        public Order Update(Order entity)
         {
             var order = Context.orders.Attach(entity);
             order.State = Microsoft.EntityFrameworkCore.EntityState.Modified;

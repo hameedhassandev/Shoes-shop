@@ -20,20 +20,20 @@ namespace Shoes_shop.Controllers
 
         private readonly IMapper _mapper;
         public UserManager<IdentityUser> UserManager { get; }
-        private IBaseRepository<Category> CategoryRepository { get; }
-        public readonly IShoesRepository ShoesRepository;
-        public readonly ICartRepository CartRepository;
-        public ShoesController(IMapper mapper, IShoesRepository repositoryy,
+        public readonly CategoryService CategoryService;
+        public readonly IShoesService ShoesRepository;
+        public readonly ICartService CartRepository;
+        public ShoesController(IMapper mapper, IShoesService repositoryy,
             IBaseRepository<Category> categoryContext,
             IImageHandler imageHandler,
-            ICartRepository _CartRepository
-            , UserManager<IdentityUser> _UserManager
+            ICartService _CartRepository,
+            UserManager<IdentityUser> _UserManager
             )
         {
             UserManager = _UserManager;
             ImageHandler = imageHandler;
             CartRepository = _CartRepository;
-            CategoryRepository = categoryContext;
+            CategoryService = CategoryService;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             ShoesRepository = repositoryy ?? throw new ArgumentNullException(nameof(repositoryy));
         }
@@ -59,7 +59,7 @@ namespace Shoes_shop.Controllers
         //get create shoes form
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(CategoryRepository.All(), "Id", "Name");
+            ViewData["CategoryId"] = new SelectList(CategoryService.All(), "Id", "Name");
             return View();
         }
 
@@ -78,7 +78,7 @@ namespace Shoes_shop.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["CategoryId"] = new SelectList(CategoryRepository.All(), "Id", "Name");
+            ViewData["CategoryId"] = new SelectList(CategoryService.All(), "Id", "Name");
             return View();
 
         }
@@ -90,7 +90,7 @@ namespace Shoes_shop.Controllers
             if (shoes == null)
                 return NotFound();
 
-            ViewData["CategoryId"] = new SelectList(CategoryRepository.All(), "Id", "Name");
+            ViewData["CategoryId"] = new SelectList(CategoryService.All(), "Id", "Name");
             return View(shoes);
 
         }
@@ -116,7 +116,7 @@ namespace Shoes_shop.Controllers
                 return RedirectToAction(nameof(Index));
 
             }
-            ViewData["CategoryId"] = new SelectList(CategoryRepository.All(), "Id", "Name", shoes.CategoryId);
+            ViewData["CategoryId"] = new SelectList(CategoryService.All(), "Id", "Name", shoes.CategoryId);
             return View(shoes);
         }
 

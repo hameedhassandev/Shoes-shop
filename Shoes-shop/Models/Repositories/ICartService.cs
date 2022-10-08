@@ -1,6 +1,6 @@
 ﻿namespace Shoes_shop.Models.Repositories
 {
-    public interface ICartRepository
+    public interface ICartService
     {
         public List<Cart> GetAllItems(string userId);
         public void AddItem(string userId, int shoesID, int qty);

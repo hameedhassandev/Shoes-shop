@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Shoes_shop.Models.Repositories
 {
-    public interface IShoesRepository : IBaseRepository<Shoes>
+    public interface IShoesService : IBaseRepository<Shoes>
     {
         public IEnumerable<Shoes> GetShoesWitPaging(ExpressionStarter<Shoes> predicate, int pageNumber);
         public int GetTotalShoesPages(ExpressionStarter<Shoes> predicate);

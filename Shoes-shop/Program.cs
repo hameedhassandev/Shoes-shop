@@ -22,11 +22,11 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<IBaseRepository<Category>, CategoryRepository>();
-builder.Services.AddScoped<IShoesRepository, ShoesRepository>();
-builder.Services.AddScoped<GenericRepository<Order>, OrderRepository>();
-builder.Services.AddScoped<GenericRepository<OrderDetail>, OrderDetailsRepository>();
-builder.Services.AddScoped<ICartRepository, CartRepoService>();
+builder.Services.AddScoped<IBaseRepository<Category>, CategoryService>();
+builder.Services.AddScoped<IShoesService, ShoesService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderDetailsService, OrderDetailsService>();
+builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IImageHandler, ImageHandler>();
 
 

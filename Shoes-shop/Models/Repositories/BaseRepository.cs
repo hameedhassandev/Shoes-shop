@@ -3,10 +3,10 @@ using System.Linq.Expressions;
 
 namespace Shoes_shop.Models.Repositories
 {
-    public abstract class GenericRepository<T> : IBaseRepository<T> where T : class
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         public ApplicationDbContext Context { get; }
-        public GenericRepository(ApplicationDbContext _Context)
+        public BaseRepository(ApplicationDbContext _Context)
         {
             Context = _Context;
         }

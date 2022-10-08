@@ -8,9 +8,9 @@ using System.Linq.Expressions;
 
 namespace Shoes_shop.Models.Repositories
 {
-    public class ShoesRepository : GenericRepository<Shoes>, IShoesRepository
+    public class ShoesService : BaseRepository<Shoes>, IShoesService
     {
-        public ShoesRepository(ApplicationDbContext _Context) : base(_Context)
+        public ShoesService(ApplicationDbContext _Context) : base(_Context)
         {
         }
 

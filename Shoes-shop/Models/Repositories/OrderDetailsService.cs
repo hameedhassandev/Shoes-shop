@@ -4,21 +4,23 @@ using System.Linq.Expressions;
 
 namespace Shoes_shop.Models.Repositories
 {
-    public class OrderDetailsRepository : GenericRepository<OrderDetail>
+    public class OrderDetailsService : IOrderDetailsService
     {
-        public OrderDetailsRepository(ApplicationDbContext _Context) : base(_Context)
+        private readonly ApplicationDbContext Context;
+        public OrderDetailsService(ApplicationDbContext context)
         {
+            Context = context;
         }
 
 
-        public override OrderDetail Add(OrderDetail entity)
+        public OrderDetail Add(OrderDetail entity)
         {
             Context.Add(entity);    
             Context.SaveChanges();
             return entity;  
         }
 
-        public override IEnumerable<OrderDetail> Find(Expression<Func<OrderDetail, bool>> predicate)
+        public IEnumerable<OrderDetail> Find(Expression<Func<OrderDetail, bool>> predicate)
         {
             return Context.OrderDetails.Include(op => op.Shoes).Where(predicate).ToList();
         }

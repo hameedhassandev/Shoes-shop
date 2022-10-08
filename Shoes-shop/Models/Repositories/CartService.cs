@@ -3,13 +3,13 @@ using Shoes_shop.Data;
 
 namespace Shoes_shop.Models.Repositories
 {
-    public class CartRepoService : ICartRepository
+    public class CartService : ICartService
     {
         private readonly ApplicationDbContext context;
-        private readonly IShoesRepository shoesBaseRepo;
-        private readonly GenericRepository<Order> orderRepo;
-        private readonly GenericRepository<OrderDetail> orderShoesRepo;
-        public CartRepoService(ApplicationDbContext context, IShoesRepository shoesBaseRepo, GenericRepository<Order> _orderRepo, GenericRepository<OrderDetail> _orderShoesRepo)
+        private readonly IShoesService shoesBaseRepo;
+        private readonly BaseRepository<Order> orderRepo;
+        private readonly BaseRepository<OrderDetail> orderShoesRepo;
+        public CartService(ApplicationDbContext context, IShoesService shoesBaseRepo, BaseRepository<Order> _orderRepo, BaseRepository<OrderDetail> _orderShoesRepo)
         {
             this.context = context;
             this.shoesBaseRepo = shoesBaseRepo;
