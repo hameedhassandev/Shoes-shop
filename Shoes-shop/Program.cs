@@ -30,6 +30,7 @@ builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IImageHandler, ImageHandler>();
 
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

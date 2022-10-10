@@ -20,11 +20,13 @@ namespace Shoes_shop.Controllers
 
         private readonly IMapper _mapper;
         public UserManager<IdentityUser> UserManager { get; }
-        public readonly CategoryService CategoryService;
+        public readonly IBaseRepository<Category> CategoryService;
+
+       // public readonly CategoryService CategoryService;
         public readonly IShoesService ShoesRepository;
         public readonly ICartService CartRepository;
         public ShoesController(IMapper mapper, IShoesService repositoryy,
-            IBaseRepository<Category> categoryContext,
+            IBaseRepository<Category> _CategoryService,
             IImageHandler imageHandler,
             ICartService _CartRepository,
             UserManager<IdentityUser> _UserManager
@@ -33,7 +35,7 @@ namespace Shoes_shop.Controllers
             UserManager = _UserManager;
             ImageHandler = imageHandler;
             CartRepository = _CartRepository;
-            CategoryService = CategoryService;
+            CategoryService = _CategoryService;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             ShoesRepository = repositoryy ?? throw new ArgumentNullException(nameof(repositoryy));
         }

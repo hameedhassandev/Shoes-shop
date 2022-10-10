@@ -12,6 +12,7 @@ namespace Shoes_shop.Controllers
 
     public class CategoriesController : Controller
     {
+
         private readonly IBaseRepository<Category> _context;
 
         public CategoriesController(IBaseRepository<Category> context)

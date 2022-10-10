@@ -6,20 +6,20 @@ namespace Shoes_shop.Models.Repositories
     public class CartService : ICartService
     {
         private readonly ApplicationDbContext context;
-        private readonly IShoesService shoesBaseRepo;
+        private readonly IShoesService shoesService;
         private readonly BaseRepository<Order> orderRepo;
         private readonly BaseRepository<OrderDetail> orderShoesRepo;
-        public CartService(ApplicationDbContext context, IShoesService shoesBaseRepo, BaseRepository<Order> _orderRepo, BaseRepository<OrderDetail> _orderShoesRepo)
+        public CartService(ApplicationDbContext context, IShoesService _shoesService, BaseRepository<Order> _orderRepo, BaseRepository<OrderDetail> _orderShoesRepo)
         {
             this.context = context;
-            this.shoesBaseRepo = shoesBaseRepo;
+            this.shoesService = _shoesService;
             this.orderRepo = _orderRepo;
             this.orderShoesRepo = _orderShoesRepo;
         }
         private bool IsAvailableShoes(int shoesId , int qty)
         {
             //check quantity of shoes is available or not
-            return shoesBaseRepo.Get(shoesId).NumberInStock >= qty;
+            return shoesService.Get(shoesId).NumberInStock >= qty;
         }
 
         public void AddItem(string userId, int shoesID, int qty)
@@ -73,7 +73,7 @@ namespace Shoes_shop.Models.Repositories
                 context.Carts.Remove(cart);
 
             shoes.NumberInStock++;
-            shoesBaseRepo.Update(shoes);
+            shoesService.Update(shoes);
 
             context.SaveChanges(true);  
 
@@ -100,7 +100,7 @@ namespace Shoes_shop.Models.Repositories
          
 
             shoes.NumberInStock--;
-            shoesBaseRepo.Update(shoes);
+            shoesService.Update(shoes);
 
             context.SaveChanges(true);
         }
@@ -115,7 +115,7 @@ namespace Shoes_shop.Models.Repositories
             // remove the shoes from the cart and increase NumberInStock by the removed quantity
             context.Carts.Remove(cart);
             shoes.NumberInStock += cart.Quntity;
-            shoesBaseRepo.Update(shoes);
+            shoesService.Update(shoes);
 
             context.SaveChanges(true);
         }
