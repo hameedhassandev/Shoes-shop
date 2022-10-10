@@ -16,25 +16,19 @@ namespace Shoes_shop.Controllers
     public class ShoesController : Controller
     {
 
-        private readonly IImageHandler ImageHandler;
 
         private readonly IMapper _mapper;
         public UserManager<IdentityUser> UserManager { get; }
         public readonly IBaseRepository<Category> CategoryService;
-
-       // public readonly CategoryService CategoryService;
         public readonly IShoesService ShoesRepository;
-        public readonly ICartService CartRepository;
-        public ShoesController(IMapper mapper, IShoesService repositoryy,
-            IBaseRepository<Category> _CategoryService,
-            IImageHandler imageHandler,
-            ICartService _CartRepository,
-            UserManager<IdentityUser> _UserManager
-            )
+        public readonly ICartService CartService;
+        private readonly IImageHelper ImageHelper;
+
+        public ShoesController(IMapper mapper, IShoesService repositoryy,IBaseRepository<Category> _CategoryService,IImageHelper _ImageHelper, ICartService _CartService, UserManager<IdentityUser> _UserManager)
         {
             UserManager = _UserManager;
-            ImageHandler = imageHandler;
-            CartRepository = _CartRepository;
+            ImageHelper = _ImageHelper;
+            CartService = _CartService;
             CategoryService = _CategoryService;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             ShoesRepository = repositoryy ?? throw new ArgumentNullException(nameof(repositoryy));
@@ -72,7 +66,7 @@ namespace Shoes_shop.Controllers
         {
             if (ModelState.IsValid)
             {
-                string UniqueName = ImageHandler.UploadImage(shoes);
+                string UniqueName = ImageHelper.UploadImage(shoes);
                 shoes.ImageURL = UniqueName;
                 ShoesRepository.Add(shoes);
                 ShoesRepository.CommitChanges();
@@ -109,7 +103,7 @@ namespace Shoes_shop.Controllers
             {
                 if (shoes.ImageFile != null)
                 {
-                    shoes.ImageURL = ImageHandler.UploadImage(shoes);
+                    shoes.ImageURL = ImageHelper.UploadImage(shoes);
 
                 }
 
@@ -155,6 +149,8 @@ namespace Shoes_shop.Controllers
         {
             ViewData["addMessage"] = TempData["message"];
             var shoes = ShoesRepository.Get(id);
+            if (shoes == null)
+                return NotFound();
             //make exp. to get all related shoeses with the same category exept selected shoes
             Expression<Func<Shoes, bool>> predicate = e => e.CategoryId == shoes.CategoryId && e.Id != shoes.Id;
 
@@ -171,25 +167,30 @@ namespace Shoes_shop.Controllers
         {
             string massage = string.Empty;
             var shoes = ShoesRepository.Get(shoesID);
-            if (qty == 0)
-            {
-                massage = "Quantity of shoes cannot be zero!";
 
-            }
-            else if (shoes.NumberInStock == 0)
+            if (shoes != null)
             {
-                massage = "Shoes is out of stock!";
+                if (qty == 0)
+                {
+                    massage = "Quantity of shoes cannot be zero!";
 
-            }
-            else if (shoes.NumberInStock < qty)
-            {
-                massage = "Quantity is not available!";
+                }
+                else if (shoes.NumberInStock == 0)
+                {
+                    massage = "Shoes is out of stock!";
 
+                }
+                else if (shoes.NumberInStock < qty)
+                {
+                    massage = "Quantity is not available!";
+
+                }
+                else if (User.Identity.Name == null)
+                {
+                    massage = "Unauthorized, kindly sign in";
+                }
             }
-            else if (User.Identity.Name == null)
-            {
-                massage = "Unauthorized, kindly sign in";
-            }
+           
             return massage;
         }
 
@@ -205,7 +206,7 @@ namespace Shoes_shop.Controllers
             //in case no validation massage
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
 
-            CartRepository.AddItem(user.Id, shoesID, qty);
+            CartService.AddItem(user.Id, shoesID, qty);
             TempData["message"] = "Added to Cart Successfully!";
 
             return RedirectToAction(nameof(ShoesDetails), new { id = shoes.Id });

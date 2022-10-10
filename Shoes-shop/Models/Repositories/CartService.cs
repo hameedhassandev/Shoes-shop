@@ -7,14 +7,14 @@ namespace Shoes_shop.Models.Repositories
     {
         private readonly ApplicationDbContext context;
         private readonly IShoesService shoesService;
-        private readonly BaseRepository<Order> orderRepo;
-        private readonly BaseRepository<OrderDetail> orderShoesRepo;
-        public CartService(ApplicationDbContext context, IShoesService _shoesService, BaseRepository<Order> _orderRepo, BaseRepository<OrderDetail> _orderShoesRepo)
+        private readonly BaseRepository<Order> orderService;
+        private readonly BaseRepository<OrderDetail> orderDetailsService;
+        public CartService(ApplicationDbContext _context, IShoesService _shoesService, BaseRepository<Order> _orderService, BaseRepository<OrderDetail> _orderDetailsService)
         {
-            this.context = context;
-            this.shoesService = _shoesService;
-            this.orderRepo = _orderRepo;
-            this.orderShoesRepo = _orderShoesRepo;
+            context = _context;
+            shoesService = _shoesService;
+            orderService = _orderService;
+            orderDetailsService = _orderDetailsService;
         }
         private bool IsAvailableShoes(int shoesId , int qty)
         {
@@ -129,13 +129,13 @@ namespace Shoes_shop.Models.Repositories
 
             // create new order
             Order order = new Order() { UserId = userId, dateTime = DateTime.Now, TotalPrice = orderTotal };
-            order = orderRepo.Add(order);
+            order = orderService.Add(order);
 
             // add all shoes to order
             foreach (var item in items)
             {
                 OrderDetail orderDetails = new OrderDetail() { OrderId = order.Id, ShoesId = item.ShoesId, Quantity = item.Quntity };
-                orderShoesRepo.Add(orderDetails);
+                orderDetailsService.Add(orderDetails);
             }
 
             // remove all items from stock

@@ -2,10 +2,10 @@
 
 namespace Shoes_shop.Helpers
 {
-    public class ImageHandler : IImageHandler
+    public class ImageHelper : IImageHelper
     {
         private readonly IWebHostEnvironment webHostEnvironment;
-        public ImageHandler(IWebHostEnvironment webhost)
+        public ImageHelper(IWebHostEnvironment webhost)
         {
             webHostEnvironment = webhost;
 

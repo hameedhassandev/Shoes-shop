@@ -2,7 +2,7 @@
 
 namespace Shoes_shop.Helpers
 {
-    public interface IImageHandler
+    public interface IImageHelper
     {
         public string UploadImage(Shoes shoes);
     }
