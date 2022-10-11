@@ -7,14 +7,21 @@ namespace Shoes_shop.Models.Repositories
     public class OrderService : IOrderService
     {
         private readonly ApplicationDbContext Context;
-        public OrderService(ApplicationDbContext context)
+        private readonly IShoesService shoesService;
+        public OrderService(ApplicationDbContext context, IShoesService _shoesService)
         {
-            Context = context;  
+            Context = context;
+            shoesService = _shoesService;
         }
 
-        public Order Add(Order entity) 
+        public Order Add(Order entity,int shoesId,int qty) 
         { 
             Context.orders.Add(entity);
+            var shoes = shoesService.Get(shoesId);
+
+            shoes.NumberInStock -= qty;
+            Context.Shoes.Update(shoes);
+
             Context.SaveChanges();
             return Context.orders.FirstOrDefault(o => o.UserId == entity.UserId && o.dateTime == entity.dateTime);
         }
@@ -46,7 +53,7 @@ namespace Shoes_shop.Models.Repositories
         public Order Update(Order entity)
         {
             var order = Context.orders.Attach(entity);
-            order.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            order.State = EntityState.Modified;
             Context.SaveChanges();
             return entity;
 

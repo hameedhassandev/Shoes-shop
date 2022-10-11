@@ -10,6 +10,12 @@
         <p>@Model.Description</p>
         <h3>available : @Model.NumberInStock</h3>
     </div>
+    <form asp-controller="Carts" asp-action="AddToCart">
+        <input asp-for="Id" readonly/>
+        <input asp-for="Quantity" />
+        <input type="submit" value="Create" class="btn btn-success" />
+
+    </form>
     <img src="~/images/@Model.ImageURL" alt="shoes_image">
        <dive>
            
@@ -20,9 +26,11 @@
        </div>
 </section>
 
-@if (ViewData["addMessage"] != null)
+
+
+@if (TempData["message"] != null)
 {
     <script>
-        @*alert("@ViewData["addMessage"]");*@
+        alert("@TempData["message"]");
     </script>
 }

@@ -35,6 +35,7 @@ namespace Shoes_shop.Controllers
         }
 
 
+
         public IActionResult Index()
         {
             var AllShoes = ShoesRepository.All();
@@ -147,7 +148,7 @@ namespace Shoes_shop.Controllers
         [AllowAnonymous]
         public IActionResult ShoesDetails(int id)
         {
-            ViewData["addMessage"] = TempData["message"];
+           // ViewData["message"] = ViewBag["massage"];
             var shoes = ShoesRepository.Get(id);
             if (shoes == null)
                 return NotFound();
@@ -163,55 +164,8 @@ namespace Shoes_shop.Controllers
 
         }
 
-        private string ValidationMassage(int shoesID, int qty)
-        {
-            string massage = string.Empty;
-            var shoes = ShoesRepository.Get(shoesID);
-
-            if (shoes != null)
-            {
-                if (qty == 0)
-                {
-                    massage = "Quantity of shoes cannot be zero!";
-
-                }
-                else if (shoes.NumberInStock == 0)
-                {
-                    massage = "Shoes is out of stock!";
-
-                }
-                else if (shoes.NumberInStock < qty)
-                {
-                    massage = "Quantity is not available!";
-
-                }
-                else if (User.Identity.Name == null)
-                {
-                    massage = "Unauthorized, kindly sign in";
-                }
-            }
-           
-            return massage;
-        }
-
-        public async Task<IActionResult> AddToCart(int shoesID, int qty)
-        {
-            var massageValue = ValidationMassage(shoesID, qty);
-            var shoes = ShoesRepository.Get(shoesID);
-
-            if (massageValue != null)
-                TempData["message"] = massageValue;
 
 
-            //in case no validation massage
-            var user = await UserManager.FindByNameAsync(User.Identity.Name);
-
-            CartService.AddItem(user.Id, shoesID, qty);
-            TempData["message"] = "Added to Cart Successfully!";
-
-            return RedirectToAction(nameof(ShoesDetails), new { id = shoes.Id });
-
-        }
 
 
 

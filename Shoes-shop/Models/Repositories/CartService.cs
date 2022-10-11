@@ -7,9 +7,9 @@ namespace Shoes_shop.Models.Repositories
     {
         private readonly ApplicationDbContext context;
         private readonly IShoesService shoesService;
-        private readonly BaseRepository<Order> orderService;
-        private readonly BaseRepository<OrderDetail> orderDetailsService;
-        public CartService(ApplicationDbContext _context, IShoesService _shoesService, BaseRepository<Order> _orderService, BaseRepository<OrderDetail> _orderDetailsService)
+        private readonly IOrderService orderService;
+        private readonly IOrderDetailsService orderDetailsService;
+        public CartService(ApplicationDbContext _context, IShoesService _shoesService, IOrderService _orderService, IOrderDetailsService _orderDetailsService)
         {
             context = _context;
             shoesService = _shoesService;
@@ -23,8 +23,8 @@ namespace Shoes_shop.Models.Repositories
         }
 
         public void AddItem(string userId, int shoesID, int qty)
-        {
-            Shoes shoes = context.Shoes.Find(shoesID);
+        { 
+            var shoes = context.Shoes.FirstOrDefault(s=>s.Id == shoesID);
 
             if (shoes == null || !IsAvailableShoes(shoesID, qty))
                 return;
@@ -41,8 +41,8 @@ namespace Shoes_shop.Models.Repositories
             cart.TotalPrice = shoes.Price * qty;
 
             context.Carts.Add(cart);
-            shoes.NumberInStock -= qty;
-            context.Shoes.Update(shoes);
+           /* shoes.NumberInStock -= qty;
+            context.Shoes.Update(shoes);*/
 
             context.SaveChanges(true);
 
@@ -114,13 +114,13 @@ namespace Shoes_shop.Models.Repositories
                 return;
             // remove the shoes from the cart and increase NumberInStock by the removed quantity
             context.Carts.Remove(cart);
-            shoes.NumberInStock += cart.Quntity;
-            shoesService.Update(shoes);
+           /* shoes.NumberInStock += cart.Quntity;
+            shoesService.Update(shoes);*/
 
             context.SaveChanges(true);
         }
 
-        public void ToOrder(string userId)
+        public void ToOrder(string userId, int ShoesId, int qty)
         {
             var items = context.Carts.Where(c => c.UserId == userId).ToList();
 
@@ -129,7 +129,7 @@ namespace Shoes_shop.Models.Repositories
 
             // create new order
             Order order = new Order() { UserId = userId, dateTime = DateTime.Now, TotalPrice = orderTotal };
-            order = orderService.Add(order);
+            order = orderService.Add(order, ShoesId,qty);
 
             // add all shoes to order
             foreach (var item in items)
@@ -144,6 +144,10 @@ namespace Shoes_shop.Models.Repositories
         
             context.SaveChanges(true);
         }
-     
+
+        public void ToOrder(string userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

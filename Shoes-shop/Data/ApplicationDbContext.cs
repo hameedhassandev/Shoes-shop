@@ -16,6 +16,7 @@ namespace Shoes_shop.Data
         public DbSet<Cart> Carts { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Order> orders { get; set; }
+        public DbSet<Shipping> shipping { get; set; }
 
 
     }
