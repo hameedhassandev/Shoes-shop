@@ -5,8 +5,6 @@
 }
 
 
-
-
 <div class="content mt-5">
     <div class="container">
         <h2>Create a new shoes</h2>
@@ -79,11 +77,5 @@
 @section Scripts {
 
     <partial name="_ValidationScriptsPartial" />
-    <script type="text/javascript">
-        $(".custom-file-input").on("change", function () {
-            var fileName = $(this).val().split("\\").pop();
-            console.log(fileName);
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
-    </script>
+    
 }

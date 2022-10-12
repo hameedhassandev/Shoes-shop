@@ -62,7 +62,7 @@ namespace Shoes_shop.Controllers
             var massageValue = ValidationMassage(model.Id, model.Quantity);
             var shoes = shoesService.Get(model.Id);
 
-            if (massageValue != null)
+            if (massageValue != "")
             {
                 TempData["message"] = massageValue;
                 return RedirectToAction("ShoesDetails", "Shoes", new { id = model.Id });

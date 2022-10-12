@@ -24,7 +24,10 @@ namespace Shoes_shop.Controllers
         public readonly ICartService CartService;
         private readonly IImageHelper ImageHelper;
 
-        public ShoesController(IMapper mapper, IShoesService repositoryy,IBaseRepository<Category> _CategoryService,IImageHelper _ImageHelper, ICartService _CartService, UserManager<IdentityUser> _UserManager)
+        public ShoesController(IMapper mapper, IShoesService repositoryy,
+            IBaseRepository<Category> _CategoryService,
+            IImageHelper _ImageHelper, ICartService _CartService, 
+            UserManager<IdentityUser> _UserManager)
         {
             UserManager = _UserManager;
             ImageHelper = _ImageHelper;
