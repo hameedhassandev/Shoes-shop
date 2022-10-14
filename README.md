@@ -19,3 +19,6 @@ List All Shoes
 ![details](https://user-images.githubusercontent.com/57669085/192347425-a43b8993-225b-4cbe-a267-6e6096f9d272.PNG)
 ![beforDelete](https://user-images.githubusercontent.com/57669085/192347428-56937edc-4c10-4f09-9665-bc776b2f6695.PNG)
 ![confirmDelete](https://user-images.githubusercontent.com/57669085/192347432-7785931f-858b-4548-aedb-b444d42bb67c.PNG)
+My Cart
+![cart1](https://user-images.githubusercontent.com/57669085/195836359-9779fb2f-bf59-4a34-aca7-5dd5cb9ea299.PNG)
+![cart2](https://user-images.githubusercontent.com/57669085/195836367-bcaf35a6-8663-4df5-973a-7888be89d50f.PNG)

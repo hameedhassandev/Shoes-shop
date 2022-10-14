@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rVXp2+byJWLrFDOu+xDiA9hkZ4wJbI9GzYDg1MLfEiQ=",
+  "Hash": "eCVLnI8iFAdNd1UCaCeLUoLq31g7e0R7Kw7U5k3NR3k=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1122,6 +1122,23 @@
       "OriginalItemSpec": "wwwroot\\images\\2ee0a28f-442f-426d-9cf5-15455c1b118c_88_o.jpg"
     },
     {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\4feef087-dbdf-4b5b-bfc1-34054a8ca426_shopping.png",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/4feef087-dbdf-4b5b-bfc1-34054a8ca426_shopping.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\4feef087-dbdf-4b5b-bfc1-34054a8ca426_shopping.png"
+    },
+    {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\50acd91a-eebc-4352-ba87-630913359f7b_masks.png",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1324,6 +1341,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ffac6a93-de1e-4dc5-8330-3c6e4e34e2bf_88_o.jpg"
+    },
+    {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\shopping.png",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/shopping.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\shopping.png"
     },
     {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\js\\site.js",

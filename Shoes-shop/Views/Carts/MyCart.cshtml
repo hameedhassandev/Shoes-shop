@@ -4,15 +4,29 @@
 }
 
 <h1>My Cart</h1>
+
 @foreach(var cart in Model){
-    <img src="~/images/@cart.Shoes.ImageURL" alt="shoes_img" width="200" height="200" />
-    <h2>Shoes : @cart.Shoes.Name</h2>
-    <h4>added at : @cart.dateTime</h4>
-    <h4>price : @cart.TotalPrice</h4>
-    <h4>Quntity </h4>
-    <input asp-for="@cart.Quntity"/>
-    <a class="btn btn-danger">Remove From Cart</a>
+    <div class="card" style="width: 20rem;">
+        <img src="~/images/@cart.Shoes.ImageURL" class="card-img-top alt="shoes_img" />
+        <div class="card-body">
+            <h4 class="card-title">Shoes : @cart.Shoes.Name</h4>
+            <h6 class="card-text">Description : @cart.Shoes.ShortDescription</h6>
+            <h6>Total Price : @cart.TotalPrice L.E</h6>
+
+             <div class="my-3">
+                <span class="btn btn-sm" onclick="decrease('@cart.ShoesId')"> <i class="fa fa-xs fa-minus"></i> </span>
+                <span class="h5" id="cart-qty">@cart.Quntity</span>
+                <span class="btn btn-sm" onclick="increase('@cart.ShoesId')"> <i class="fa fa-xs fa-plus"></i> </span>
+            </div>
+            <a href="#" class="btn btn-primary">Remove From Cart</a>
+
+        </div>
+   </div>
 <hr/>
 }
-<h1 class="text-danger">Total Price of Cart : @ViewBag.totalCartPrice</h1>
-<a class="btn btn-info">Order Now</a>
+<h2>Total Price of Cart : @ViewBag.totalCartPrice L.E</h2>
+<a href="#" class="btn btn-info">Order Now</a>
+<script>
+    
+</script>
+
