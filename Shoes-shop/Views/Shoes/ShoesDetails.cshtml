@@ -13,11 +13,12 @@
     <form asp-controller="Carts" asp-action="AddToCart">
         <input asp-for="Id" readonly/>
         <input asp-for="Quantity" />
-        <input type="submit" value="Create" class="btn btn-success" />
+        <input type="submit" value="Add to Cart" class="btn btn-success" />
 
     </form>
     <img src="~/images/@Model.ImageURL" alt="shoes_image">
        <dive>
+           <h3>Related Shoeses</h3>
            
         @foreach (var item in   ViewBag.RelatedShoes)
         {

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Shoes_shop.Models.Cart>
+@{
+    ViewData["Title"] = "My Carts";
+}
+
+<h1>My Cart</h1>
+@foreach(var cart in Model){
+    <img src="~/images/@cart.Shoes.ImageURL" alt="shoes_img" width="200" height="200" />
+    <h2>Shoes : @cart.Shoes.Name</h2>
+    <h4>added at : @cart.dateTime</h4>
+    <h4>price : @cart.TotalPrice</h4>
+    <h4>Quntity </h4>
+    <input asp-for="@cart.Quntity"/>
+    <a class="btn btn-danger">Remove From Cart</a>
+<hr/>
+}
+<h1 class="text-danger">Total Price of Cart : @ViewBag.totalCartPrice</h1>
+<a class="btn btn-info">Order Now</a>

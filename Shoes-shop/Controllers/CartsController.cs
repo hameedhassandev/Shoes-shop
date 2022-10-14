@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Shoes_shop.Helpers;
 using Shoes_shop.Models.Repositories;
 using Shoes_shop.ViewModels;
 
 namespace Shoes_shop.Controllers
 {
+    [Authorize(Roles = RolesName.UserRole)]
     public class CartsController : Controller
     {
         private readonly IShoesService shoesService;
@@ -19,9 +22,15 @@ namespace Shoes_shop.Controllers
             cartService = _cartService; 
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> MyCart()
         {
-            return View();
+           var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            if (user == null) return NotFound();
+
+            var allIncarts = cartService.GetAllItems(user.Id);
+            var totalCartPrice = allIncarts.Sum(t => t.TotalPrice);
+            ViewBag.totalCartPrice = totalCartPrice;
+            return View(allIncarts);
         }
 
         private string ValidationMassage(int shoesID, int qty)
@@ -75,7 +84,7 @@ namespace Shoes_shop.Controllers
             cartService.AddItem(user.Id, model.Id, model.Quantity);
             TempData["message"] = "Added to Cart Successfully!";
 
-            return RedirectToAction(nameof(Index), new { id = shoes.Id });
+            return RedirectToAction("ShoesDetails", "Shoes", new { id = model.Id });
 
         }
     }

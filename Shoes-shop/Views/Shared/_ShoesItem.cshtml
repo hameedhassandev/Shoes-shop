@@ -4,13 +4,12 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <img src="~/images/@Model.ImageURL" alt="related_shoes"/>
             @if (@Model.NumberInStock == 0)
             {
                 <h4 class="text-danger">not avalilable now!</h4>            
             }
 
-                <img src="~/images/@Model.ImageURL"/>
+            <img src="~/images/@Model.ImageURL" width="200" height="200" alt="related_shoes" />
         </div>
     </div>
         <div>
