@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eCVLnI8iFAdNd1UCaCeLUoLq31g7e0R7Kw7U5k3NR3k=",
+  "Hash": "+pbffR8MwJYbckKmSRkhByhYDxlmU7zFFnTLjr+ykyo=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1105,6 +1105,40 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\22b08753-80cf-40ff-85b0-cf37a07ee02f_33.PNG",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/22b08753-80cf-40ff-85b0-cf37a07ee02f_33.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\22b08753-80cf-40ff-85b0-cf37a07ee02f_33.PNG"
+    },
+    {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\251a684d-6ab9-409b-a946-d1e2c152e4cc_men-s-multicourt-tennis-shoes-ts130-dark-grey.avif",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/251a684d-6ab9-409b-a946-d1e2c152e4cc_men-s-multicourt-tennis-shoes-ts130-dark-grey.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\251a684d-6ab9-409b-a946-d1e2c152e4cc_men-s-multicourt-tennis-shoes-ts130-dark-grey.avif"
+    },
+    {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\2ee0a28f-442f-426d-9cf5-15455c1b118c_88_o.jpg",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1120,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\2ee0a28f-442f-426d-9cf5-15455c1b118c_88_o.jpg"
+    },
+    {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\362e012c-2114-4e60-85d5-27c4d36602d3_11.png",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/362e012c-2114-4e60-85d5-27c4d36602d3_11.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\362e012c-2114-4e60-85d5-27c4d36602d3_11.png"
     },
     {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\4feef087-dbdf-4b5b-bfc1-34054a8ca426_shopping.png",
@@ -1239,6 +1290,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\b0c3a10a-f0cc-40b7-8eb0-275794a39966_Snapchat-243112207.jpg"
+    },
+    {
+      "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\c88b34ef-a986-4ce8-bd3c-276ad11cc9a9_Capture.PNG",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/c88b34ef-a986-4ce8-bd3c-276ad11cc9a9_Capture.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\c88b34ef-a986-4ce8-bd3c-276ad11cc9a9_Capture.PNG"
     },
     {
       "Identity": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\wwwroot\\images\\CATM-P91338-120820-F21-000.jpg",

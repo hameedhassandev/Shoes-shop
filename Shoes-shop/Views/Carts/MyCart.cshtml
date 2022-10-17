@@ -3,30 +3,92 @@
     ViewData["Title"] = "My Carts";
 }
 
-<h1>My Cart</h1>
+<h1>
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+</h1>
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+               Item
+            </th>
+            <th>
+                Price 
+            </th>
+            <th>
+                Qunatity 
+            </th>
+            <th>
+                Total Price
+            </th>
+            <th></th>
+           
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var cart in Model){
+        <tr>
+            <td>
+              <div class="row">
+                <div class="col-4">
+                     <img src="~/images/@cart.Shoes.ImageURL" width="150" height="150" alt="shoes_img" />
+                </div>
+               <div class="col-8">
+                    <h3 class="card-title">@cart.Shoes.Name</h3>
+                    <p class="card-text">@cart.Shoes.ShortDescription</p>
+                    <p class="text-danger">Only @cart.Shoes.NumberInStock left in stock - order soon.</p>
+               </div>
+             </div>
+            </td>
+                <td><p>EGP @cart.Shoes.Price</p></td>
+            <td>
+                <div class="">
+                    <span class="btn btn-sm" onclick="decrease('@cart.ShoesId')"> <i class="fa fa-xs fa-minus"></i> </span>
+                    <span class="h5" id="cart-qty">@cart.Quntity</span>
+                    <span class="btn btn-sm" onclick="increase('@cart.ShoesId')"> <i class="fa fa-xs fa-plus"></i> </span>
+                </div>
+            </td>
+                <td><p>EGP @cart.TotalPrice</p></td>
+                <td>
+                    <a asp-action="RemoveFromCart" asp-route-id="13" class=""><i style="color:red;font-size:18px" class="fa fa-times-circle" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-@foreach(var cart in Model){
+@*@foreach(var cart in Model){
     <div class="card" style="width: 20rem;">
         <img src="~/images/@cart.Shoes.ImageURL" class="card-img-top alt="shoes_img" />
-        <div class="card-body">
-            <h4 class="card-title">Shoes : @cart.Shoes.Name</h4>
-            <h6 class="card-text">Description : @cart.Shoes.ShortDescription</h6>
-            <h6>Total Price : @cart.TotalPrice L.E</h6>
+        <div class="card-body text-center">
+            <h3 class="card-title">@cart.Shoes.Name</h3>
+            <p class="card-text">@cart.Shoes.ShortDescription</p>
+            <h6 class="card-text">@cart.Shoes.Price L.E</h6>
 
              <div class="my-3">
                 <span class="btn btn-sm" onclick="decrease('@cart.ShoesId')"> <i class="fa fa-xs fa-minus"></i> </span>
                 <span class="h5" id="cart-qty">@cart.Quntity</span>
                 <span class="btn btn-sm" onclick="increase('@cart.ShoesId')"> <i class="fa fa-xs fa-plus"></i> </span>
             </div>
+            <h6>Total Price : @cart.TotalPrice L.E</h6>
+
             <a href="#" class="btn btn-primary">Remove From Cart</a>
 
         </div>
    </div>
 <hr/>
-}
-<h2>Total Price of Cart : @ViewBag.totalCartPrice L.E</h2>
-<a href="#" class="btn btn-info">Order Now</a>
+}*@
+<h2>Subtotal : EGP @ViewBag.totalCartPrice</h2>
+<a href="#" class="btn btn-warning">Proceed to Buy</a>
 <script>
-    
+    function increase(){
+        var value = document.getElementById("cart-qty").innerHTML;
+        value ++;
+        document.getElementById('cart-qty').innerHTML = value;
+
+
+    }
 </script>
 

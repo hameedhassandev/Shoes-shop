@@ -87,5 +87,23 @@ namespace Shoes_shop.Controllers
             return RedirectToAction("ShoesDetails", "Shoes", new { id = model.Id });
 
         }
+        public async Task<IActionResult> RemoveFromCart(int shoesId)
+        {
+            var shoes = shoesService.Get(shoesId);
+            if (shoes == null)
+                return NotFound();
+
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            if (User.Identity.Name == null)
+                TempData["message"] = "Not Authorized, SignIn...";
+
+
+            cartService.RemoveItem(user.Id, shoesId);
+
+            return View(nameof(MyCart));
+
+        }
+
+
     }
 }
