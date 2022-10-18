@@ -52,7 +52,7 @@
             </td>
                 <td><p>EGP @cart.TotalPrice</p></td>
                 <td>
-                    <a asp-action="RemoveFromCart" asp-route-id="13" class=""><i style="color:red;font-size:18px" class="fa fa-times-circle" aria-hidden="true"></i></a>
+                    <a href="javascript:;" class="js-delete" data-id="@cart.ShoesId"><i style="color:red;font-size:18px" class="fa fa-times-circle" aria-hidden="true"></i></a>
                 </td>
             </tr>
         }
@@ -90,5 +90,30 @@
 
 
     }
-</script>
 
+
+
+</script>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.js-delete').on('click', function () {
+                var btn = $(this);
+            console.log(btn.data('id'));
+
+                $.ajax({
+
+                    url: 'RemoveFromCart/' + btn.data('id'),
+                    method: 'GET',
+                    success: function (data) {
+                        MyCart();
+                    },
+                    error: function (error) {
+                        alert("error: " + error.statusText);
+                    }
+            });
+        })
+    });
+    </script>
+
+}
