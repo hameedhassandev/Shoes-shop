@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Shoes_shop.Helpers;
+using Shoes_shop.Models;
 using Shoes_shop.Models.Repositories;
 using Shoes_shop.ViewModels;
 
@@ -87,23 +88,42 @@ namespace Shoes_shop.Controllers
             return RedirectToAction("ShoesDetails", "Shoes", new { id = model.Id });
 
         }
-        public async Task<IActionResult> RemoveFromCart(int shoesId)
-        {
-            var shoes = shoesService.Get(shoesId);
-            if (shoes == null)
-                return NotFound();
 
+
+
+        [Route("Carts/Remove/{ShoesId:int}")]
+        public async Task<IActionResult> Remove([FromRoute] int ShoesId)
+        {
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
             if (User.Identity.Name == null)
                 TempData["message"] = "Not Authorized, SignIn...";
 
-
-            cartService.RemoveItem(user.Id, shoesId);
-
-            return View(nameof(MyCart));
-
+            cartService.RemoveItem(user.Id, ShoesId);
+            return Ok();
         }
 
+        [HttpPost]
+        [Route("Carts/Decrease/")]
+        public async Task<IActionResult> Decrease([FromBody] Cart c)
+        {
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            if (User.Identity.Name == null)
+                TempData["message"] = "Not Authorized, SignIn...";
 
+            cartService.DecreaseItemByOne(user.Id, c.ShoesId);
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("Carts/Increase/")]
+        public async Task<IActionResult> Increase([FromBody] Cart c)
+        {
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            if (User.Identity.Name == null)
+                TempData["message"] = "Not Authorized, SignIn...";
+
+            cartService.IncreaseItemByOne(user.Id, c.ShoesId);
+            return Ok();
+        }
     }
 }

@@ -72,9 +72,6 @@ namespace Shoes_shop.Models.Repositories
             if (cart.Quntity == 0)
                 context.Carts.Remove(cart);
 
-            shoes.NumberInStock++;
-            shoesService.Update(shoes);
-
             context.SaveChanges(true);  
 
         }
@@ -98,9 +95,6 @@ namespace Shoes_shop.Models.Repositories
             cart.Quntity++;
             cart.TotalPrice += shoes.Price;
          
-
-            shoes.NumberInStock--;
-            shoesService.Update(shoes);
 
             context.SaveChanges(true);
         }

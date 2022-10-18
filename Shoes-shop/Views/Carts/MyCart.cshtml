@@ -52,34 +52,15 @@
             </td>
                 <td><p>EGP @cart.TotalPrice</p></td>
                 <td>
-                    <a href="javascript:;" class="js-delete" data-id="@cart.ShoesId"><i style="color:red;font-size:18px" class="fa fa-times-circle" aria-hidden="true"></i></a>
+
+                    <a onclick="removeItem('@cart.ShoesId')"><i style="color:red;font-size:18px" class="fa fa-times-circle" aria-hidden="true"></i></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-@*@foreach(var cart in Model){
-    <div class="card" style="width: 20rem;">
-        <img src="~/images/@cart.Shoes.ImageURL" class="card-img-top alt="shoes_img" />
-        <div class="card-body text-center">
-            <h3 class="card-title">@cart.Shoes.Name</h3>
-            <p class="card-text">@cart.Shoes.ShortDescription</p>
-            <h6 class="card-text">@cart.Shoes.Price L.E</h6>
 
-             <div class="my-3">
-                <span class="btn btn-sm" onclick="decrease('@cart.ShoesId')"> <i class="fa fa-xs fa-minus"></i> </span>
-                <span class="h5" id="cart-qty">@cart.Quntity</span>
-                <span class="btn btn-sm" onclick="increase('@cart.ShoesId')"> <i class="fa fa-xs fa-plus"></i> </span>
-            </div>
-            <h6>Total Price : @cart.TotalPrice L.E</h6>
-
-            <a href="#" class="btn btn-primary">Remove From Cart</a>
-
-        </div>
-   </div>
-<hr/>
-}*@
 <h2>Subtotal : EGP @ViewBag.totalCartPrice</h2>
 <a href="#" class="btn btn-warning">Proceed to Buy</a>
 <script>
@@ -96,24 +77,54 @@
 </script>
 @section Scripts {
     <script>
-        $(document).ready(function () {
-            $('.js-delete').on('click', function () {
-                var btn = $(this);
-            console.log(btn.data('id'));
 
-                $.ajax({
-
-                    url: 'RemoveFromCart/' + btn.data('id'),
-                    method: 'GET',
-                    success: function (data) {
-                        MyCart();
-                    },
-                    error: function (error) {
-                        alert("error: " + error.statusText);
-                    }
+        function removeItem(ShoesId) {
+            $.ajax({
+                url: `Remove/${ShoesId}`,
+                method: 'GET',
+                success: function (data) {
+                    //MyCart();
+                    alert('success');
+                },
+                error: function (error) {
+                    alert("error: " + error.statusText);
+                }
             });
-        })
-    });
+        }
+
+        function decrease(ShoesId) {
+            var shoes = {ShoesId};
+            $.ajax({
+                url: `Decrease/`,
+                method: 'POST',
+                data: JSON.stringify(shoes),
+                contentType: 'application/json',
+                success: function (data) {
+                    //MyCart();
+                    alert('success');
+                },
+                error: function (error) {
+                    alert("error: " + error.statusText);
+                }
+            });
+        }
+
+        function increase(ShoesId) {
+            var shoes = { ShoesId };
+            $.ajax({
+                url: `Increase/`,
+                method: 'POST',
+                data: JSON.stringify(shoes),
+                contentType: 'application/json',
+                success: function (data) {
+                    //MyCart();
+                    alert('success');
+                },
+                error: function (error) {
+                    alert("error: " + error.statusText);
+                }
+            });
+        }
     </script>
 
 }
