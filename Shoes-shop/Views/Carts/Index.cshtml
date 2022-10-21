@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Shoes_shop.Models.Cart>
+@{
+    ViewData["Title"] = "My Carts";
+}
+
+<h1>
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+</h1>
+<hr />
+<section class="spad">
+
+    <div class="container" id="cartView">
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+
+        myCart();
+
+        function myCart() {
+            $.ajax({
+                url: `Carts/my-cart`,
+                method: 'GET',
+                success: function (data) {
+                    $("#cartView").html(data);
+                    var totalCartPrice = 'Subtotal : EGP ' + $("#tcp").html();
+                    $("#totalCartPrice").html(totalCartPrice);
+                    console.log('allItems success')
+                },
+                error: function (error) {
+                    alert("error in my cart : " + error.statusText);
+                }
+            });
+        }
+
+        function removeItem(ShoesId) {
+            $.ajax({
+                url: `Carts/Remove/${ShoesId}`,
+                method: 'GET',
+                success: function (data) {
+                    //MyCart();
+                    console.log('success removed');
+                    myCart();
+
+                },
+                error: function (error) {
+                    alert("error in remove: " + error.statusText);
+                }
+            });
+        }
+
+        function decrease(ShoesId) {
+            var shoes = { ShoesId };
+            $.ajax({
+                url: `Carts/Decrease/`,
+                method: 'POST',
+                data: JSON.stringify(shoes),
+                contentType: 'application/json',
+                success: function (data) {
+                    //MyCart();
+                    console.log('success Decreased');
+                    myCart();
+                },
+                error: function (error) {
+                    alert("error in Decrease: " + error.statusText);
+                }
+            });
+        }
+
+        function increase(ShoesId) {
+            var shoes = { ShoesId };
+            $.ajax({
+                url: `Carts/Increase/`,
+                method: 'POST',
+                data: JSON.stringify(shoes),
+                contentType: 'application/json',
+                success: function (data) {
+                    //MyCart();
+                    console.log('success Increased');
+                    myCart();
+                },
+                error: function (error) {
+                    alert("error in Increase: " + error.statusText);
+                }
+            });
+        }
+
+                
+
+        function clearCart() {
+            $.ajax({
+                url: `Carts/Clear-Cart/`,
+                method: 'GET',
+                success: function (data) {
+                    //MyCart();
+                    console.log('success clear cart');
+                    myCart();
+                },
+                error: function (error) {
+                    alert("error in clear cart: " + error.statusText);
+                }
+            });
+        }
+    </script>
+
+}

@@ -25,16 +25,20 @@ namespace Shoes_shop.Controllers
             shippingService = _shippingService;
         }
 
-        [Route("Carts/my-cart/")]
-        public async Task<IActionResult> MyCart()
+        public async Task<IActionResult> Index()
         {
-           var user = await UserManager.FindByNameAsync(User.Identity.Name);
-           userId = user.Id;
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+            userId = user.Id;
+            return View();
+        }
 
-            var allIncarts = cartService.GetAllItems(user.Id);
+        [Route("Carts/my-cart/")]
+        public IActionResult MyCart()
+        { 
+            var allIncarts = cartService.GetAllItems(userId);
             var totalCartPrice = allIncarts.Sum(t => t.TotalPrice);
             ViewBag.totalCartPrice = totalCartPrice;
-            return View(allIncarts);
+            return PartialView("_cart",allIncarts);
         }
 
         private string ValidationMassage(int shoesID, int qty)
@@ -94,6 +98,13 @@ namespace Shoes_shop.Controllers
         public IActionResult Increase([FromBody] Cart c)
         {
             cartService.IncreaseItemByOne(userId, c.ShoesId);
+            return Ok();
+        }
+
+        [Route("Carts/Clear-Cart/")]
+        public IActionResult ClearCart()
+        {
+            cartService.ClearCart(userId);
             return Ok();
         }
 

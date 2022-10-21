@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Shoes_shop.Models.Cart>
+
+
+@if(!Model.Any()){
+
+    <div class="alert alert-warning">
+       Cart Is Empty Now!
+    </div>
+}else{
+    <div  class="row">
+    <div class="col-lg-12">
+    <table class="table" >
+        <thead>
+            <tr>
+          
+                <th>
+                   Item
+                </th>
+                <th>
+                    Price 
+                </th>
+                <th>
+                    Qunatity 
+                </th>
+                <th>
+                    Total Price
+                </th>
+                <th></th>
+           
+         
+            </tr>
+        </thead>
+        <tbody>
+            @{
+               double totalCartPrice = 0;
+            }
+            @foreach(var cart in Model){
+            <tr >
+                <td>
+                  <div class="row">
+                    <div class="col-4">
+                         <img src="~/images/@cart.Shoes.ImageURL" width="150" height="150" alt="shoes_img" />
+                    </div>
+                   <div class="col-8">
+                        <h3 class="card-title">@cart.Shoes.Name</h3>
+                        <p class="card-text">@cart.Shoes.ShortDescription</p>
+                        <p class="text-danger">Only @cart.Shoes.NumberInStock left in stock - order soon.</p>
+                   </div>
+                 </div>
+                </td>
+                    <td><p>EGP @cart.Shoes.Price</p></td>
+                <td>
+                    <div class="">
+                        <span class="btn btn-sm" onclick="decrease('@cart.ShoesId')"> <i class="fa fa-xs fa-minus"></i> </span>
+                        <span class="h5" id="cart-qty">@cart.Quntity</span>
+                        <span class="btn btn-sm" onclick="increase('@cart.ShoesId')"> <i class="fa fa-xs fa-plus"></i> </span>
+                    </div>
+                </td>
+                    <td><p>EGP @cart.TotalPrice</p></td>
+                    <td>
+
+                        <a onclick="removeItem('@cart.ShoesId')"><i style="color:red;font-size:18px" class="fa fa-times-circle" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+<div hidden id="tcp"> @ViewBag.totalCartPrice </div>
+
+<div >
+        <h2 id="totalCartPrice">Subtotal : EGP @ViewBag.totalCartPrice</h2>
+        <a asp-action="ToOrder" class="btn btn-warning">Proceed to Buy</a>
+        <a onclick="clearCart()" class="btn btn-danger"><i class="fa fa-trash"></i> Clear Cart</a>
+</div>
+
+
+}
