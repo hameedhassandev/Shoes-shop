@@ -27,6 +27,7 @@ builder.Services.AddScoped<IShoesService, ShoesService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IOrderDetailsService, OrderDetailsService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IShippingService, ShippingService>();
 builder.Services.AddScoped<IImageHelper, ImageHelper>();
 
 

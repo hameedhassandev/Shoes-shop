@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Shoes_shop</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Shoes shop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,15 +28,6 @@
 
                         @if (User.IsInRole(RolesName.AdminRole))
                         {
-                          @*  <div class="left-panel">
-                                <ul>
-                                    <li>Categort</li>
-                                    <li>Shoes</li>
-                                    <li>Home</li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                            </div>*@
                             
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-action="Index" asp-controller="Shoes">Shoeses</a>
@@ -61,6 +52,9 @@
 
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Carts" asp-action="MyCart">My Cart</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">My Orders</a>
                             </li>
                            
                         }

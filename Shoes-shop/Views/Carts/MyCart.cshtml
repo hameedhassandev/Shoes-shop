@@ -6,77 +6,101 @@
 <h1>
     <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
 </h1>
-<table class="table">
-    <thead>
-        <tr>
+<hr />
+@if(!Model.Any()){
+
+    <div class="alert alert-warning">
+       Cart Is Empty Now!
+    </div>
+}else{
+    <div class="container" id="cartView">
+    <div  class="row">
+    <div class="col-lg-12">
+    <table class="table" >
+        <thead>
+            <tr>
           
-            <th>
-               Item
-            </th>
-            <th>
-                Price 
-            </th>
-            <th>
-                Qunatity 
-            </th>
-            <th>
-                Total Price
-            </th>
-            <th></th>
+                <th>
+                   Item
+                </th>
+                <th>
+                    Price 
+                </th>
+                <th>
+                    Qunatity 
+                </th>
+                <th>
+                    Total Price
+                </th>
+                <th></th>
            
          
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var cart in Model){
-        <tr>
-            <td>
-              <div class="row">
-                <div class="col-4">
-                     <img src="~/images/@cart.Shoes.ImageURL" width="150" height="150" alt="shoes_img" />
-                </div>
-               <div class="col-8">
-                    <h3 class="card-title">@cart.Shoes.Name</h3>
-                    <p class="card-text">@cart.Shoes.ShortDescription</p>
-                    <p class="text-danger">Only @cart.Shoes.NumberInStock left in stock - order soon.</p>
-               </div>
-             </div>
-            </td>
-                <td><p>EGP @cart.Shoes.Price</p></td>
-            <td>
-                <div class="">
-                    <span class="btn btn-sm" onclick="decrease('@cart.ShoesId')"> <i class="fa fa-xs fa-minus"></i> </span>
-                    <span class="h5" id="cart-qty">@cart.Quntity</span>
-                    <span class="btn btn-sm" onclick="increase('@cart.ShoesId')"> <i class="fa fa-xs fa-plus"></i> </span>
-                </div>
-            </td>
-                <td><p>EGP @cart.TotalPrice</p></td>
-                <td>
-
-                    <a onclick="removeItem('@cart.ShoesId')"><i style="color:red;font-size:18px" class="fa fa-times-circle" aria-hidden="true"></i></a>
-                </td>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @{
+               double totalCartPrice = 0;
+            }
+            @foreach(var cart in Model){
+            <tr >
+                <td>
+                  <div class="row">
+                    <div class="col-4">
+                         <img src="~/images/@cart.Shoes.ImageURL" width="150" height="150" alt="shoes_img" />
+                    </div>
+                   <div class="col-8">
+                        <h3 class="card-title">@cart.Shoes.Name</h3>
+                        <p class="card-text">@cart.Shoes.ShortDescription</p>
+                        <p class="text-danger">Only @cart.Shoes.NumberInStock left in stock - order soon.</p>
+                   </div>
+                 </div>
+                </td>
+                    <td><p>EGP @cart.Shoes.Price</p></td>
+                <td>
+                    <div class="">
+                        <span class="btn btn-sm" onclick="decrease('@cart.ShoesId')"> <i class="fa fa-xs fa-minus"></i> </span>
+                        <span class="h5" id="cart-qty">@cart.Quntity</span>
+                        <span class="btn btn-sm" onclick="increase('@cart.ShoesId')"> <i class="fa fa-xs fa-plus"></i> </span>
+                    </div>
+                </td>
+                    <td><p>EGP @cart.TotalPrice</p></td>
+                    <td>
+
+                        <a onclick="removeItem('@cart.ShoesId')"><i style="color:red;font-size:18px" class="fa fa-times-circle" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+<div hidden id="tcp"> @ViewBag.totalCartPrice </div>
 
 
-<h2>Subtotal : EGP @ViewBag.totalCartPrice</h2>
-<a href="#" class="btn btn-warning">Proceed to Buy</a>
-<script>
-    function increase(){
-        var value = document.getElementById("cart-qty").innerHTML;
-        value ++;
-        document.getElementById('cart-qty').innerHTML = value;
-
-
-    }
-
-
-
-</script>
+<h2 id="totalCartPrice">Subtotal : EGP @ViewBag.totalCartPrice</h2>
+    <a asp-action="ToOrder" class="btn btn-warning">Proceed to Buy</a>
+}
 @section Scripts {
     <script>
+
+        myCart();
+
+        function myCart() {
+            $.ajax({
+                url: `my-cart`,
+                method: 'GET',
+                success: function (data) {
+                    $("#cartView").html(data);
+                    var totalCartPrice = 'Subtotal : EGP '+$("#tcp").html();
+                    $("#totalCartPrice").html(totalCartPrice);
+                     console.log('allItems success')               
+                },
+                error: function (error) {
+                    alert("error: " + error.statusText);
+                }
+            });
+        }
 
         function removeItem(ShoesId) {
             $.ajax({
@@ -84,7 +108,9 @@
                 method: 'GET',
                 success: function (data) {
                     //MyCart();
-                    alert('success');
+                    console.log('success removed');
+                    myCart();
+
                 },
                 error: function (error) {
                     alert("error: " + error.statusText);
@@ -101,7 +127,8 @@
                 contentType: 'application/json',
                 success: function (data) {
                     //MyCart();
-                    alert('success');
+                    console.log('success Decreased');
+                    myCart();
                 },
                 error: function (error) {
                     alert("error: " + error.statusText);
@@ -118,7 +145,8 @@
                 contentType: 'application/json',
                 success: function (data) {
                     //MyCart();
-                    alert('success');
+                    console.log('success Increased');
+                    myCart();
                 },
                 error: function (error) {
                     alert("error: " + error.statusText);

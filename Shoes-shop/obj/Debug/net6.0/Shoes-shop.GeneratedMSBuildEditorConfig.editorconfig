@@ -51,6 +51,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/dotNet/e-project/Shoes-shop/Shoes-shop/Views/Orders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/dotNet/e-project/Shoes-shop/Shoes-shop/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -65,6 +69,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/dotNet/e-project/Shoes-shop/Shoes-shop/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotNet/e-project/Shoes-shop/Shoes-shop/Views/Shipping/MyShipping.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdcTXlTaGlwcGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dotNet/e-project/Shoes-shop/Shoes-shop/Views/Shipping/ShippingDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBpbmdcU2hpcHBpbmdEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/dotNet/e-project/Shoes-shop/Shoes-shop/Views/Shoes/Create.cshtml]

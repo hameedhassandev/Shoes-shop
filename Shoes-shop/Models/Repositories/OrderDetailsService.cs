@@ -7,9 +7,12 @@ namespace Shoes_shop.Models.Repositories
     public class OrderDetailsService : IOrderDetailsService
     {
         private readonly ApplicationDbContext Context;
-        public OrderDetailsService(ApplicationDbContext context)
+        private readonly IShoesService shoesService;
+
+        public OrderDetailsService(ApplicationDbContext _context, IShoesService _shoesServic)
         {
-            Context = context;
+            Context = _context;
+            shoesService = _shoesServic;
         }
 
 
@@ -17,6 +20,13 @@ namespace Shoes_shop.Models.Repositories
         {
             Context.Add(entity);    
             Context.SaveChanges();
+
+            //when add order details on database remove qty of shoes fron stock 
+            var shoes = shoesService.Get(entity.ShoesId);
+            shoes.NumberInStock -= entity.Quantity;
+
+            Context.Shoes.Update(shoes);
+
             return entity;  
         }
 

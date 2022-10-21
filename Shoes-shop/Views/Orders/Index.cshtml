@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Shoes_shop.Models.Order>
+<h1> test my order view </h1>
+
+@foreach(var item in Model){
+    <h3>@item.dateTime </h3>
+    <h3>@item.TotalPrice</h3>
+    <h3>@item.UserId</h3>
+    <h3></h3>
+    <hr />
+}

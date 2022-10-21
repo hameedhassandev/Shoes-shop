@@ -4,6 +4,12 @@
 
 
 <section class="product-details spad">
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-warning">
+            @TempData["message"]
+        </div>
+    }
     <div class="container">
         <h1>@Model.Name</h1>
         <h2>@Model.Price L.E</h2>
@@ -29,9 +35,3 @@
 
 
 
-@if (TempData["message"] != null)
-{
-    <script>
-        alert("@TempData["message"]");
-    </script>
-}

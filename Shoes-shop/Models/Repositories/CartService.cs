@@ -48,13 +48,13 @@ namespace Shoes_shop.Models.Repositories
 
         }
 
-        public void ClearCart(string clientId)
+        public void ClearCart(string userId)
         {
-            var allItemsInCart = context.Carts.Where(c => c.UserId == clientId).ToList();
+            var allItemsInCart = context.Carts.Where(c => c.UserId == userId).ToList();
 
             // return all items to stock 
             foreach (var item in allItemsInCart)
-                RemoveItem(clientId, item.ShoesId);
+                RemoveItem(userId, item.ShoesId);
 
             context.SaveChanges(true);
         }
@@ -114,7 +114,7 @@ namespace Shoes_shop.Models.Repositories
             context.SaveChanges(true);
         }
 
-        public void ToOrder(string userId, int ShoesId, int qty)
+        public void ToOrder(string userId)
         {
             var items = context.Carts.Where(c => c.UserId == userId).ToList();
 
@@ -123,7 +123,7 @@ namespace Shoes_shop.Models.Repositories
 
             // create new order
             Order order = new Order() { UserId = userId, dateTime = DateTime.Now, TotalPrice = orderTotal };
-            order = orderService.Add(order, ShoesId,qty);
+            order = orderService.Add(order);
 
             // add all shoes to order
             foreach (var item in items)
@@ -139,9 +139,6 @@ namespace Shoes_shop.Models.Repositories
             context.SaveChanges(true);
         }
 
-        public void ToOrder(string userId)
-        {
-            throw new NotImplementedException();
-        }
+  
     }
 }

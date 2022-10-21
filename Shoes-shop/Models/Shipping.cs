@@ -7,7 +7,7 @@ namespace Shoes_shop.Models
     {
         public int Id { get; set; }
 
-        [Required]
+//        [Required]
         public string UserId { get; set; } = string.Empty;
         public IdentityUser? User { get; set; }
 
