@@ -1,10 +1,47 @@
 ﻿@model IEnumerable<Shoes_shop.Models.Order>
-<h1> test my order view </h1>
 
-@foreach(var item in Model){
-    <h3>@item.dateTime </h3>
-    <h3>@item.TotalPrice</h3>
-    <h3>@item.UserId</h3>
-    <h3></h3>
-    <hr />
+@{
+    ViewData["Title"] = "My Orders";
 }
+<h1>
+    <i class="fa fa-first-order" aria-hidden="true"></i> Orders</h1>
+
+
+<div class="container m-5">
+    @foreach (var order in Model)
+    {
+        <div class="card my-3" style=" border-radius: 16px; background: #fafafa;
+">
+            <div class="card-header"><h6 class="text-info">Order Number# @order.Id</h6></div>
+            <div class="card-body">
+            <div class="row m-1">
+                <div class="col-8">
+                    <div class="row mx-1 my-2">
+                        <h5>
+                            Order Date:
+                            &ensp;
+                            @order.dateTime.Date.Day/
+                            @order.dateTime.Date.Month/
+                            @order.dateTime.Date.Year
+                            &ensp;&ensp;&ensp;
+                            @order.dateTime.ToShortTimeString()
+                        </h5>
+                    </div>
+
+                    <div class="row mx-1 my-2">
+
+                        <h4>Total Price: EGP @order.TotalPrice</h4>
+                    </div>
+                </div>
+
+                <div class="col mt-4 text-center">
+                        <a href="@Url.Action("Details", "Orders", new { id = @order.Id })" class="btn btn-info">
+                           Order Details
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>

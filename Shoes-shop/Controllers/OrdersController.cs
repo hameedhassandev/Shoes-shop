@@ -12,12 +12,14 @@ namespace Shoes_shop.Controllers
     public class OrdersController : Controller
     {
         private readonly IOrderService orderService;
+        private readonly IOrderDetailsService orderDetailsService;
         private readonly UserManager<IdentityUser> UserManager;
         private static string userId = "";
-        public OrdersController(IOrderService _orderService, UserManager<IdentityUser> _UserManager)
+        public OrdersController(IOrderService _orderService, UserManager<IdentityUser> _UserManager, IOrderDetailsService _orderDetailsService)
         {
             orderService = _orderService;
             UserManager = _UserManager;
+            orderDetailsService = _orderDetailsService;
         }
         public async Task<IActionResult> Index()
         {
@@ -27,5 +29,13 @@ namespace Shoes_shop.Controllers
             Expression<Func<Order, bool>> predicate = o => o.UserId == userId;
             return View(orderService.Find(predicate));
         }
+
+
+        public IActionResult Details (int id)
+        {
+          var OrderDetails = orderDetailsService.Find(id);
+            return View(OrderDetails);
+        }
+
     }
 }

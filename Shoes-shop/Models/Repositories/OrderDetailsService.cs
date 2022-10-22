@@ -30,9 +30,9 @@ namespace Shoes_shop.Models.Repositories
             return entity;  
         }
 
-        public IEnumerable<OrderDetail> Find(Expression<Func<OrderDetail, bool>> predicate)
+        public IEnumerable<OrderDetail> Find(int orderId)
         {
-            return Context.OrderDetails.Include(op => op.Shoes).Where(predicate).ToList();
+            return Context.OrderDetails.Include(op => op.Shoes).Where(o=>o.OrderId == orderId).ToList();
         }
 
 
