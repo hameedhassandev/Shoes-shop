@@ -3,7 +3,7 @@ using Shoes_shop.Helpers;
 
 #nullable disable
 
-namespace Shoes_shop.Data.Migrations
+namespace Shoes_shop.Migrations
 {
     public partial class seedRoles : Migration
     {
@@ -27,4 +27,4 @@ namespace Shoes_shop.Data.Migrations
 
         }
     }
-}
+    }

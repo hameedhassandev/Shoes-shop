@@ -13,9 +13,9 @@ namespace Shoes_shop.Controllers
     {
         private readonly IOrderService orderService;
         private readonly IOrderDetailsService orderDetailsService;
-        private readonly UserManager<IdentityUser> UserManager;
+        private readonly UserManager<ApplicationUser> UserManager;
         private static string userId = "";
-        public OrdersController(IOrderService _orderService, UserManager<IdentityUser> _UserManager, IOrderDetailsService _orderDetailsService)
+        public OrdersController(IOrderService _orderService, UserManager<ApplicationUser> _UserManager, IOrderDetailsService _orderDetailsService)
         {
             orderService = _orderService;
             UserManager = _UserManager;

@@ -12,17 +12,15 @@ namespace Shoes_shop.Controllers
     public class CartsController : Controller
     {
         private readonly IShoesService shoesService;
-        private readonly UserManager<IdentityUser> UserManager;
+        private readonly UserManager<ApplicationUser> UserManager;
         private static string userId = "";
         private readonly ICartService cartService;
-        private readonly IShippingService shippingService;
 
-        public CartsController(IShoesService _shoesService, UserManager<IdentityUser> _userManager, ICartService _cartService, IShippingService _shippingService)
+        public CartsController(IShoesService _shoesService, UserManager<ApplicationUser> _userManager, ICartService _cartService)
         {
             shoesService = _shoesService;
             UserManager = _userManager;
             cartService = _cartService;
-            shippingService = _shippingService;
         }
 
         public async Task<IActionResult> Index()

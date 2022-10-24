@@ -40,6 +40,10 @@ namespace Shoes_shop.Models
         [Display(Name = "Category")]
         [Required]
         public int CategoryId { get; set; }
+
+        [Display(Name = "Shoes Size")]
+        [Required]
+        public int Size { get; set; }
         public Category? Category { get; set; }
         public ICollection<Cart>? carts { get; set; }
         public ICollection<OrderDetail>? OrderDetails { get; set; }

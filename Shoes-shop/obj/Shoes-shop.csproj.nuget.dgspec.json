@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\Shoes-shop.csproj": {}
+    "D:\\newDotNetProject\\Shoes-shop\\Shoes-shop.csproj": {}
   },
   "projects": {
-    "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\Shoes-shop.csproj": {
+    "D:\\newDotNetProject\\Shoes-shop\\Shoes-shop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\Shoes-shop.csproj",
+        "projectUniqueName": "D:\\newDotNetProject\\Shoes-shop\\Shoes-shop.csproj",
         "projectName": "Shoes-shop",
-        "projectPath": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\Shoes-shop.csproj",
+        "projectPath": "D:\\newDotNetProject\\Shoes-shop\\Shoes-shop.csproj",
         "packagesPath": "C:\\Users\\Hameed\\.nuget\\packages\\",
-        "outputPath": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\obj\\",
+        "outputPath": "D:\\newDotNetProject\\Shoes-shop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hameed\\AppData\\Roaming\\NuGet\\NuGet.Config",

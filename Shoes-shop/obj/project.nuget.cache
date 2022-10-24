@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CL8sE8ykjMRAa35CR0V+zKPwy/hyQ6S85TiUPxfrk1Z1nmMvxxpEEr+wmydHhGOls4hYY4yjyNkxdGk+5uXpVg==",
+  "dgSpecHash": "UeklXuout5Upg9+7Rp9htUs/yqBlKCitfmWRa7XsLA5drDdN0Z1VCoBNj2CTQUCvzy2YuEEIy5SySaYKqgp8uw==",
   "success": true,
-  "projectFilePath": "D:\\dotNet\\e-project\\Shoes-shop\\Shoes-shop\\Shoes-shop.csproj",
+  "projectFilePath": "D:\\newDotNetProject\\Shoes-shop\\Shoes-shop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hameed\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Hameed\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

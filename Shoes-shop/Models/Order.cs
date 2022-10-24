@@ -14,7 +14,14 @@ namespace Shoes_shop.Models
         public double TotalPrice { get; set; }
         [Required]
         public string UserId { get; set; } = string.Empty;
-        public IdentityUser? User { get; set; }
+        public ApplicationUser? User { get; set; }
+
+        [Required]
+        public string ShippingAddress { get; set; } = string.Empty;
+
+
+        [Required]
+        public string Contact { get; set; } = string.Empty;
         public ICollection<OrderDetail>? OrderDetails { get; set; }
 
     }

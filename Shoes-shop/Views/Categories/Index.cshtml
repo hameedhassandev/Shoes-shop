@@ -7,8 +7,10 @@
 <hr />
 <div class="text-white">
 <a href="@Url.Action("Create")" class="btn btn-primary">
-    Add New Category
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Add New Category
 </a>
+<br />
 </div>
 @if(!Model.Any()){
 
@@ -33,15 +35,16 @@
 
                     <td>
                         <a href="@Url.Action("Edit", "Categories", new { id = category.Id })" class="btn btn-primary">
-                            Edit
+                            <i class="fa fa-edit"></i> Edit
                         </a>
                     
                         <a href="@Url.Action("Details", "Categories", new { id = category.Id })" class="btn btn-success">
-                            Details
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> Details
                         </a>
                         <a href="@Url.Action("Delete", "Categories", new { id = category.Id })" class="btn btn-danger">
-                            Delete
+                            <i class="fa fa-trash" aria-hidden="true"></i> Delete
                         </a>
+
                     </td>
                 </tr>
             }

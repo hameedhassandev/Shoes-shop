@@ -18,7 +18,7 @@ namespace Shoes_shop.Controllers
 
 
         private readonly IMapper _mapper;
-        public UserManager<IdentityUser> UserManager { get; }
+        public UserManager<ApplicationUser> UserManager { get; }
         public readonly IBaseRepository<Category> CategoryService;
         public readonly IShoesService ShoesRepository;
         public readonly ICartService CartService;
@@ -27,7 +27,7 @@ namespace Shoes_shop.Controllers
         public ShoesController(IMapper mapper, IShoesService repositoryy,
             IBaseRepository<Category> _CategoryService,
             IImageHelper _ImageHelper, ICartService _CartService, 
-            UserManager<IdentityUser> _UserManager)
+            UserManager<ApplicationUser> _UserManager)
         {
             UserManager = _UserManager;
             ImageHelper = _ImageHelper;

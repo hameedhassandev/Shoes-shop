@@ -6,13 +6,6 @@
 
 <h1>Shoes List</h1>
 <hr/>
-@if(!Model.Any()){
-
-    <div class="alert alert-warning">
-        No Shoes added yet!
-    </div>
-}else{
-<div class="content mt-5">
 <div class="text-white">
      <a href="@Url.Action("Create")"  class="btn btn-primary">  
           <i class="fa fa-plus" aria-hidden="true"></i>
@@ -26,6 +19,14 @@
 </button>*@
 
 </div><br />
+@if(!Model.Any()){
+
+    <div class="alert alert-warning">
+        No Shoes added yet!
+    </div>
+}else{
+<div class="content mt-5">
+
     <table class="table">
     <thead>
         <tr>
@@ -40,6 +41,9 @@
             </th>
             <th>
                Short Description
+            </th>
+            <th>
+               Shoes Size
             </th>
             <th>
                 Price (L.E)
@@ -70,6 +74,9 @@
 
                 @Html.DisplayFor(modelItem => item.ShortDescription)
             </td >
+             <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
             <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.Price)
             </td>

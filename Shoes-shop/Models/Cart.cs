@@ -19,6 +19,6 @@ namespace Shoes_shop.Models
 
         [Required]
         public string UserId { get; set; } = string.Empty;
-        public IdentityUser? User { get; set; }
+        public ApplicationUser? User { get; set; }
     }
 }

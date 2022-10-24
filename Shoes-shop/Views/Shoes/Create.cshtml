@@ -46,6 +46,11 @@
                         <span asp-validation-for="NumberInStock" class="text-danger"></span>
                     </div>
                     <div class="form-group my-3">
+                        <label asp-for="Size" class="control-label"></label>
+                        <input asp-for="Size" class="form-control" type="number" />
+                        <span asp-validation-for="Size" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-3">
                         <label asp-for="ImageFile" class="control-label"></label>
                         <div class="custom-file">
                             <input asp-for="ImageFile" class="custom-file-input" required
