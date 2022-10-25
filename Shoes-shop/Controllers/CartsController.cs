@@ -15,7 +15,8 @@ namespace Shoes_shop.Controllers
         private readonly UserManager<ApplicationUser> UserManager;
         private static string userId = "";
         private readonly ICartService cartService;
-
+        private static string userAdress = "";
+        private static string contact = "";
         public CartsController(IShoesService _shoesService, UserManager<ApplicationUser> _userManager, ICartService _cartService)
         {
             shoesService = _shoesService;
@@ -27,6 +28,8 @@ namespace Shoes_shop.Controllers
         {
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
             userId = user.Id;
+            userAdress = user.Address;
+            contact = user.Contact;
             return View();
         }
 
@@ -58,8 +61,9 @@ namespace Shoes_shop.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddToCart(ShoesViewModel model)
+        public async Task<IActionResult>  AddToCart(ShoesViewModel model)
         {
+            var user = await UserManager.FindByNameAsync(User.Identity.Name);
             var massageValue = ValidationMassage(model.Id, model.Quantity);
             var shoes = shoesService.Get(model.Id);
 
@@ -69,7 +73,7 @@ namespace Shoes_shop.Controllers
                 return RedirectToAction("ShoesDetails", "Shoes", new { id = model.Id });
             }
             //in case no validation massage
-            cartService.AddItem(userId, model.Id, model.Quantity);
+            cartService.AddItem(user.Id, model.Id, model.Quantity);
             TempData["message"] = "Added to Cart Successfully!";
             return RedirectToAction("ShoesDetails", "Shoes", new { id = model.Id });
         }
@@ -108,7 +112,8 @@ namespace Shoes_shop.Controllers
 
         public IActionResult ToOrder()
         {
-            cartService.ToOrder(userId);
+            
+            cartService.ToOrder(userId,userAdress,contact);
 
             return RedirectToAction(nameof(MyCart));
         }

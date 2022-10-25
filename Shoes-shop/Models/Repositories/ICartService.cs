@@ -8,6 +8,7 @@
         public void IncreaseItemByOne(string userId, int shoesID);
         public void DecreaseItemByOne(string userId, int shoesID);
         public void ClearCart(string userId);
-        public void ToOrder(string userId);
-    }
+        public void ToOrder(string userId, string userAdress, string UserContact);
+            
+            }
 }

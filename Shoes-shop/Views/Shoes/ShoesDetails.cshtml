@@ -3,35 +3,73 @@
 
 
 
-<section class="product-details spad">
+<section class="spad">
     @if (TempData["message"] != null)
     {
-        <div class="alert alert-warning">
+        <div class="alert alert-info">
             @TempData["message"]
         </div>
     }
-    <div class="container">
-        <h1>@Model.Name</h1>
-        <h2>@Model.Price L.E</h2>
-        <p>@Model.Description</p>
-        <h3>available : @Model.NumberInStock</h3>
-    </div>
-    <form asp-controller="Carts" asp-action="AddToCart">
-        <input asp-for="Id" readonly/>
-        <input asp-for="Quantity" />
-        <input type="submit" value="Add to Cart" class="btn btn-success" />
 
-    </form>
-    <img src="~/images/@Model.ImageURL" alt="shoes_image">
-       <dive>
-           <h3>Related Shoeses</h3>
-           
-        @foreach (var item in   ViewBag.RelatedShoes)
+   <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                <img class="zoom" src="~/images/@Model.ImageURL" alt="shoes_img" width="500" height="500" />
+            </div>
+            <div class="col-6">
+                <h1>@Model.Name</h1>
+                <hr />
+                <h1 class="my-3"><sup style="font-size: 18px;">EGP</sup> @Model.Price</h1>
+                <p class="my-4">@Model.ShortDescription</p>
+                <h5 class="my-4">Size : @Model.Size</h5>
+                @if (@Model.NumberInStock == 0)
+                {
+                    <h5 class="text-danger my-4">Not Available now!</h5>
+                }
+                else
+                {
+                    <h5 class="text-danger my-4">Available : @Model.NumberInStock pieces</h5>
+                }
+                <div class="my-3">
+                    <form asp-controller="Carts" asp-action="AddToCart">
+                        <input asp-for="@Model.Quantity" class="col-2 form-control" required/>
+                        <input asp-for="@Model.Id" type="hidden"/>
+
+                        <h6 class="my-4">&<span class="text-info">FREE Returns</span>, All prices include VAT.</h4>
+                        <input type="submit" value="Add to Cart" class="btn btn-success" />
+                    </form>
+                </div>
+            </div>
+            </div>
+    </div>
+
+
+    <hr />
+       <h2 class="text-center my-5">Related Shoeses</h2>
+    <div class="container">
+        <div class="col-12">
+        <div class="row mt-3">
+        @foreach (var item in ViewBag.RelatedShoes)
         {
             <partial name="_ShoesItem" model="@item" />
         }
        </div>
+        </div>
+    </div>
 </section>
 
+<style>
+    .zoom {
+      padding: 50px;
+      transition: transform .2s;
+      width: 450px;
+      height: 450px;
+      margin: 0 auto;
+    }
 
-
+    .zoom:hover {
+      -ms-transform: scale(1.5); /* IE 9 */
+      -webkit-transform: scale(1.5); /* Safari 3-8 */
+      transform: scale(1.5);
+    }
+</style>

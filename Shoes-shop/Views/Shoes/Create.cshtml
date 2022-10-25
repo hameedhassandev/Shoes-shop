@@ -4,11 +4,9 @@
     ViewData["Title"] = "Shoes | Create";
 }
 
-
 <div class="content mt-5">
     <div class="container">
-        <h2>Create a new shoes</h2>
-
+      <h2>Create a new shoes</h2>
         <hr />
         <div class="row">
             <div class="col-md-4">
@@ -17,7 +15,7 @@
 
                     <div class="form-group my-3">
                         <label asp-for="Name" class="control-label"></label>
-                        <input asp-for="Name" class="form-control" autocomplete="off"/>
+                        <input asp-for="Name" class="form-control" autocomplete="off" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="form-group my-3">
@@ -31,11 +29,19 @@
                         <input asp-for="Price" class="form-control" type="number" />
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
-                    <input asp-for="IsShoesOfTheWeek" value="false" class="form-control" type="hidden"/>
+
+                    <div class="form-group my-3">
+                        <label asp-for="Size" class="control-label"></label>
+                        <input asp-for="Size" class="form-control" type="number" />
+                        <span asp-validation-for="Size" class="text-danger"></span>
+                    </div>
+
+                    <input asp-for="IsShoesOfTheWeek" value="false" class="form-control" type="hidden" />
                     <div class="form-group my-3">
                         <label class="control-label">Category</label>
                         <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
                             <option value="">Select Category..</option>
+
                         </select>
                         <span asp-validation-for="CategoryId" class="text-danger"></span>
                     </div>
@@ -46,14 +52,9 @@
                         <span asp-validation-for="NumberInStock" class="text-danger"></span>
                     </div>
                     <div class="form-group my-3">
-                        <label asp-for="Size" class="control-label"></label>
-                        <input asp-for="Size" class="form-control" type="number" />
-                        <span asp-validation-for="Size" class="text-danger"></span>
-                    </div>
-                    <div class="form-group my-3">
                         <label asp-for="ImageFile" class="control-label"></label>
                         <div class="custom-file">
-                            <input asp-for="ImageFile" class="custom-file-input" required
+                            <input asp-for="ImageFile" class="custom-file-input"
                                    onchange="document.getElementById('FrontImage').src= window.URL.createObjectURL(this.files[0])" />
                         </div>
 
@@ -65,9 +66,7 @@
                         <input type="submit" value="Create" class="btn btn-success" />
                         <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
                     </div>
-                    
-                   
-
+           
                 </form>
 
             </div>
@@ -82,5 +81,5 @@
 @section Scripts {
 
     <partial name="_ValidationScriptsPartial" />
-    
+   
 }

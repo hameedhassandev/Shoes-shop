@@ -147,7 +147,6 @@ namespace Shoes_shop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         [AllowAnonymous]
         public IActionResult ShoesDetails(int id)
         {

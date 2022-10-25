@@ -114,15 +114,16 @@ namespace Shoes_shop.Models.Repositories
             context.SaveChanges(true);
         }
 
-        public void ToOrder(string userId)
+        public void ToOrder(string userId,string userAdress, string UserContact)
         {
+            
             var items = context.Carts.Where(c => c.UserId == userId).ToList();
 
             // calculate order total price
             double orderTotal = items.Sum(item => item.TotalPrice);
 
             // create new order
-            Order order = new Order() { UserId = userId, dateTime = DateTime.Now, TotalPrice = orderTotal };
+            Order order = new Order() { UserId = userId, dateTime = DateTime.Now, TotalPrice = orderTotal,ShippingAddress = userAdress, Contact= UserContact };
             order = orderService.Add(order);
 
             // add all shoes to order

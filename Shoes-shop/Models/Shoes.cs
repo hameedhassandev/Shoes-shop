@@ -21,7 +21,7 @@ namespace Shoes_shop.Models
         [Required]
         public double Price { get; set; }
 
-        [Required]
+       
         public string ImageURL { get; set; } = string.Empty;
 
         [Required]
@@ -29,7 +29,7 @@ namespace Shoes_shop.Models
         public bool IsShoesOfTheWeek { get; set; }
 
         [NotMapped]
-        
+        [Required]
         [Display(Name = "Upload Image")]
         public IFormFile? ImageFile { get; set; }
 

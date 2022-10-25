@@ -12,12 +12,7 @@
 
          Add New Shoes
      </a>
-  @*  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
- <i class="fa fa-plus" aria-hidden="true"></i>
- Add New Shoes
-</button>*@
-
+ 
 </div><br />
 @if(!Model.Any()){
 
@@ -25,7 +20,7 @@
         No Shoes added yet!
     </div>
 }else{
-<div class="content mt-5">
+<div class="content mt-8">
 
     <table class="table">
     <thead>
@@ -64,13 +59,13 @@
             <td class="align-middle">
                <img src="~/images/@item.ImageURL" style="width:75px;height:75px" />
             </td>
-            <td class="align-middle">
+            <td class="align-middle"  style=" max-width: 120px;">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
            <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.Category.Name)
             </td>
-            <td class="align-middle" style="max-width: 200px;   overflow: hidden;text-overflow: ellipsis ; white-space: nowrap; ">
+            <td class="align-middle" style=" max-width: 10px;">
 
                 @Html.DisplayFor(modelItem => item.ShortDescription)
             </td >

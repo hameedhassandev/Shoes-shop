@@ -5,43 +5,126 @@
 }
 <h1>
     <i class="fa fa-first-order" aria-hidden="true"></i> Orders</h1>
+<hr />
+@if(!Model.Any()){
 
+    <div class="alert alert-warning">
+       Orders Is Empty Now!
+    </div>
+}else{
 
-<div class="container m-5">
     @foreach (var order in Model)
     {
-        <div class="card my-3" style=" border-radius: 16px; background: #fafafa;
-">
-            <div class="card-header"><h6 class="text-info">Order Number# @order.Id</h6></div>
-            <div class="card-body">
-            <div class="row m-1">
-                <div class="col-8">
-                    <div class="row mx-1 my-2">
-                        <h5>
-                            Order Date:
-                            &ensp;
-                            @order.dateTime.Date.Day/
-                            @order.dateTime.Date.Month/
-                            @order.dateTime.Date.Year
-                            &ensp;&ensp;&ensp;
-                            @order.dateTime.ToShortTimeString()
-                        </h5>
-                    </div>
+  <div class="card" style=" border-radius: 14px;">
+    <h5 class="card-header">Order Number: @order.Id</h5>
+        <div class="card-body">
+            <h5 class="card-title">
+                Order Date:
+                &ensp;
+                @order.dateTime.Date.Day/
+                @order.dateTime.Date.Month/
+                @order.dateTime.Date.Year
+                &ensp;&ensp;&ensp;
+               @order.dateTime.ToShortTimeString()
+            </h5>
+            <h5 class="card-text">Total Price: EGP @order.TotalPrice</h5>
+            <p class="card-text">Address of shipping: @order.ShippingAddress</p>
+            <p class="card-text">Contact: @order.Contact</p>
+            @{
+                    string OrderIsDone = "progtrckr-done";
+            }
+            <div class="my-5 text-center">
+                    <ol class="progtrckr" data-progtrckr-steps="4">
+                        <li class="@OrderIsDone">Order Processing</li>
 
-                    <div class="row mx-1 my-2">
+                        <li class="@OrderIsDone">In Production</li>
 
-                        <h4>Total Price: EGP @order.TotalPrice</h4>
-                    </div>
-                </div>
-
-                <div class="col mt-4 text-center">
-                        <a href="@Url.Action("Details", "Orders", new { id = @order.Id })" class="btn btn-info">
-                           Order Details
-                        </a>
-                    </div>
-
-                </div>
+                        <li class="progtrckr-todo">Ship & Pay</li>
+                    </ol>
             </div>
+                <a href="@Url.Action("Details", "Orders", new { id = @order.Id })" class="btn btn-info">
+                    Order Details
+                </a>
+                <a href="" class="btn btn-outline-secondary">Edit Shipping</a>
         </div>
+    </div>
     }
-</div>
+
+}
+<style>
+    ol.progtrckr {
+        margin: 0;
+        padding: 0;
+        list-style-type none;
+    }
+
+        ol.progtrckr li {
+            display: inline-block;
+            text-align: center;
+            line-height: 3.5em;
+        }
+
+        ol.progtrckr[data-progtrckr-steps="2"] li {
+            width: 49%;
+        }
+
+        ol.progtrckr[data-progtrckr-steps="3"] li {
+            width: 33%;
+        }
+
+        ol.progtrckr[data-progtrckr-steps="4"] li {
+            width: 24%;
+        }
+
+        ol.progtrckr[data-progtrckr-steps="5"] li {
+            width: 19%;
+        }
+
+        ol.progtrckr[data-progtrckr-steps="6"] li {
+            width: 16%;
+        }
+
+        ol.progtrckr li.progtrckr-done {
+            color: black;
+            border-bottom: 4px solid cornflowerblue;
+        }
+
+        ol.progtrckr li.progtrckr-todo {
+            color: silver;
+            border-bottom: 4px solid silver;
+        }
+
+        ol.progtrckr li:after {
+            content: "\00a0\00a0";
+        }
+
+        ol.progtrckr li:before {
+            position: relative;
+            bottom: -2.5em;
+            float: left;
+            left: 50%;
+            line-height: 1em;
+        }
+
+        ol.progtrckr li.progtrckr-done:before {
+            content: "\2713";
+            color: white;
+            background-color: cornflowerblue;
+            height: 2.2em;
+            width: 2.2em;
+            line-height: 2.2em;
+            border: none;
+            border-radius: 2.2em;
+        }
+
+        ol.progtrckr li.progtrckr-todo:before {
+            content: "\039F";
+            color: silver;
+            background-color: white;
+            font-size: 2.2em;
+            bottom: -1.2em;
+        }
+
+</style>
+
+
