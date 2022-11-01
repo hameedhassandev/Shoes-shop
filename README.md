@@ -2,30 +2,19 @@
 - E-commerce web application for selling shoes. 
 - Tools: ASP.Net MVC Core, ASP.NET Identity User, Entity Framework, Bootstrap, JQuery
 - Initial Demo 
- List All Category
-![category](https://user-images.githubusercontent.com/57669085/197771714-4faaed2b-d93a-461e-a648-36cdc7992f59.PNG)
+- Admin Dashboard
 
-- Update Category 
-![cat2](https://user-images.githubusercontent.com/57669085/191618022-6ed8a046-582b-4c90-92d4-c6bbe987eb78.PNG)
-- Category Details 
-![cat3](https://user-images.githubusercontent.com/57669085/191618026-119beb0c-c060-4c98-be9f-d41606949b41.PNG)
-- Before Confirm Delete 
-![catDaeletBefor](https://user-images.githubusercontent.com/57669085/191618062-0cf889f0-4af8-4453-a327-1e108c97b118.PNG)- After Confirm Delete
-![catAfter](https://user-images.githubusercontent.com/57669085/191618149-5ca13b42-12bf-418d-84b9-b27e468f174a.PNG)
-- List All Shoes
-
-![deleteAfter](https://user-images.githubusercontent.com/57669085/197771994-091b9807-3efa-4165-b4bc-77ab21e4a75f.PNG)
-![deleteBef](https://user-images.githubusercontent.com/57669085/197772001-cbe45960-73b4-4696-a29a-34e8583d21bb.PNG)
-![detailsAdmin](https://user-images.githubusercontent.com/57669085/197772021-84a429e0-cfcd-424e-89d1-9249cd286060.PNG)
-![edite](https://user-images.githubusercontent.com/57669085/197772024-0a3a3d21-c7a0-46df-99fd-edc41a858b24.PNG)
-![listShoes](https://user-images.githubusercontent.com/57669085/197772032-461ebd39-5e1b-4e2d-802d-752430492b9b.PNG)
-
+![db3](https://user-images.githubusercontent.com/57669085/199249033-36f670a6-b0d7-4d2b-a08a-5c384d058b6c.PNG)
+![db4](https://user-images.githubusercontent.com/57669085/199249046-a3044ed0-a92d-4fee-8062-d4362985ebfe.PNG)
+![db5](https://user-images.githubusercontent.com/57669085/199249052-74657ca1-ab4a-4455-aebb-458ca1f474a2.PNG)
+![db1](https://user-images.githubusercontent.com/57669085/199249056-3d780529-02e2-4223-83eb-5d50be611d04.PNG)
+![db2](https://user-images.githubusercontent.com/57669085/199249061-58e07cbf-af3c-4180-86bb-a6e2cdea2e42.PNG)
 - Cart
-![Carts](https://user-images.githubusercontent.com/57669085/197772106-3f455c01-814d-41e1-9b63-7efc30e606c5.PNG)
+![cart](https://user-images.githubusercontent.com/57669085/199249731-670c7c4e-9414-4585-9764-608aac1f5c45.PNG)
 
 - Orders 
-![order](https://user-images.githubusercontent.com/57669085/197772167-ba6b711c-8d2b-4c15-a2f9-93ad79df5ad8.PNG)
+![order](https://user-images.githubusercontent.com/57669085/199249782-827c729b-7fc4-4e03-aab0-e41125c18da4.PNG)
 
 - Order Details
 
-![orderDetails](https://user-images.githubusercontent.com/57669085/197338760-9f067553-5d97-405c-839b-4ee2615c1fb8.PNG)
+![oDetails](https://user-images.githubusercontent.com/57669085/199249944-5684c777-7829-4530-ab74-beb2979aad55.PNG)

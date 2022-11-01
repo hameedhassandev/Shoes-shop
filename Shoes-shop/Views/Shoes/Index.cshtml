@@ -4,10 +4,11 @@
     ViewData["Title"] = "Index | Shoes";
 }
 
+
 <h1>Shoes List</h1>
 <hr/>
 <div class="text-white">
-     <a href="@Url.Action("Create")"  class="btn btn-primary">  
+     <a href="@Url.Action("Create")"  class="btn btn-outline-dark" style="border-radius: 25px;">  
           <i class="fa fa-plus" aria-hidden="true"></i>
 
          Add New Shoes
@@ -57,7 +58,7 @@
 @foreach (var item in Model) {
         <tr>
             <td class="align-middle">
-               <img src="~/images/@item.ImageURL" style="width:75px;height:75px" />
+               <img src="~/images/@item.ImageURL" class="img_zoom"/>
             </td>
             <td class="align-middle"  style=" max-width: 120px;">
                 @Html.DisplayFor(modelItem => item.Name)
@@ -81,9 +82,9 @@
             
           
             <td >
-                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i> Edit</a>
-                <a class="btn btn-success"  asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info-circle" aria-hidden="true"></i> Details</a> 
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                <a class="btn btn-outline-primary" style="border-radius: 25px;" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i> Edit</a>
+                <a class="btn btn-outline-success" style="border-radius: 25px;"  asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info-circle" aria-hidden="true"></i> Details</a> 
+                <a class="btn btn-outline-danger" style="border-radius: 25px;" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
 
             </td>
         </tr>
@@ -92,30 +93,5 @@
 </table>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ....
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 }
 
-@*  <script>
-      $('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-  </script>*@

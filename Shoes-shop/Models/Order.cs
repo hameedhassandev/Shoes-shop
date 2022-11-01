@@ -22,6 +22,9 @@ namespace Shoes_shop.Models
 
         [Required]
         public string Contact { get; set; } = string.Empty;
+
+        public bool IsConfirmed { get; set; }
+        public bool IsShippedAndPay { get; set; }
         public ICollection<OrderDetail>? OrderDetails { get; set; }
 
     }

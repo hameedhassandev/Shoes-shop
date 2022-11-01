@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Shoes_shop.Models.Order> 
+
+
+@{
+    ViewData["Title"] = "All User's Order";
+}
+
+<h2>Orders Waiting For Confirmation</h2>
+<hr/>
+
+ 
+<br />
+@if(!Model.Any()){
+
+    <div class="alert alert-warning">
+        No Orders under revision yet, check confiermed order or shipped and pay order!
+    </div>
+}
+else{
+<div class="content mt-8">
+
+        @*<partial name="ConfirmedOrders" model="@Model" />*@
+    <table class="table">
+    <thead>
+        <tr>
+             <th>
+                Order No.
+            </th>
+            <th>
+                User Name
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Added At
+            </th>
+           
+            <th>
+              Shipping Address
+            </th>
+            <th>
+               Contact Number
+            </th>
+            <th>
+                Total Price
+            </th>
+          
+            <th >
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="align-middle">
+               @item.Id
+            </td>
+            <td class="align-middle">
+                @item.User.FullName
+            </td>
+            <td class="align-middle">
+                @item.User.Gender
+            </td>
+             <td class="align-middle">
+                @item.dateTime
+            </td>
+            
+            <td class="align-middle"  style=" max-width: 120px;">
+                @item.ShippingAddress
+            </td>
+
+          
+            <td class="align-middle">
+                @item.Contact
+            </td>
+            <td class="align-middle">
+                EGP @item.TotalPrice
+            </td>
+
+            <td >
+                <a class="btn btn-success"  asp-action="Details" asp-route-id="@item.Id"> Confirmation</a> 
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+}

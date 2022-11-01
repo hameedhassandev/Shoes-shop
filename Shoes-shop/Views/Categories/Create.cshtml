@@ -1,82 +1,46 @@
-﻿@model Shoes_shop.Models.Shoes
+﻿@model Shoes_shop.Models.Category
 
 @{
-    ViewData["Title"] = "Shoes | Create";
+    ViewData["Title"] = "Create | Category";
 }
-
-
 <div class="content mt-5">
     <div class="container">
-        <h2>Create a new shoes</h2>
+
+        <h3>Create A New Category</h3>
+
 
         <hr />
         <div class="row">
             <div class="col-md-4">
-                <form enctype="multipart/form-data" asp-action="Create">
+                <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                     <div class="form-group my-3">
                         <label asp-for="Name" class="control-label"></label>
                         <input asp-for="Name" class="form-control" autocomplete="off" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="form-group my-3">
-                        <label asp-for="ShortDescription" class="control-label"></label>
-                        <textarea asp-for="ShortDescription" class="form-control">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="form-control">
                         </textarea>
-                        <span asp-validation-for="ShortDescription" class="text-danger"></span>
-                    </div>
-                    <div class="form-group my-3">
-                        <label asp-for="Price" class="control-label"></label>
-                        <input asp-for="Price" class="form-control" type="number" />
-                        <span asp-validation-for="Price" class="text-danger"></span>
-                    </div>
-                    <input asp-for="IsShoesOfTheWeek" value="false" class="form-control" type="hidden" />
-                    <div class="form-group my-3">
-                        <label class="control-label">Category</label>
-                        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
-                            <option value="">Select Category..</option>
-                        </select>
-                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
 
                     <div class="form-group my-3">
-                        <label asp-for="NumberInStock" class="control-label"></label>
-                        <input asp-for="NumberInStock" class="form-control" type="number" />
-                        <span asp-validation-for="NumberInStock" class="text-danger"></span>
-                    </div>
-                    <div class="form-group my-3">
-                        <label asp-for="Size" class="control-label"></label>
-                        <input asp-for="Size" class="form-control" type="number" />
-                        <span asp-validation-for="Size" class="text-danger"></span>
-                    </div>
-                    <div class="form-group my-3">
-                        <label asp-for="ImageFile" class="control-label"></label>
-                            <input asp-for="ImageFile" type="file" class="form-control" required
-                                   onchange="document.getElementById('FrontImage').src= window.URL.createObjectURL(this.files[0])" />
-                        <span asp-validation-for="ImageFile" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group my-3">
-                        <input type="submit" value="Create" class="btn btn-success" />
+                        <input type="submit" value="Create" class="btn btn-primary" />
                         <a class="btn btn-outline-secondary" asp-action="Index">Back to List</a>
                     </div>
 
-
-
                 </form>
-
-            </div>
-            <div class="col-6">
-                <img id="FrontImage" src="~/images/defult.png" alt="shoes_img" width="500" height="500" style="border:1px;margin-top:20px;margin-left:120px;" />
-
             </div>
         </div>
 
+        <div>
+        </div>
     </div>
 </div>
+
 @section Scripts {
 
     <partial name="_ValidationScriptsPartial" />
-
 }

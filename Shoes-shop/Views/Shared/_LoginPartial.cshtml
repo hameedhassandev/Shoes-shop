@@ -1,26 +1,47 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using Shoes_shop.Helpers
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
-</ul>
+    <ul class="nav-list">
+        @if (SignInManager.IsSignedIn(User))
+        {
+        @if (User.IsInRole(RolesName.UserRole)){
+
+        
+
+            <li>
+                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                    <i class="fa fa-user" aria-hidden="true"></i> Hello @User.Identity?.Name!
+                </a>
+
+            </li>
+            <li>
+                <a href="#">Feedback</a>
+            </li>
+        
+            <li>
+                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-btn">Logout</button>
+                </form>
+            </li>
+        }
+        else if (User.IsInRole(RolesName.AdminRole)){
+      
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-btn">Logout</button>
+            </form>
+        }
+        
+        }else{
+            <li>
+                <a  asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li >
+                <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        }
+    </ul>
+   
+
+

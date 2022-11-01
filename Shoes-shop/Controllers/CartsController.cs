@@ -115,7 +115,7 @@ namespace Shoes_shop.Controllers
             
             cartService.ToOrder(userId,userAdress,contact);
 
-            return RedirectToAction(nameof(MyCart));
+            return RedirectToAction("Index", "Orders");
         }
     }
 }

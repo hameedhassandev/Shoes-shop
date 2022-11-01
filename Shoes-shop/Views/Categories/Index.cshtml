@@ -6,7 +6,7 @@
 <h1>Manage Categories</h1>
 <hr />
 <div class="text-white">
-<a href="@Url.Action("Create")" class="btn btn-primary">
+    <a href="@Url.Action("Create")" class="btn btn-outline-dark" style="border-radius: 25px;">
         <i class="fa fa-plus" aria-hidden="true"></i>
         Add New Category
 </a>
@@ -34,14 +34,14 @@
                     <td>@category.Description</td>
 
                     <td>
-                        <a href="@Url.Action("Edit", "Categories", new { id = category.Id })" class="btn btn-primary">
+                        <a href="@Url.Action("Edit", "Categories", new { id = category.Id })" class="btn btn-outline-primary" style="border-radius: 25px;">
                             <i class="fa fa-edit"></i> Edit
                         </a>
-                    
-                        <a href="@Url.Action("Details", "Categories", new { id = category.Id })" class="btn btn-success">
+
+                        <a href="@Url.Action("Details", "Categories", new { id = category.Id })" class="btn btn-outline-success" style="border-radius: 25px;">
                             <i class="fa fa-info-circle" aria-hidden="true"></i> Details
                         </a>
-                        <a href="@Url.Action("Delete", "Categories", new { id = category.Id })" class="btn btn-danger">
+                        <a href="@Url.Action("Delete", "Categories", new { id = category.Id })" class="btn btn-outline-danger" style="border-radius: 25px;">
                             <i class="fa fa-trash" aria-hidden="true"></i> Delete
                         </a>
 

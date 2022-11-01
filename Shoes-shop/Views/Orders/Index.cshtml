@@ -15,37 +15,67 @@
 
     @foreach (var order in Model)
     {
-  <div class="card" style=" border-radius: 14px;">
+  <div class="card my-3" style=" border-radius: 14px;">
     <h5 class="card-header">Order Number: @order.Id</h5>
         <div class="card-body">
+                @foreach (var orderDetails in ViewBag.orderDetails)
+                {
+                }
             <h5 class="card-title">
                 Order Date:
                 &ensp;
                 @order.dateTime.Date.Day/
                 @order.dateTime.Date.Month/
                 @order.dateTime.Date.Year
-                &ensp;&ensp;&ensp;
+                &ensp;&ensp;
                @order.dateTime.ToShortTimeString()
             </h5>
             <h5 class="card-text">Total Price: EGP @order.TotalPrice</h5>
-            <p class="card-text">Address of shipping: @order.ShippingAddress</p>
-            <p class="card-text">Contact: @order.Contact</p>
+            <h5 class="card-text">Address of shipping: @order.ShippingAddress</h5>
+                <h5 class="card-text">Contact: @order.Contact</h5>
+                <ul class="text-info">
+                    <li>
+                        <p>Shipping is free, but if the order is returned, you will paid EGP 30. </p>
+                    </li>
+                    <li>
+                        <p>Donot pay the order to the delivery before reviewing it and receive the invoice.</p>
+
+                    </li>
+                    <li>
+                        <p>In the event of a complaint, contact us.</p>
+                    </li>
+
+                </ul>
             @{
-                    string OrderIsDone = "progtrckr-done";
+                    // change css class in case order is confirming and shipped
+                    string OrderIsProcessingDone = "progtrckr-done";
+                    string OrderIsConfirm = "progtrckr-todo";
+                    string OrderIsShippedAndPay = "progtrckr-todo";
+
+                    if(order.IsConfirmed && !order.IsShippedAndPay){
+                        OrderIsConfirm = "progtrckr-done";
+                    }
+                    if(order.IsShippedAndPay && order.IsConfirmed){
+                        OrderIsShippedAndPay = "progtrckr-done";
+                        OrderIsConfirm = "progtrckr-done";
+                    }
+                    //progtrckr-todo
+                    //progtrckr-notdone
             }
             <div class="my-5 text-center">
                     <ol class="progtrckr" data-progtrckr-steps="4">
-                        <li class="@OrderIsDone">Order Processing</li>
+                        <li class="@OrderIsProcessingDone">Order Processing</li>
 
-                        <li class="@OrderIsDone">In Production</li>
+                        <li class="@OrderIsConfirm"> Order Confirming</li>
 
-                        <li class="progtrckr-todo">Ship & Pay</li>
+                        <li class="@OrderIsShippedAndPay">Shipped & Pay</li>
                     </ol>
             </div>
-                <a href="@Url.Action("Details", "Orders", new { id = @order.Id })" class="btn btn-info">
+                <a href="@Url.Action("Details", "Orders", new { id = @order.Id })" class="btn btn-outline-info" style="border-radius:16px;">
                     Order Details
                 </a>
-                <a href="" class="btn btn-outline-secondary">Edit Shipping</a>
+
+                <a href="@Url.Action("EdieShipping", "Orders", new { id = @order.Id })" class="btn btn-outline-secondary" style="border-radius:16px;">Edit Shipping</a>
         </div>
     </div>
     }
@@ -88,6 +118,10 @@
             color: black;
             border-bottom: 4px solid cornflowerblue;
         }
+          ol.progtrckr li.progtrckr-notdone {
+            color: black;
+            border-bottom: 4px solid red;
+        }
 
         ol.progtrckr li.progtrckr-todo {
             color: silver;
@@ -110,6 +144,16 @@
             content: "\2713";
             color: white;
             background-color: cornflowerblue;
+            height: 2.2em;
+            width: 2.2em;
+            line-height: 2.2em;
+            border: none;
+            border-radius: 2.2em;
+        }
+         ol.progtrckr li.progtrckr-notdone:before {
+            content: "\2717";
+            color: white;
+            background-color: red;
             height: 2.2em;
             width: 2.2em;
             line-height: 2.2em;

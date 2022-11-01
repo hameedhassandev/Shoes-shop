@@ -23,7 +23,16 @@ namespace Shoes_shop.Models.Repositories
 
         public IEnumerable<Order> All()
         { 
-            return Context.orders.ToList();
+            return Context.orders.Include(o=>o.User).ToList();
+        }
+        public IEnumerable<Order> AllConfirmed()
+        {
+            return Context.orders.Include(o => o.User).Where(o => o.IsConfirmed == true && o.IsShippedAndPay == false).ToList();
+        }
+
+        public IEnumerable<Order> AllShippedAndPay()
+        {
+            return Context.orders.Include(o => o.User).Where(o => o.IsShippedAndPay == true).ToList();
         }
 
         public Order Delete(Order entity)
@@ -47,8 +56,7 @@ namespace Shoes_shop.Models.Repositories
 
         public Order Update(Order entity)
         {
-            var order = Context.orders.Attach(entity);
-            order.State = EntityState.Modified;
+            Context.orders.Update(entity);
             Context.SaveChanges();
             return entity;
 

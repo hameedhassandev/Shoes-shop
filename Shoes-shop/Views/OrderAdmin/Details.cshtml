@@ -17,33 +17,61 @@
                     <th>Description</th>
                     <th> Quantity</th>
                     <th> Price</th>
-                    
+
                 </tr>
             </thead>
             @{
                 double orderTotal = 0;
+                var OrderID = ViewBag.orderId;
             }
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td><img src="~/images/@item.Shoes.ImageURL" alt="shoes_img" width="150" height="150"/></td>
+                        <td><img src="~/images/@item.Shoes.ImageURL" alt="shoes_img" width="150" height="150" /></td>
                         <td> @item.Shoes.Name </td>
                         <td> @item.Shoes.ShortDescription</td>
                         <td> @item.Quantity</td>
                         <td> EGP @item.Shoes.Price</td>
                     </tr>
                     orderTotal += item.Shoes.Price * item.Quantity;
+
+                   
+                  
+                   
                 }
 
             </tbody>
-
-           
             
+
+
         </table>
         <h4>Order Total Price : EGP @orderTotal</h4>
+    </div>    
+    <hr />
+  
+    <div class="form-check my-3">
+        <input type="checkbox" id="checkme" />
+        <label class="form-check-label">Yes, confirm this order</label>
     </div>
+    
+    <form asp-controller="OrderAdmin" asp-action="ConfirmOrder" method="post">
+        <a class="btn btn-outline-secondary" asp-action="Index">Back to Orders</a>
+        <input type="text" asp-for="@OrderID" />
+        <input type="submit" value="Confirm Order" class="btn btn-success" disabled="disabled" id="confirmId" />
+    </form>
 
-    <a class="btn btn-outline-secondary" asp-action="Index">Back to Orders</a>
 
 </div>
+<script>
+    var checker = document.getElementById('checkme');
+    var confirmBtn = document.getElementById('confirmId');
+    // when unchecked or checked, run the function
+    checker.onchange = function () {
+        if (this.checked) {
+            confirmBtn.disabled = false;
+        } else {
+            confirmBtn.disabled = true;
+        }
+    }
+</script>   

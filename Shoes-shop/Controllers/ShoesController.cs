@@ -154,14 +154,7 @@ namespace Shoes_shop.Controllers
             var shoes = ShoesRepository.Get(id);
             if (shoes == null)
                 return NotFound();
-            //deleget to Make Expression to get all related shoeses with the same category exept selected shoes
-            Expression<Func<Shoes, bool>> predicate = e => e.CategoryId == shoes.CategoryId && e.Id != shoes.Id;
-
-            var relatedShoes = ShoesRepository.GetRelatedShoes(predicate)
-            .Select(e => _mapper.Map<ShoesViewModel>(e));
-
-            ViewBag.RelatedShoes = relatedShoes;
-
+           
             return View(nameof(ShoesDetails), _mapper.Map<ShoesViewModel>(shoes));
 
         }

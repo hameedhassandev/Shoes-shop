@@ -1,0 +1,57 @@
+﻿<div class="sidebar">
+    <h3 class="admin_panel"><i class='fa fa-lock'></i> Admin Panel</h3>
+    <img src="~/images/admin.PNG" alt="admin_prof" class="admin_img"/>
+    <h6 class="admin_email">@User.Identity?.Name!</h6>
+    <hr />
+
+    <div class="panel_links">
+        <ul>
+            <li>
+                <a asp-controller="" asp-action="">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                     Dashboard
+                </a>
+
+            </li>
+            <li>
+                <a asp-controller="Categories" asp-action="Index">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                     Categories
+                </a>
+
+            </li>
+            <li>
+                <a asp-action="Index" asp-controller="Shoes">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                     Shoeses
+                </a>
+            </li>
+            <li>
+                <a asp-controller="OrderAdmin" asp-action="Index">
+                    <i class="fa fa-first-order" aria-hidden="true"></i>
+                     Orders
+                </a>
+
+            </li>
+            <li>
+                <a asp-controller="OrderAdmin" asp-action="ConfirmedOrders">
+                    <i class="fa fa-truck" aria-hidden="true"></i>
+                    Confirmed Orders
+                </a>
+
+            </li>
+            <li>
+                <a asp-controller="OrderAdmin" asp-action="">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Shipped Orders
+                </a>
+
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+
+
+  
