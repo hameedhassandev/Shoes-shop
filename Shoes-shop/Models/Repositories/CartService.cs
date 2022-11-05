@@ -41,9 +41,6 @@ namespace Shoes_shop.Models.Repositories
             cart.TotalPrice = shoes.Price * qty;
 
             context.Carts.Add(cart);
-           /* shoes.NumberInStock -= qty;
-            context.Shoes.Update(shoes);*/
-
             context.SaveChanges(true);
 
         }
@@ -106,10 +103,7 @@ namespace Shoes_shop.Models.Repositories
 
             if (shoes == null && cart == null)
                 return;
-            // remove the shoes from the cart and increase NumberInStock by the removed quantity
             context.Carts.Remove(cart);
-           /* shoes.NumberInStock += cart.Quntity;
-            shoesService.Update(shoes);*/
 
             context.SaveChanges(true);
         }
@@ -136,7 +130,6 @@ namespace Shoes_shop.Models.Repositories
             // remove all items from stock
             context.RemoveRange(items);
 
-        
             context.SaveChanges(true);
         }
 

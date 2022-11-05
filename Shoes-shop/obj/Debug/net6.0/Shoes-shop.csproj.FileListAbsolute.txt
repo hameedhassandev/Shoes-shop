@@ -164,3 +164,5 @@ D:\newDotNetProject\Shoes-shop\obj\Debug\net6.0\refint\Shoes-shop.dll
 D:\newDotNetProject\Shoes-shop\obj\Debug\net6.0\Shoes-shop.pdb
 D:\newDotNetProject\Shoes-shop\obj\Debug\net6.0\Shoes-shop.genruntimeconfig.cache
 D:\newDotNetProject\Shoes-shop\obj\Debug\net6.0\ref\Shoes-shop.dll
+D:\newDotNetProject\Shoes-shop\bin\Debug\net6.0\cloudscribe.Pagination.Models.dll
+D:\newDotNetProject\Shoes-shop\bin\Debug\net6.0\cloudscribe.Web.Pagination.dll

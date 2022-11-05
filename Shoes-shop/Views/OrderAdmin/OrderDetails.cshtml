@@ -1,0 +1,16 @@
+﻿@model Shoes_shop.ViewModels.OrderAndDetailsVM
+
+
+<td>name : @Model.FullNam</td>
+<td>Adress : @Model.ShippingAddress</td>
+<td>contact  : @Model.Contact</td>
+<td>Date Time  : @Model.dateTime</td>
+<td>is confirmed : @Model.IsConfirmed</td>
+<td>is shipped : @Model.IsShippedAndPay</td>
+
+@foreach(var item in Model.OrderDetails){
+    <td>Shoes Name: @item.Shoes.Name</td>
+    <td>Price EGP: @item.Shoes.Price</td>
+    <td>Description: @item.Shoes.ShortDescription</td>
+    <td>Qty : @item.Quantity</td>
+}

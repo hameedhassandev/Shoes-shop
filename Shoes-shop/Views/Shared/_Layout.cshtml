@@ -37,6 +37,9 @@
                 <li>
                     <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                 </li>
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
+                </li>
               
                 @if (User.IsInRole(RolesName.UserRole))
                 {
@@ -56,17 +59,19 @@
         </nav>
 
     </header>
-      @if (User.IsInRole(RolesName.AdminRole))
+    @if (User.IsInRole(RolesName.AdminRole))
     {
-
-
         <partial name="_AdminSidePanel" />
-    }
     <div class="body-text">
-        <!-- body content -->
+        <!-- body content Admi Panel -->
         @RenderBody()
     </div>
-
+    }else
+    {
+        <div>
+            @RenderBody()
+        </div>
+    }
     <footer class="border-top footer text-muted">
         <div class="body-text">
             &copy; 2022 - Shoes_shop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

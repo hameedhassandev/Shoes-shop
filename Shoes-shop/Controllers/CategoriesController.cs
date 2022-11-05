@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using cloudscribe.Pagination.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Shoes_shop.Helpers;
@@ -20,10 +21,20 @@ namespace Shoes_shop.Controllers
             _context = context; 
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pageSize = 1, int pageNumber = 1)
         {
-            var categories = _context.All();
-            return View(categories);
+            int excludeRecords = (pageSize * pageNumber) - pageSize;
+            var categories = _context.All().Skip(excludeRecords).Take(pageSize);
+            int categoriesCount = _context.All().Count();
+
+            var result = new PagedResult<Category>
+            {
+                Data = categories.ToList(),
+                TotalItems = categoriesCount,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+            };
+            return View(result);
         }
 
         //get details by id

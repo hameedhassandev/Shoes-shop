@@ -8,7 +8,6 @@ namespace Shoes_shop.Models.Repositories
         public IEnumerable<Order> All();
         public IEnumerable<Order> AllConfirmed();
         public IEnumerable<Order> AllShippedAndPay();
-        public Order Delete(Order entity);
         public  IEnumerable<Order> Find(Expression<Func<Order, bool>> predicate);
         public Order GetOrder(int id);
         public Order Update(Order entity);

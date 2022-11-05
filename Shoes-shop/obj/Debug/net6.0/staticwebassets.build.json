@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uNgUTPkAH5gzalI+RCTAMfKRoi0vEvCIP2rMX7H25hY=",
+  "Hash": "x2G1RvsDVRzImAcYFiiFaHROe0E9e6jhtZJXiTDcZ6U=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1105,6 +1105,40 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\0b98a778-eb3b-4d73-9fa2-ae729b5d0d36_ce8a6f3aa6294de988d7abce00c4e459_9366.webp",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/0b98a778-eb3b-4d73-9fa2-ae729b5d0d36_ce8a6f3aa6294de988d7abce00c4e459_9366.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\0b98a778-eb3b-4d73-9fa2-ae729b5d0d36_ce8a6f3aa6294de988d7abce00c4e459_9366.webp"
+    },
+    {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\41b4db77-7c59-405f-9954-142dd569ee55_SHOES.PNG",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/41b4db77-7c59-405f-9954-142dd569ee55_SHOES.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\41b4db77-7c59-405f-9954-142dd569ee55_SHOES.PNG"
+    },
+    {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\admin.PNG",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1120,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\admin.PNG"
+    },
+    {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\back.jpg",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/back.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\back.jpg"
     },
     {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\c53bbbf4-497b-45a6-8536-f96b86464671_s1.PNG",

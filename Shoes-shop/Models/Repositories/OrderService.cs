@@ -23,7 +23,7 @@ namespace Shoes_shop.Models.Repositories
 
         public IEnumerable<Order> All()
         { 
-            return Context.orders.Include(o=>o.User).ToList();
+            return Context.orders.Include(o=>o.User).ToList().Where(o => o.IsConfirmed == false && o.IsShippedAndPay == false);
         }
         public IEnumerable<Order> AllConfirmed()
         {
@@ -35,12 +35,7 @@ namespace Shoes_shop.Models.Repositories
             return Context.orders.Include(o => o.User).Where(o => o.IsShippedAndPay == true).ToList();
         }
 
-        public Order Delete(Order entity)
-        {
-            Context.orders.Remove(entity);
-            Context.SaveChanges();
-            return entity;
-        }
+      
 
         //order by desc using datetime  
         public IEnumerable<Order> Find(Expression<Func<Order, bool>> predicate)

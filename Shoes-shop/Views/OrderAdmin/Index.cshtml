@@ -54,6 +54,7 @@ else{
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            
             <td class="align-middle">
                @item.Id
             </td>
@@ -80,7 +81,8 @@ else{
             </td>
 
             <td >
-                <a class="btn btn-success"  asp-action="Details" asp-route-id="@item.Id"> Confirmation</a> 
+                <a class="btn btn-success"  asp-action="Details" asp-route-id="@item.Id"> Confirmation</a>
+                <a class="btn btn-success" asp-action="OrderDetails" asp-route-id="@item.Id"> VM</a>
 
             </td>
         </tr>

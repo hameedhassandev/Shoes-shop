@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Shoes_shop.Models.Category>
+﻿@model cloudscribe.Pagination.Models.PagedResult<Category>
+
 @{
     ViewData["Title"] = "Index | Categories";
 }
@@ -12,12 +13,13 @@
 </a>
 <br />
 </div>
-@if(!Model.Any()){
+@if(!Model.Data.Any()){
 
     <div class="alert alert-warning">
         No category of added yet!
     </div>
 }else{
+
     <table class="table my-3">
         <thead>
             <tr>
@@ -27,7 +29,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var category in Model)
+            @foreach (var category in Model.Data)
             {
                 <tr>
                     <td>@category.Name</td>
@@ -50,4 +52,19 @@
             }
         </tbody>
     </table>
-}
+    }
+<hr />
+
+<cs-pager cs-paging-pagenumber=(int)Model.PageNumber
+          cs-paging-totalitems=(int)Model.TotalItems
+          cs-paging-pagesize=(int)Model.PageSize
+          cs-pagenumber-param="pageNumber"
+          asp-controller="Categories"
+          asp-action="Index"
+          cs-pager-li-current-class="page-item active"
+          cs-pager-li-other-class="page-item"
+          cs-pager-li-non-active-class="page-item disabled"
+          cs-pager-link-current-class="page-link"
+          cs-pager-link-other-class="page-link">
+
+</cs-pager>

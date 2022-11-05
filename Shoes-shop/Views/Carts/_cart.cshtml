@@ -74,7 +74,7 @@
 <div >
         <h2 id="totalCartPrice" class="my-2">Subtotal : EGP @ViewBag.totalCartPrice</h2>
         <button type="button" class="btn btn-warning col-6 my-3" data-toggle="modal" data-target="#exampleModal" style="border-radius:20px;height:50px">
-            Proceed to Buy
+            Proceed to Order
         </button>
 
         <a class="btn btn-danger col-6"  onclick="clearCart()" style="border-radius:20px;height:50px"><i class="fa fa-trash"></i> Clear Cart</a>
@@ -95,7 +95,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <ul>
+           <h5> <span style="font-weight: bold;">Shipping address:</span>  @ViewBag.userAdress</h5>
+           <h5> <span style="font-weight: bold;">Contact dial:</span>  @ViewBag.contact</h5>
+           <span class="text-danger">After order confirmation, you can change your shipping details</span>
+               <hr/>
+               
+          <ul>
             <li>
                 <p>Shipping is free, but if the order is returned, you will paid EGP 30. </p>
             </li>

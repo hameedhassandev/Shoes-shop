@@ -39,6 +39,8 @@ namespace Shoes_shop.Controllers
             var allIncarts = cartService.GetAllItems(userId);
             var totalCartPrice = allIncarts.Sum(t => t.TotalPrice);
             ViewBag.totalCartPrice = totalCartPrice;
+            ViewBag.userAdress = userAdress;
+            ViewBag.contact = contact;
             return PartialView("_cart",allIncarts);
         }
 

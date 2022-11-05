@@ -8,6 +8,7 @@ using Shoes_shop.Models;
 using Shoes_shop.Models.Repositories;
 using Shoes_shop.ViewModels;
 using System.Linq.Expressions;
+using cloudscribe.Pagination.Models;
 
 namespace Shoes_shop.Controllers
 {
@@ -39,10 +40,24 @@ namespace Shoes_shop.Controllers
 
 
 
-        public IActionResult Index()
+        public IActionResult Index(int pageSize = 5, int pageNumber = 1)
         {
-            var AllShoes = ShoesRepository.All();
-            return View(AllShoes);
+            int excludeRecords = (pageSize * pageNumber) - pageSize;
+            var AllShoes = ShoesRepository.All()
+                                          .Skip(excludeRecords)
+                                          .Take(pageSize);
+
+            int ShoesCount = ShoesRepository.All().Count();
+            ViewBag.ShoesCount = ShoesCount;
+
+            var result = new PagedResult<Shoes>
+            {
+                Data = AllShoes.ToList(),
+                TotalItems = ShoesCount,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+            };
+            return View(result);
         }
 
         //get shoes details by id
@@ -158,11 +173,6 @@ namespace Shoes_shop.Controllers
             return View(nameof(ShoesDetails), _mapper.Map<ShoesViewModel>(shoes));
 
         }
-
-
-
-
-
 
     }
 }

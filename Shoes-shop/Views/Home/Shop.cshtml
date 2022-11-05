@@ -1,0 +1,79 @@
+﻿@model cloudscribe.Pagination.Models.PagedResult<Shoes>
+@{
+    ViewData["Title"] = "Shop";
+}
+<div class="user-body">
+    <cs-pager cs-paging-pagenumber=(int)Model.PageNumber
+              cs-paging-totalitems=(int)Model.TotalItems
+              cs-paging-pagesize=(int)Model.PageSize
+              cs-pagenumber-param="pageNumber"
+              asp-controller="Home"
+              asp-action="Shop"
+              cs-pager-li-current-class="page-item active"
+              cs-pager-li-other-class="page-item"
+              cs-pager-li-non-active-class="page-item disabled"
+              cs-pager-link-current-class="page-link"
+              cs-pager-link-other-class="page-link">
+
+    </cs-pager>
+<br/>
+    <div class="row">
+        @foreach (var item in Model.Data)
+        {
+            <div class="card text-center m-3 animate" style="width: 24rem; border-radius:18px;border: none;">
+                <a asp-action="ShoesDetails" asp-controller="Shoes" asp-route-id="@item.Id" class="a-card">
+
+                <img class="card-img-top" src="~/images//@item.ImageURL" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.ShortDescription</p>
+                    <h4><sup style="font-size: 12px;">EGP</sup> @item.Price</h4>
+                    <p class="text-info">Brand: @item.Category.Name</p>
+                </div>
+                <div class="container m-1">
+                        <a href="#" style="border-radius:16px;" class="btn btn-outline-dark">ADD TO CART</a>
+                        <a asp-action="ShoesDetails" asp-controller="Shoes" asp-route-id="@item.Id" style="border-radius:16px;" class="btn btn-outline-info">Details</a>
+                </div>
+                </a>
+
+            </div>
+        }
+
+    </div>
+    <br />
+    <cs-pager cs-paging-pagenumber=(int)Model.PageNumber
+              cs-paging-totalitems=(int)Model.TotalItems
+              cs-paging-pagesize=(int)Model.PageSize
+              cs-pagenumber-param="pageNumber"
+              asp-controller="Home"
+              asp-action="Shop"
+              cs-pager-li-current-class="page-item active"
+              cs-pager-li-other-class="page-item"
+              cs-pager-li-non-active-class="page-item disabled"
+              cs-pager-link-current-class="page-link"
+              cs-pager-link-other-class="page-link">
+
+    </cs-pager>
+</div>
+
+<style>
+
+    .animate{
+        transition: all 0.5s;
+    }
+
+    .animate:hover{
+        transform: scale(1.1);
+    }
+
+    .a-card{
+
+       text-decoration: none;
+       color: inherit;
+    }
+    .a-card:hover{
+         text-decoration: none;
+         color: inherit;
+    }
+    
+</style>

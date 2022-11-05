@@ -38,6 +38,8 @@ namespace Shoes_shop.Controllers
             
         }
 
+      
+
 
         public IActionResult Details (int id)
         {

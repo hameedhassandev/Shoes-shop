@@ -22,6 +22,8 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddCloudscribePagination();
+
 builder.Services.AddScoped<IBaseRepository<Category>, CategoryService>();
 builder.Services.AddScoped<IShoesService, ShoesService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
