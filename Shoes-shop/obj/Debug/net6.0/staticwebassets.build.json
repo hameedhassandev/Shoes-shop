@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x2G1RvsDVRzImAcYFiiFaHROe0E9e6jhtZJXiTDcZ6U=",
+  "Hash": "W2m76q0GVJyPN4rh3o901cKCcmKoy1j2oUF5L2mX42I=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "D:\\newDotNetProject\\Shoes-shop\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Shoes-shop.bundle.scp.css"
     },
     {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\css\\Login.css",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "css/Login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login.css"
+    },
+    {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\css\\site.css",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1156,23 +1173,6 @@
       "OriginalItemSpec": "wwwroot\\images\\admin.PNG"
     },
     {
-      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\back.jpg",
-      "SourceId": "Shoes-shop",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
-      "BasePath": "_content/Shoes-shop",
-      "RelativePath": "images/back.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\back.jpg"
-    },
-    {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\c53bbbf4-497b-45a6-8536-f96b86464671_s1.PNG",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1239,6 +1239,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\defult.png"
+    },
+    {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\login.jpg",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/login.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\login.jpg"
     },
     {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\s1.PNG",

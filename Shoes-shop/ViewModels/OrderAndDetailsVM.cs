@@ -16,6 +16,8 @@ namespace Shoes_shop.ViewModels
         public bool IsConfirmed { get; set; }
         public bool IsShippedAndPay { get; set; }
         public List<OrderDetail>? OrderDetails { get; set; }
+        public List<Shoes>? shoes { get; set; }
+
 
     }
 }

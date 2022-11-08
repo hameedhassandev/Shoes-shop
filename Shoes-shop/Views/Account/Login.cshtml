@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/Login.css">
+</head>
+<body>
+  <div class="login_body">
+           <div class="col-12">
+            <div class="row">
+
+                <div class="col-6">
+                    <img src="~/images//login.jpg" alt="login" class="login_img"/>
+                </div>
+                <div class="col-6">
+                   <h1>Login</h1>
+                    <h4>Don't have an account yet? <a href="">Sign Up</a> </h4>
+                   <hr />
+                   <form asp-action="" method="">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label class="h4" @*asp-for=""*@>Email</label>
+                            <input  class="h4" @*asp-for="" *@ placeholder="Enter your Email" type="email" required />
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="h4" @*asp-for=""*@>Password</label>
+                            <input class="h4" @*asp-for="" *@ placeholder="Enter your Password" type="password" required />
+                            <span @*asp-validation-for=""*@ class="text-danger"></span>
+                        </div>
+                      
+
+                        <div class="form-group">
+                            <input class="" type="checkbox" id="checkme" />
+                            <label class="form-check-label h4">Remember me?</label>
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary col-12 login_btn">Login</button>
+                        </div>
+
+                        <a href="">Forgot your password?</a>
+
+
+              
+                   </form>
+
+                </div>
+           </div>
+        </div>
+   </div>
+</body>
+</html>

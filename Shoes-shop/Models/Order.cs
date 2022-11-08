@@ -25,6 +25,7 @@ namespace Shoes_shop.Models
 
         public bool IsConfirmed { get; set; }
         public bool IsShippedAndPay { get; set; }
+
         public ICollection<OrderDetail>? OrderDetails { get; set; }
 
     }

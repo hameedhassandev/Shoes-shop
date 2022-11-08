@@ -1,8 +1,11 @@
-﻿<div class="sidebar">
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+<div class="sidebar">
     <h3 class="admin_panel"><i class='fa fa-lock'></i> Admin Panel</h3>
     <img src="~/images/admin.PNG" alt="admin_prof" class="admin_img"/>
     <h6 class="admin_email">@User.Identity?.Name!</h6>
-    <hr />
+    <hr class="text-light"/>
 
     <div class="panel_links">
         <ul>

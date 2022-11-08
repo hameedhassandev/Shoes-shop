@@ -13,7 +13,7 @@ namespace Shoes_shop.Models
         [Required]
         public int Quantity { get; set; }
 
-        public Shoes? Shoes { get; set; }
+        public Shoes Shoes { get; set; }
         public Order? Order { get; set; }
 
     }

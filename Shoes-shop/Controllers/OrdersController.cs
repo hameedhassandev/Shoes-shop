@@ -26,20 +26,9 @@ namespace Shoes_shop.Controllers
         {
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
             userId = user.Id;
-
-            Expression<Func<Order, bool>> predicate = o => o.UserId == userId;
-
-            var model = orderService.Find(predicate);
-            
-            var orderDetails = orderDetailsService.Find(7);
-            ViewBag.orderDetails = orderDetails;
-            return View(model);
-
-            
+            var model = orderService.Find(userId);
+            return View(model);          
         }
-
-      
-
 
         public IActionResult Details (int id)
         {

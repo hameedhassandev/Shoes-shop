@@ -11,30 +11,29 @@
 
         <hr />
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-12">
                 <form enctype="multipart/form-data" asp-action="EditeShippingConfirm">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                    <div class="form-group my-3">
-                        <label asp-for="Address" class="control-label"></label>
-                        <textarea asp-for="Address" class="form-control" >
-                        </textarea>
+                    <div class="form-group">
+                        <label class="h4">Shipping Adress</label>
+                        <input class="h4" asp-for="Address" type="text" autocomplete="off" />
                         <span asp-validation-for="Address" class="text-danger"></span>
                     </div>
-                    <div class="form-group my-3">
-                        <label asp-for="Contact" class="control-label"></label>
-                        <input asp-for="Contact" class="form-control" autocomplete="off" />
-
+                    <div class="form-group">
+                        <label class="h4">Contact Dial</label>
+                        <input class="h4" asp-for="Contact" type="text" autocomplete="off" />
                         <span asp-validation-for="Contact" class="text-danger"></span>
                     </div>
+
+                   
+                   
                     <input asp-for="Id" class="form-control"type="hidden"/>
 
                     <div class="form-group my-3">
-                        <input type="submit" value="Update Shipping" class="btn btn-primary" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Back to Orders</a>
+                        <input type="submit" value="Update Shipping" class="btn btn-primary" style="border-radius:25px;font-size:24px;"/>
+                        <a class="btn btn-outline-secondary" asp-action="Index" style="border-radius:25px;font-size:24px;">Back to Orders</a>
                     </div>
-
-
 
                 </form>
 

@@ -20,7 +20,7 @@ namespace Shoes_shop.Controllers
         {
             return View();
         }
-        public IActionResult Shop(int pageSize=8, int pageNumber=1)
+        public IActionResult Shop(int pageSize=9, int pageNumber=1)
         {
             int excludeRecords = (pageSize * pageNumber) - pageSize;
             var allShoeses = ShoesService.All().ToList().Skip(excludeRecords)

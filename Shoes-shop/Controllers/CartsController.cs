@@ -62,22 +62,35 @@ namespace Shoes_shop.Controllers
 
 
         [HttpPost]
+        public JsonResult AddToCartAjax(CartsVM c)
+        {
+            // var result =  cartService.AddItem('0288af05-f000-4e3c-b70d-e1d4b3e3c14e', c.ShoesId, c.Qty);
+            cartService.AddItem("0288af05-f000-4e3c-b70d-e1d4b3e3c14e", c.ShoesId, c.Qty);
+            return Json("student saved successfully");
+        }
+
+
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult>  AddToCart(ShoesViewModel model)
+        //Carts/AddToCart/
+        [Route("Carts/AddToCart/")]
+        public async Task<IActionResult> AddToCart([FromBody] CartsVM c)
         {
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
-            var massageValue = ValidationMassage(model.Id, model.Quantity);
-            var shoes = shoesService.Get(model.Id);
+           // var massageValue = ValidationMassage(model.Id, model.Quantity);
+            var shoes = shoesService.Get(c.ShoesId);
 
-            if (massageValue != "")
+     /*       if (massageValue != "")
             {
                 TempData["message"] = massageValue;
                 return RedirectToAction("ShoesDetails", "Shoes", new { id = model.Id });
-            }
+            }*/
+
             //in case no validation massage
-            cartService.AddItem(user.Id, model.Id, model.Quantity);
+            cartService.AddItem(user.Id, c.ShoesId, c.Qty);
             TempData["message"] = "Added to Cart Successfully!";
-            return RedirectToAction("ShoesDetails", "Shoes", new { id = model.Id });
+            return RedirectToAction("ShoesDetails", "Shoes", new { id = c.ShoesId });
         }
 
        

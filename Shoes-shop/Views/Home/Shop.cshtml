@@ -30,8 +30,10 @@
                     <h4><sup style="font-size: 12px;">EGP</sup> @item.Price</h4>
                     <p class="text-info">Brand: @item.Category.Name</p>
                 </div>
+                    <input id="qty" value="1" type="number" />
+                    <input id="shoesId" value="@item.Id" type="number" />
                 <div class="container m-1">
-                        <a href="#" style="border-radius:16px;" class="btn btn-outline-dark">ADD TO CART</a>
+                        <a href="#" onclick="addToCart()" style="border-radius:16px;" class="btn btn-outline-dark">ADD TO CART</a>
                         <a asp-action="ShoesDetails" asp-controller="Shoes" asp-route-id="@item.Id" style="border-radius:16px;" class="btn btn-outline-info">Details</a>
                 </div>
                 </a>
@@ -77,3 +79,30 @@
     }
     
 </style>
+@section Scripts {
+    <script>
+
+        function addToCart() {
+
+            let qty = $("#qty").val();
+            let shoesId = $("#shoesId").val();
+            let formData = { shoesID: shoesId, qty: qty }
+            console.log('id' + shoesId + 'qty' + qty);
+
+            $.ajax({
+                url: `/Carts/AddToCartAjax`,
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    alert(response);
+                    qty = '';
+                    shoesId = '';
+                },
+                error: function (error) {
+                    alert("error in adding: " + error.statusText);
+                }
+            });
+        }
+
+    </script>
+}

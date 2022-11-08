@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "My Orders";
 }
-<h1>
-    <i class="fa fa-first-order" aria-hidden="true"></i> Orders</h1>
+<div class="user-body">
+<h1><i class="fa fa-first-order" aria-hidden="true"></i> Orders</h1>
 <hr />
 @if(!Model.Any()){
 
@@ -16,36 +16,99 @@
     @foreach (var order in Model)
     {
   <div class="card my-3" style=" border-radius: 14px;">
-    <h5 class="card-header">Order Number: @order.Id</h5>
+    <h5 class="card-header h3">Order Number: @order.Id</h5>
         <div class="card-body">
-                @foreach (var orderDetails in ViewBag.orderDetails)
-                {
-                }
-            <h5 class="card-title">
-                Order Date:
-                &ensp;
-                @order.dateTime.Date.Day/
-                @order.dateTime.Date.Month/
-                @order.dateTime.Date.Year
-                &ensp;&ensp;
-               @order.dateTime.ToShortTimeString()
-            </h5>
-            <h5 class="card-text">Total Price: EGP @order.TotalPrice</h5>
-            <h5 class="card-text">Address of shipping: @order.ShippingAddress</h5>
-                <h5 class="card-text">Contact: @order.Contact</h5>
-                <ul class="text-info">
-                    <li>
-                        <p>Shipping is free, but if the order is returned, you will paid EGP 30. </p>
-                    </li>
-                    <li>
-                        <p>Donot pay the order to the delivery before reviewing it and receive the invoice.</p>
 
-                    </li>
-                    <li>
-                        <p>In the event of a complaint, contact us.</p>
-                    </li>
+         <div class="row">
+                <div class="form-group col-3">
+                    <label class="h4">Created At</label>
+                    <input class="h4" asp-for="@order.dateTime" type="text" readonly />
+                </div>
+                <div class="form-group col-6">
+                    <label class="h4">Shipping Address</label>
+                    <input class="h4" asp-for="@order.ShippingAddress" type="text" readonly />
+                </div>
+                <div class="form-group col-3">
+                    <label class="h4">Contact Dial</label>
+                    <input class="h4" asp-for="@order.Contact" type="text" readonly />
+                </div>
+                <div class="my-2">
 
-                </ul>
+                  <a href="@Url.Action("EdieShipping", "Orders", new { id = @order.Id })" class="btn btn-secondary col-3" style="border-radius:25px;font-size:24px;">Edit Shipping</a>
+                 </div>
+        </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Item
+                                        </th>
+                                        <th>
+                                            Price
+                                        </th>
+                                        <th>
+                                            Qunatity
+                                        </th>
+                                        <th>
+                                            Total Price
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        double totalItemPrice = 0;
+                                    }
+                                    @foreach (var i in order.OrderDetails)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <img src="~/images/@i.Shoes.ImageURL" width="100" height="100" alt="shoes_img" />
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <h3 class="card-title"> @i.Shoes.Name</h3>
+                                                        <p class="card-text">@i.Shoes.ShortDescription</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><p>EGP @i.Shoes.Price</p></td>
+
+                                            <td><p>@i.Quantity </p></td>
+                                            @{
+                                                totalItemPrice = i.Quantity * i.Shoes.Price;
+                                            }
+                                            <td><p>EGP @totalItemPrice</p></td>
+                                          
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <h1 class="card-text">Total Order Price: EGP @order.TotalPrice</h1>
+
+                    </div>
+                @*shipping info*@                   
+                    <ul class="text-info">
+                        <li>
+                            <p>Shipping is free, but if the order is returned, you will paid EGP 30. </p>
+                        </li>
+                        <li>
+                            <p>Donot pay the order to the delivery before reviewing it and receive the invoice.</p>
+
+                        </li>
+                        <li>
+                            <p>In the event of a complaint, contact us.</p>
+                        </li>
+
+                    </ul>
+                  
+
+        
             @{
                     // change css class in case order is confirming and shipped
                     string OrderIsProcessingDone = "progtrckr-done";
@@ -71,16 +134,15 @@
                         <li class="@OrderIsShippedAndPay">Shipped & Pay</li>
                     </ol>
             </div>
-                <a href="@Url.Action("Details", "Orders", new { id = @order.Id })" class="btn btn-outline-info" style="border-radius:16px;">
-                    Order Details
-                </a>
 
-                <a href="@Url.Action("EdieShipping", "Orders", new { id = @order.Id })" class="btn btn-outline-secondary" style="border-radius:16px;">Edit Shipping</a>
         </div>
     </div>
+
     }
 
 }
+
+</div>
 <style>
     ol.progtrckr {
         margin: 0;

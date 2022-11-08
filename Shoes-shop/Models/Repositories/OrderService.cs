@@ -38,9 +38,14 @@ namespace Shoes_shop.Models.Repositories
       
 
         //order by desc using datetime  
-        public IEnumerable<Order> Find(Expression<Func<Order, bool>> predicate)
+        public IEnumerable<Order> Find(string userID)
         {
-           return Context.orders.Include(o => o.OrderDetails).Where(predicate).OrderByDescending(o => o.dateTime).ToList();
+           return Context.orders
+                .Include(o => o.OrderDetails)
+                .ThenInclude(o=>o.Shoes)
+                .Where(o => o.UserId == userID)
+                .OrderByDescending(o => o.dateTime)
+                .ToList();
         }
 
 

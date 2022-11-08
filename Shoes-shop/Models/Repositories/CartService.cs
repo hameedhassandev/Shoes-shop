@@ -117,13 +117,15 @@ namespace Shoes_shop.Models.Repositories
             double orderTotal = items.Sum(item => item.TotalPrice);
 
             // create new order
-            Order order = new Order() { UserId = userId, dateTime = DateTime.Now, TotalPrice = orderTotal,ShippingAddress = userAdress, Contact= UserContact };
+            Order order = new Order()
+            { UserId = userId, dateTime = DateTime.Now, TotalPrice = orderTotal,ShippingAddress = userAdress, Contact= UserContact };
             order = orderService.Add(order);
 
             // add all shoes to order
             foreach (var item in items)
             {
-                OrderDetail orderDetails = new OrderDetail() { OrderId = order.Id, ShoesId = item.ShoesId, Quantity = item.Quntity };
+                OrderDetail orderDetails = new OrderDetail() 
+                { OrderId = order.Id, ShoesId = item.ShoesId, Quantity = item.Quntity };
                 orderDetailsService.Add(orderDetails);
             }
 
