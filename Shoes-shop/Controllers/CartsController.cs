@@ -61,11 +61,12 @@ namespace Shoes_shop.Controllers
         }
 
 
-        [HttpPost]
-        public JsonResult AddToCartAjax(CartsVM c)
+        [Route("Carts/AddOneToCart/{shoesId:int}")]
+        ///Carts/AddOneToCart/${shoesId}
+        public JsonResult AddOneToCart([FromRoute] int shoesId)
         {
             // var result =  cartService.AddItem('0288af05-f000-4e3c-b70d-e1d4b3e3c14e', c.ShoesId, c.Qty);
-            cartService.AddItem("0288af05-f000-4e3c-b70d-e1d4b3e3c14e", c.ShoesId, c.Qty);
+            cartService.AddItem("0288af05-f000-4e3c-b70d-e1d4b3e3c14e", shoesId, 1);
             return Json("student saved successfully");
         }
 

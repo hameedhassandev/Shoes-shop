@@ -23,7 +23,7 @@ namespace Shoes_shop.Models.Repositories
 
         public IEnumerable<Order> All()
         { 
-            return Context.orders.Include(o=>o.User).ToList().Where(o => o.IsConfirmed == false && o.IsShippedAndPay == false);
+            return Context.orders.Include(o=>o.User).OrderByDescending(o=>o.dateTime).ToList();
         }
         public IEnumerable<Order> AllConfirmed()
         {

@@ -45,7 +45,12 @@ else{
             <th>
                 Total Price
             </th>
-          
+            <th>
+                Confirmed
+            </th>
+            <th>
+                Shipped & Pay
+            </th>
             <th >
                 Action
             </th>
@@ -79,10 +84,30 @@ else{
             <td class="align-middle">
                 EGP @item.TotalPrice
             </td>
+           
+                @if(!item.IsConfirmed){
+                  <td class="align-middle">
+                     <p style="background-color:#80E223;text-align:center;color:#fff;border:1px solid #4B9306;border-radius:16px;">Waiting</p>
+                  </td>
+                }else{
+                  <td class="align-middle">
+                     <p style="background-color:#079AEF;text-align:center;color:#fff;border:1px solid #036BA7;border-radius:16px;">Done</p>
+                  </td>
+                }
+          
+                @if (!item.IsShippedAndPay){
+                <td class="align-middle">
+                    <p style="background-color:#80E223;text-align:center;color:#fff;border:1px solid #4B9306;border-radius:16px;">Waiting</p>
+                </td>
+                }else{
+                <td class="align-middle">
+                    <p style="background-color:#079AEF;text-align:center;color:#fff;border:1px solid #036BA7;border-radius:16px;">Done</p>
+                </td>
+                }
 
             <td >
-                <a class="btn btn-success"  asp-action="Details" asp-route-id="@item.Id"> Confirmation</a>
-                <a class="btn btn-success" asp-action="OrderDetails" asp-route-id="@item.Id"> VM</a>
+                <a class="btn btn-outline-success" asp-action="OrderDetails" asp-route-id="@item.Id"
+                       style="border-radius:25px;"><i class="fa fa-info-circle" aria-hidden="true"></i>  Details</a>
 
             </td>
         </tr>

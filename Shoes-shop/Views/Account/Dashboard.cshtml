@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h3>Admin Dashboard</h3>
+<hr />
+
+<div class="col-12">
+    <div class="row">
+
+        <div class="col-4 my-3">
+             <div class="card card-1">
+                <a asp-action="Index" asp-controller="Categories" class="dash_card">
+
+                    <div class="card-body">
+                        <h5>
+                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                            Categories
+                        </h5>
+                        <h1> @ViewBag.categoryCount </h1>
+                        <p class="card-text">Manage categories</p>
+                    </div>
+                </a>
+             </div>  
+        </div>
+
+        <div class="col-4 my-3">
+            <div class="card card-2">
+                <a asp-action="Index" asp-controller="Shoes" class="dash_card">
+
+                    <div class="card-body ">
+                        <h5>
+                            <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                             Shoeses
+                        </h5>
+                        <h1> @ViewBag.shoesCount </h1>
+                        <p class="card-text">Manage shoeses</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-4 my-3">
+            <div class="card card-3">
+                <a asp-action="Index" asp-controller="OrderAdmin" class="dash_card">
+
+                    <div class="card-body ">
+                        <h5>
+                            <i class="fa fa-first-order" aria-hidden="true"></i>
+                            Orders
+                        </h5>
+                        <h1> @ViewBag.orderCount </h1>
+                        <p class="card-text">Manage Orders</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-4 my-3">
+            <div class="card card-4">
+                <a asp-action="ConfirmedOrders" asp-controller="OrderAdmin" class="dash_card">
+
+                    <div class="card-body ">
+                        <h5>
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                            Confirmed Orders
+                        </h5>
+                        <h1> @ViewBag.orderConfirmedCount </h1>
+                        <p class="card-text">Manage Confirmed Orders</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-4 my-3">
+            <div class="card card-5">
+
+            <a asp-action="ConfirmedOrders" asp-controller="OrderAdmin" class="dash_card">
+
+                <div class="card-body ">
+                    <h5>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Shipped & Pay Orders
+                    </h5>
+                    <h1> @ViewBag.orderConfirmedCount </h1>
+                    <p class="card-text">Manage Shipped & Pay Orders</p>
+                </div>
+            </a>
+        </div>
+        </div>
+        <div class="col-4 my-3">
+            <div class="card card-6">
+                <a asp-action="ConfirmedOrders" asp-controller="OrderAdmin" class="dash_card">
+
+                    <div class="card-body ">
+                        <h5>
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            Users
+                        </h5>
+                        <h1> 6 </h1>
+                        <p class="card-text">Manage Users</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+
+/*Dashboard card*/
+.card-1 {
+    border-radius: 25px;
+    background-color: #66B60C
+}
+.card-2{
+    border-radius: 25px;
+    background-color: #F33131;
+}
+
+.card-3 {
+    border-radius: 25px;
+    background-color: #0C9DC4;
+}
+
+.card-4 {
+    border-radius: 25px;
+    background-color: #AD08A1;
+}
+
+.card-5 {
+    border-radius: 25px;
+    background-color: #CCCF0A;
+}
+.card-6 {
+    border-radius: 25px;
+    background-color: #F74D08;
+}
+
+
+.dash_card {
+    text-decoration: none;
+    color: #fff;
+}
+
+.dash_card:hover, dash_card:focus, dash_card:active {
+    text-decoration: none;
+    color: #fff;
+}
+
+</style>

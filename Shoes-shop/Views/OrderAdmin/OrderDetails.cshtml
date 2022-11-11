@@ -1,16 +1,75 @@
 ﻿@model Shoes_shop.ViewModels.OrderAndDetailsVM
 
 
-<td>name : @Model.FullNam</td>
-<td>Adress : @Model.ShippingAddress</td>
-<td>contact  : @Model.Contact</td>
-<td>Date Time  : @Model.dateTime</td>
-<td>is confirmed : @Model.IsConfirmed</td>
-<td>is shipped : @Model.IsShippedAndPay</td>
-
-@foreach(var item in Model.OrderDetails){
-    <td>Shoes Name: @item.Shoes.Name</td>
-    <td>Price EGP: @item.Shoes.Price</td>
-    <td>Description: @item.Shoes.ShortDescription</td>
-    <td>Qty : @item.Quantity</td>
+@{
+    ViewData["Title"] = "Order Details";
 }
+<h4><span class="fw-bold">Name :</span> @Model.FullNam</h4>
+<h4><span class="fw-bold">Gender :</span> @Model.Gender</h4>
+<h4><span class="fw-bold">Shipping Address :</span> @Model.ShippingAddress</h4>
+<h4><span class="fw-bold">Contact Dial :</span> @Model.Contact</h4>
+<h4><span class="fw-bold">Order Created At :</span> @Model.dateTime</h4>
+
+<div class="m-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th> Name </th>
+                <th>Description</th>
+                <th> Quantity</th>
+                <th> Price</th>
+
+            </tr>
+        </thead>
+        @{
+            double orderTotal = 0;
+            var OrderID = ViewBag.orderId;
+        }
+        <tbody>
+
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td><img src="~/images/@item.Shoes.ImageURL" alt="shoes_img" width="150" height="150" /></td>
+                <td> @item.Shoes.Name </td>
+                <td> @item.Shoes.ShortDescription</td>
+                <td> @item.Quantity</td>
+                <td> EGP @item.Shoes.Price</td>
+            </tr>
+            orderTotal += item.Shoes.Price * item.Quantity;
+        }
+    </table>
+    <h4>Order Total Price : EGP @orderTotal</h4>
+</div>
+
+<hr />
+
+<div class="my-3">
+    @if(!Model.IsConfirmed)
+    {
+        <a asp-action="ConfirmOrder" class="btn btn-outline-success" asp-route-id="@OrderID">confirm</a>
+    }
+    else if(!Model.IsShippedAndPay)
+    {
+        <a asp-action="ConfirmOrder" class="btn btn-outline-info" asp-route-id="@OrderID">Shipped & pay
+        </a>
+
+    }else{
+        <h5 class="text-success">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Confirmed 
+        </h5>
+        <h5 class="text-success">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Shipped & Pay
+        </h5>
+
+    }
+    <a class="btn btn-outline-secondary" asp-action="Index">Back to Orders</a>
+
+</div>
+
+
+
+

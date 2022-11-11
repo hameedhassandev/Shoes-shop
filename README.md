@@ -1,21 +1,30 @@
 # Shoes-shop
 - E-commerce web application for selling shoes. 
 - Tools: ASP.Net MVC Core, ASP.NET Identity User, Entity Framework, Bootstrap, JQuery
-- Initial Demo 
+- Repository design pattern
+- Automapper
+# Initial Demo 
 - Login
 ![loginCs](https://user-images.githubusercontent.com/57669085/200456399-5af2456d-7ac5-45e9-9574-e405c19dc29f.PNG)
 
 - Admin Dashboard
-![shoesesAdmin](https://user-images.githubusercontent.com/57669085/200117060-78b2c6ae-8ac8-4956-9e82-9d6a6adbe6e1.PNG)
 
-![db3](https://user-images.githubusercontent.com/57669085/199249033-36f670a6-b0d7-4d2b-a08a-5c384d058b6c.PNG)
-![db4](https://user-images.githubusercontent.com/57669085/199249046-a3044ed0-a92d-4fee-8062-d4362985ebfe.PNG)
-![db5](https://user-images.githubusercontent.com/57669085/199249052-74657ca1-ab4a-4455-aebb-458ca1f474a2.PNG)
-![db2](https://user-images.githubusercontent.com/57669085/199249061-58e07cbf-af3c-4180-86bb-a6e2cdea2e42.PNG)
+![da](https://user-images.githubusercontent.com/57669085/201336568-99516ac3-e426-44a9-9c77-88dbf722fe97.PNG)
+![shoesList](https://user-images.githubusercontent.com/57669085/201336616-8b502471-646b-4918-9318-91d67ace4d38.PNG)
+
+
+![admin5](https://user-images.githubusercontent.com/57669085/200457285-b951f683-0452-46f7-b716-86f27a87d6ad.PNG)
+![admin2](https://user-images.githubusercontent.com/57669085/200457293-52b607c9-8ec9-4529-bffd-485d59548b8e.PNG)
+![admin3](https://user-images.githubusercontent.com/57669085/200457297-719346c6-a543-4c29-829e-e4a0386ca26a.PNG)
+![admin4](https://user-images.githubusercontent.com/57669085/200457301-4cde0af6-2a49-40b4-81a3-a2ce1eba7464.PNG)
+
+![orr](https://user-images.githubusercontent.com/57669085/201336793-8439c00e-5cb1-4074-b2be-72376d4a3df5.PNG)
+![orDet](https://user-images.githubusercontent.com/57669085/201336851-869eaeac-fb2d-497d-80f9-d81dc8fc68bd.PNG)
 
 - Shop
-![hom1](https://user-images.githubusercontent.com/57669085/200117074-6897e546-6f4c-458d-8ac7-61248c720baa.PNG)
-![home2](https://user-images.githubusercontent.com/57669085/200117079-e3302b4e-e7fd-40f7-a099-1ae13b93e3e7.PNG)
+![shoppp](https://user-images.githubusercontent.com/57669085/201336966-9c63f5b4-4d02-48db-978d-350cd9d9df53.PNG)
+![shooo](https://user-images.githubusercontent.com/57669085/201336993-1c821b65-d72e-41a3-bea5-9c705ab06b76.PNG)
+
 
 - Cart
 ![cart](https://user-images.githubusercontent.com/57669085/199249731-670c7c4e-9414-4585-9764-608aac1f5c45.PNG)

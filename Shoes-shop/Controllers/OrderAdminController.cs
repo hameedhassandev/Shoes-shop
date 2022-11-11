@@ -32,13 +32,14 @@ namespace Shoes_shop.Controllers
 
         public async Task<IActionResult> OrderDetails(int id)
         {
-
+            ViewBag.orderId = id;
             var model = orderService.GetOrder(id);
             if (model == null)
                 return NotFound();
             var orderDetails = orderDetailsService.Find(id).ToList();
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
             var fullName = user.FullName;
+            var gender = user.Gender;
 
             var orderVM = new OrderAndDetailsVM
             {
@@ -48,6 +49,7 @@ namespace Shoes_shop.Controllers
                 ShippingAddress = model.ShippingAddress,
                 Contact = model.Contact,
                 FullNam = fullName,
+                Gender = gender,
                 IsConfirmed = model.IsConfirmed,
                 IsShippedAndPay = model.IsShippedAndPay,
                 OrderDetails = orderDetails,

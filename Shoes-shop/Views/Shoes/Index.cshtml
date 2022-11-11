@@ -5,25 +5,54 @@
 }
 
 
-<h1>Shoes List</h1>
-<hr/>
-<div class="text-white">
-     <a href="@Url.Action("Create")"  class="btn btn-outline-dark" style="border-radius: 25px;">  
-          <i class="fa fa-plus" aria-hidden="true"></i>
+<h1 class="my-1">Shoes List</h1>
 
-         Add New Shoes
-     </a>
- 
-</div><br />
+<hr/>
+<div class="col-12">
+
+ <div class="row">
+      <div class="col-3">
+              <a href="@Url.Action("Create")"  class="btn btn-outline-dark" style="border-radius: 25px;">  
+                     <i class="fa fa-plus" aria-hidden="true"></i>
+                     Add New Shoes
+               </a>
+    </div>
+    <div class="col-6">
+            <form asp-action="Index" method="get">
+                <div class="col-10">
+                    <div class="input-group">
+                      <input type="text"  name="searchString" value="@ViewBag.CurrentSearchFilter" class="form-control rounded" placeholder="Search with name, category or desc.." aria-label="Search" aria-describedby="search-addon" autocomplete="off" required/>
+                      <button type="submit" class="btn btn-outline-primary">search</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <a class="text-danger" asp-action="Index">Remove Filteration</a>
+                </div>
+        </form>
+    </div> 
+    <div class="col-3">
+     <form asp-action="Index" method="get">
+          <div class="input-group">
+                <select class="form-control rounded" name="filterByCategory" asp-items="ViewBag.CategoryId" required>
+                    <option value="">Select Category..</option>
+                </select>
+                <button type="submit" class="btn btn-outline-primary">Filter</button>
+            </div>
+
+     </form>
+    </div>
+
+ </div>
+</div>
+  <br />
+
 @if(!Model.Data.Any()){
 
     <div class="alert alert-warning">
-        No category of added yet!
+        No shoes yet!
     </div>
 }else{
-<h6>Total Shoes Count: @ViewBag.ShoesCount</h6>
 <div class="content mt-8">
-
     <table class="table">
     <thead>
         <tr>
@@ -31,7 +60,10 @@
                 Image
             </th>
             <th>
-                Shoes Name
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParam"
+                 asp-route-pageNumber ="@Model.PageNumber" class="shoes_link">
+                <i class="fa fa-sort-desc" style="font-size:22px;"></i>  Shoes Name
+                </a>
             </th>
             <th>
                 Category
@@ -40,13 +72,24 @@
                Short Description
             </th>
             <th>
-               Shoes Size
+                  <a asp-action="Index" asp-route-sortOrder="@ViewBag.SizeSortParam" 
+                  asp-route-pageNumber ="@Model.PageNumber" class="shoes_link">
+                <i class="fa fa-sort-desc" style="font-size:22px;"></i> Shoes Size
+
+                </a>
             </th>
             <th>
-                Price (L.E)
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParam" 
+                 asp-route-pageNumber ="@Model.PageNumber" class="shoes_link">
+                <i class="fa fa-sort-desc" style="font-size:22px;"></i>  Price (L.E)
+                </a>
             </th>
             <th>
-                No. In Stock
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.StockSortParam"
+                 asp-route-pageNumber ="@Model.PageNumber" class="shoes_link">
+                <i class="fa fa-sort-desc" style="font-size:22px;"></i>  No. In Stock
+
+                </a>
             </th>
        
             
@@ -62,26 +105,29 @@
                <img src="~/images/@item.ImageURL" class="img_zoom"/>
             </td>
             <td class="align-middle"  style=" max-width: 120px;">
-                @Html.DisplayFor(modelItem => item.Name)
+                <p style="text-align:center">@item.Name</p>
             </td>
            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
+              <p style="text-align:center">@item.Category.Name</p>
+           </td>
             <td class="align-middle" style=" max-width: 10px;">
-
-                @Html.DisplayFor(modelItem => item.ShortDescription)
+              <p style="text-align:center">@item.ShortDescription</p>
             </td >
              <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Size)
+               <p style="text-align:center">@item.Size</p>
             </td>
             <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Price)
+                  <p style="text-align:center">@item.Price</p>
             </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.NumberInStock)
-            </td class="align-middle">
-            
-          
+                @if (item.NumberInStock == 0){
+                <td class="align-middle">
+                    <p style="background-color:#EE1717;color:#fff;text-align:center;border:1px solid #FA0404;border-radius:16px;">Out of stock</p>
+                </td>
+                }else{
+                <td class="align-middle">
+                  <p style="text-align:center">@item.NumberInStock</p>
+                </td>
+                }
             <td >
                 <a class="btn btn-outline-primary" style="border-radius: 25px;" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i> Edit</a>
                 <a class="btn btn-outline-success" style="border-radius: 25px;"  asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-info-circle" aria-hidden="true"></i> Details</a> 
@@ -102,6 +148,9 @@
         cs-paging-totalitems=(int)Model.TotalItems
         cs-paging-pagesize=(int)Model.PageSize
         cs-pagenumber-param="pageNumber"
+        asp-route-sortOrder="@ViewBag.CurrentSortOrder"
+        asp-route-searchString="@ViewBag.CurrentSearchFilter"
+        asp-route-filterByCategory="@ViewBag.CurrentFilterByCategory"
         asp-controller="Shoes"
         asp-action="Index"
         cs-pager-li-current-class="page-item active"

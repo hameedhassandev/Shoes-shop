@@ -2,7 +2,60 @@
 @{
     ViewData["Title"] = "Shop";
 }
-<div class="user-body">
+<div class="right-filter-panel">
+    <div class="col-12">
+         <form asp-action="Index" method="get">
+             <div class="col-10">
+                 <h4 class="my-4">Filter By Category</h4>
+                <div class="input-group">
+                    <select class="form-select">
+                        <option selected>Select Category</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                 </div>
+            </div>
+            <div class="col-6">
+                <h4 class="my-4">Filter By Size</h4>
+                <div class="input-group">
+                    <select class="form-select" >
+                        <option selected>Select Size</option>
+                        @for (int i = ViewBag.minSize; i <= ViewBag.maxSize; i++)
+                        {
+                            <option value="@i">@i</option>
+                         
+                        }
+                    </select>
+                </div>
+            </div>
+           
+             <div class="col-10">
+                 <h4 class="my-4">Filter By Price</h4>
+                <div class="input-group">
+                    <input type="range" class="form-range" min="@ViewBag.minPrice" max="@ViewBag.maxPrice" value="@ViewBag.avgPrice" id="myRange">
+                   
+                </div>
+
+                <div class="price_bar">
+                    <span class="p1"> @ViewBag.maxPrice</span>
+                    <span class="p2"> @ViewBag.minPrice</span>
+                </div>
+            
+                <div class="my-4">
+                    <span class="price_val">EGP</span>
+                    <span class="price_val" id="demo"></span>
+                </div>
+      
+               
+                <input type="hidden" id="demo2" value="" />
+
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="shop-body">
     <cs-pager cs-paging-pagenumber=(int)Model.PageNumber
               cs-paging-totalitems=(int)Model.TotalItems
               cs-paging-pagesize=(int)Model.PageSize
@@ -20,7 +73,7 @@
     <div class="row">
         @foreach (var item in Model.Data)
         {
-            <div class="card text-center m-3 animate" style="width: 24rem; border-radius:18px;border: none;">
+            <div class="card text-center m-3 animate" style="width: 18rem; border-radius:18px;border: none;">
                 <a asp-action="ShoesDetails" asp-controller="Shoes" asp-route-id="@item.Id" class="a-card">
 
                 <img class="card-img-top" src="~/images//@item.ImageURL" alt="Card image cap">
@@ -30,10 +83,10 @@
                     <h4><sup style="font-size: 12px;">EGP</sup> @item.Price</h4>
                     <p class="text-info">Brand: @item.Category.Name</p>
                 </div>
-                    <input id="qty" value="1" type="number" />
-                    <input id="shoesId" value="@item.Id" type="number" />
+                    @*<input id="shoesId" value="@item.Id" type="number" />*@
                 <div class="container m-1">
-                        <a href="#" onclick="addToCart()" style="border-radius:16px;" class="btn btn-outline-dark">ADD TO CART</a>
+                        <a href="#" onclick="addToCart(@item.Id)" style="border-radius:16px;" class="btn btn-dark"> <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                         ADD TO CART</a>
                         <a asp-action="ShoesDetails" asp-controller="Shoes" asp-route-id="@item.Id" style="border-radius:16px;" class="btn btn-outline-info">Details</a>
                 </div>
                 </a>
@@ -77,31 +130,80 @@
          text-decoration: none;
          color: inherit;
     }
-    
+
+    .shop-body {
+        margin-left: 100px;
+        margin-right: 500px;
+        font-size: 18px;
+        padding: 25px;
+    }
+
+
+    .right-filter-panel {
+        float: right;
+        border: 2px solid #CFC8C8;
+        height: 60%;
+        width: 500px;
+        position: absolute;
+        right: 30px;
+        top: 170px;
+        padding-top: 40px;
+        background-color: #FFFCFC;
+        border-radius: 16px;
+    }
+
+    .price_bar {
+        display: block;
+        height: 22px;
+        line-height: 22px;
+        padding: 4px 6px;
+        font-size: 18px;
+        margin-bottom: 13px;
+        clear: both;
+    }
+
+    .price_bar .p1 {
+        float: right
+    }
+
+    .price_bar .p2 {
+        float: left
+    }
+
+    .price_val{
+        font-size:25px;
+        font-weight:bold;
+    }
 </style>
 @section Scripts {
     <script>
 
-        function addToCart() {
-
-            let qty = $("#qty").val();
-            let shoesId = $("#shoesId").val();
-            let formData = { shoesID: shoesId, qty: qty }
-            console.log('id' + shoesId + 'qty' + qty);
+        function addToCart(shoesId) {
 
             $.ajax({
-                url: `/Carts/AddToCartAjax`,
-                type: 'POST',
-                data: formData,
-                success: function (response) {
-                    alert(response);
-                    qty = '';
-                    shoesId = '';
+                url: `/Carts/AddOneToCart/${shoesId}`,
+                type: 'GET',
+                success: function (data) {
+                    alert("shoes id : "+shoesId);
+               
                 },
                 error: function (error) {
                     alert("error in adding: " + error.statusText);
                 }
             });
+        }
+
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value; // Display the default slider value
+        document.getElementById("demo2").value = slider.value;
+        // Update the current slider value (each time you drag the slider handle)
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            document.getElementById("demo2").value = this.value;
+
         }
 
     </script>

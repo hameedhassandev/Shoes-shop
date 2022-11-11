@@ -24,31 +24,80 @@ namespace Shoes_shop.Controllers
         public readonly IShoesService ShoesRepository;
         public readonly ICartService CartService;
         private readonly IImageHelper ImageHelper;
+        private readonly SignInManager<ApplicationUser> SignInManager;
+
 
         public ShoesController(IMapper mapper, IShoesService repositoryy,
             IBaseRepository<Category> _CategoryService,
-            IImageHelper _ImageHelper, ICartService _CartService, 
-            UserManager<ApplicationUser> _UserManager)
+            IImageHelper _ImageHelper, ICartService _CartService,
+            UserManager<ApplicationUser> _UserManager,
+            SignInManager<ApplicationUser>
+            _SignInManager)
         {
             UserManager = _UserManager;
             ImageHelper = _ImageHelper;
             CartService = _CartService;
             CategoryService = _CategoryService;
+            SignInManager = _SignInManager;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             ShoesRepository = repositoryy ?? throw new ArgumentNullException(nameof(repositoryy));
         }
 
 
 
-        public IActionResult Index(int pageSize = 5, int pageNumber = 1)
+        public IActionResult Index(string searchString,
+            string sortOrder, int filterByCategory,
+            int pageSize = 5, int pageNumber = 1)
         {
-            int excludeRecords = (pageSize * pageNumber) - pageSize;
-            var AllShoes = ShoesRepository.All()
-                                          .Skip(excludeRecords)
-                                          .Take(pageSize);
 
-            int ShoesCount = ShoesRepository.All().Count();
-            ViewBag.ShoesCount = ShoesCount;
+            ViewBag.PriceSortParam = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            ViewBag.SizeSortParam = String.IsNullOrEmpty(sortOrder) ? "size_desc" : "";
+            ViewBag.NameSortParam = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.StockSortParam = String.IsNullOrEmpty(sortOrder) ? "stock_desc" : "";
+            ViewBag.CurrentSortOrder = sortOrder;
+            ViewBag.CurrentSearchFilter = searchString;
+            ViewBag.CurrentFilterByCategory = filterByCategory;
+            ViewData["CategoryId"] = new SelectList(CategoryService.All(), "Id", "Name");
+
+            int excludeRecords = (pageSize * pageNumber) - pageSize;
+            var Sh = from s in ShoesRepository.All()
+                     select s;
+
+            //sorting
+            switch (sortOrder)
+            {
+                case "price_desc":
+                    Sh = ShoesRepository.OrderPriceByDesc();
+                    break;
+                case "size_desc":
+                    Sh = ShoesRepository.OrderSizeByDesc();
+                    break;
+                case "name_desc":
+                    Sh = ShoesRepository.OrderNameByDesc();
+                    break;
+                case "stock_desc":
+                    Sh = ShoesRepository.OrderNoInStockByDesc();
+                    break;
+                default:
+                    Sh = ShoesRepository.OrderById();
+                    break;
+            }
+
+            //search
+            var ShoesCount = Sh.Count();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Sh = ShoesRepository.Search(searchString);
+                ShoesCount = Sh.Count();
+            }
+            if (filterByCategory != 0){
+                Sh = ShoesRepository.SearchByCategory(filterByCategory);
+                ShoesCount = Sh.Count();
+            }
+         
+            var AllShoes = Sh.Skip(excludeRecords).Take(pageSize);
+
+           // int ShoesCount = ShoesRepository.All().Count();
 
             var result = new PagedResult<Shoes>
             {

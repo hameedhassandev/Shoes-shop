@@ -1,5 +1,6 @@
 ﻿using cloudscribe.Pagination.Models;
 using Microsoft.AspNetCore.Mvc;
+using Shoes_shop.Helpers;
 using Shoes_shop.Models;
 using Shoes_shop.Models.Repositories;
 using System.Diagnostics;
@@ -18,9 +19,13 @@ namespace Shoes_shop.Controllers
         }
         public IActionResult Index()
         {
+            if (User.IsInRole(RolesName.AdminRole))
+            {
+                return RedirectToAction("Dashboard", "Account");
+            }
             return View();
         }
-        public IActionResult Shop(int pageSize=9, int pageNumber=1)
+        public IActionResult Shop(int pageSize=12, int pageNumber=1)
         {
             int excludeRecords = (pageSize * pageNumber) - pageSize;
             var allShoeses = ShoesService.All().ToList().Skip(excludeRecords)
@@ -28,6 +33,17 @@ namespace Shoes_shop.Controllers
             if (allShoeses == null)
                 return NotFound();
 
+            var maxPrice = ShoesService.MaxPrice();
+            var minPrice = ShoesService.MinPrice();
+            var avgPrice = ShoesService.AvgPrice();
+            var maxSize = ShoesService.MaxSize();
+            var minSize = ShoesService.MinSize();
+
+            ViewBag.maxPrice = maxPrice; 
+            ViewBag.minPrice = minPrice;
+            ViewBag.avgPrice = avgPrice;
+            ViewBag.maxSize = maxSize;
+            ViewBag.minSize = minSize;
 
             int ShoesCount = ShoesService.All().Count();
 
