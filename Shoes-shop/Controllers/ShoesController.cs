@@ -7,7 +7,6 @@ using Shoes_shop.Helpers;
 using Shoes_shop.Models;
 using Shoes_shop.Models.Repositories;
 using Shoes_shop.ViewModels;
-using System.Linq.Expressions;
 using cloudscribe.Pagination.Models;
 
 namespace Shoes_shop.Controllers
@@ -62,6 +61,9 @@ namespace Shoes_shop.Controllers
             int excludeRecords = (pageSize * pageNumber) - pageSize;
             var Sh = from s in ShoesRepository.All()
                      select s;
+
+            if (Sh == null)
+                return NotFound();
 
             //sorting
             switch (sortOrder)

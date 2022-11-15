@@ -67,20 +67,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/newDotNetProject/Shoes-shop/Views/OrderAdmin/ConfirmedOrders.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJBZG1pblxDb25maXJtZWRPcmRlcnMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/newDotNetProject/Shoes-shop/Views/OrderAdmin/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJBZG1pblxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/newDotNetProject/Shoes-shop/Views/OrderAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJBZG1pblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/newDotNetProject/Shoes-shop/Views/OrderAdmin/OrderDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJBZG1pblxPcmRlckRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/newDotNetProject/Shoes-shop/Views/OrderAdmin/OrderReports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJBZG1pblxPcmRlclJlcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/newDotNetProject/Shoes-shop/Views/Orders/EdieShipping.cshtml]
@@ -99,8 +95,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pblNpZGVQYW5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/newDotNetProject/Shoes-shop/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/newDotNetProject/Shoes-shop/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/newDotNetProject/Shoes-shop/Views/Shared/_pagingAndFilter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9wYWdpbmdBbmRGaWx0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/newDotNetProject/Shoes-shop/Views/Shared/_Slideshow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TbGlkZXNob3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/newDotNetProject/Shoes-shop/Views/Shared/_ValidationScriptsPartial.cshtml]

@@ -2,19 +2,24 @@
 
 
 @{
-    ViewData["Title"] = "All Confirmed Order";
+    ViewData["Title"] = "Order Reports";
 }
 
-<h2>Confirmed Orders</h2>
+<h2>Shipped And Pay Order Reports</h2>
 <hr />
 
-
+<div class="text-white">
+    <a href="#" class="btn btn-dark" style="border-radius: 25px;">
+        <i class="fa fa-download" aria-hidden="true"></i>
+        Generate pdf report
+    </a>
+</div>
 <br />
 @if (!Model.Any())
 {
 
     <div class="alert alert-warning">
-        No Orders under confirmation yet, check shipped and pay order!
+        No Orders Reports Yet!
     </div>
 }
 else
@@ -46,9 +51,9 @@ else
                     <th>
                         Total Price
                     </th>
-
+                    <th>Order Details</th>
                     <th>
-                        Action
+                      
                     </th>
                 </tr>
             </thead>
@@ -80,11 +85,31 @@ else
                         <td class="align-middle">
                             EGP @item.TotalPrice
                         </td>
-
                         <td>
-                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Shipping & Pay</a>
+                            <table>
+                                <thead>
+                                    <tr>
+                                    <th>Name</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Image</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var i in item.OrderDetails)
+                                    {
+                                    <tr>
+                                            <td ><p>@i.Shoes.Name</p></td>
+                                            <td> <p>@i.Quantity</p></td>
+                                            <td> <p>@i.Shoes.Price</p></td>
+                                            <td><img src="~/images/@i.Shoes.ImageURL" width="50" height="50"></td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
 
                         </td>
+                       
                     </tr>
                 }
             </tbody>

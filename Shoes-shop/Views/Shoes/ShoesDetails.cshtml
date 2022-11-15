@@ -13,7 +13,8 @@
         </div>
     }
 
-   <div class="container mt-5">
+   <div class="user-body">
+       <div class="col-12">
         <div class="row">
             <div class="col-6">
                 <img class="zoom" src="~/images/@Model.ImageURL" alt="shoes_img" width="500" height="500" />
@@ -22,9 +23,9 @@
                 <p class="text-info">Brand: @Model.category.Name</p>
                 <h1 class="font-weight-bold">@Model.Name</h1>
                 <hr />
-                <h1 class="my-3 font-weight-bold"><sup style="font-size: 18px;">EGP</sup> @Model.Price</h1>
-                <p class="my-4">@Model.ShortDescription</p>
-                <h4 class="my-4">Size : @Model.Size</h4>
+                    <h1 style="color:#F41C1C" class="my-4 font-weight-bold"><sup style="font-size: 18px;">EGP</sup> @Model.Price</h1>
+                <p class="my-5">@Model.ShortDescription</p>
+                <h4 class="my-5">Size : @Model.Size</h4>
                 @if (@Model.NumberInStock == 0)
                 {
                     <h5 class="text-danger my-4">Not Available now!</h5>
@@ -33,36 +34,33 @@
                 {
                     <h5 class="font-weight-bold my-4">Available : @Model.NumberInStock pieces</h5>
                 }
-                <div class="my-3">
+                <div class="my-4">
                     <form asp-controller="Carts" asp-action="AddToCart">
-                        <input asp-for="@Model.Quantity" class="col-2 form-control" required/>
+                        <input asp-for="@Model.Quantity" class="col-1 form-control" required/>
                         <input asp-for="@Model.Id" type="hidden"/>
 
                         <h5 class="my-4">&<span class="text-info">FREE Returns</span>, All prices include VAT.</h5>
-                            <input type="submit" value="ADD TO CART" class="btn btn-dark col-12" style="border-radius:25px;height:60px" />
+                            <input type="submit" value="ADD TO CART" class="btn btn-dark col-8 my-4" style="border-radius:25px;height:60px" />
                     </form>
                 </div>
             </div>
             </div>
     </div>
 
+    </div>
 
-    <hr />
      
 </section>
+
+<partial name="_Footer" />
 
 <style>
     .zoom {
       padding: 50px;
-      transition: all transform .2s;
-      width: 500px;
-      height: 500px;
+      width: 800px;
+      height: 700px;
       margin: 0 auto;
     }
 
-    .zoom:hover {
-      -ms-transform: scale(1.3); 
-      -webkit-transform: scale(1.3); 
-      transform: scale(1.3);
-    }
+   
 </style>

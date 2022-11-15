@@ -39,6 +39,7 @@ namespace Shoes_shop.Controllers
             var orderDetails = orderDetailsService.Find(id).ToList();
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
             var fullName = user.FullName;
+            var userMail = user.Email;
             var gender = user.Gender;
 
             var orderVM = new OrderAndDetailsVM
@@ -49,6 +50,7 @@ namespace Shoes_shop.Controllers
                 ShippingAddress = model.ShippingAddress,
                 Contact = model.Contact,
                 FullNam = fullName,
+                Email = userMail,
                 Gender = gender,
                 IsConfirmed = model.IsConfirmed,
                 IsShippedAndPay = model.IsShippedAndPay,
@@ -57,26 +59,14 @@ namespace Shoes_shop.Controllers
 
             return View(orderVM);
         }
-        public IActionResult ConfirmedOrders()
+        public IActionResult OrderReports()
         {
-            var allConfirmedOrders = orderService.AllConfirmed();
+            var allConfirmedOrders = orderService.OrderReports();
 
             return View(allConfirmedOrders);
         }
 
-        public IActionResult Details(int id)
-        {
-            var OrderDetails = orderDetailsService.Find(id);
-            if (OrderDetails == null)
-                return NotFound();
 
-            
-            ViewBag.orderId = id;
-
-            return View(OrderDetails);
-        }
-
-       
         public IActionResult ConfirmOrder(int id)
         {
             var order = orderService.GetOrder(id);
@@ -84,6 +74,19 @@ namespace Shoes_shop.Controllers
                 return NotFound();
 
             order.IsConfirmed = true;
+            orderService.Update(order);
+
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult ShippedOrder(int id)
+        {
+            var order = orderService.GetOrder(id);
+            if (order == null)
+                return NotFound();
+
+            order.IsShippedAndPay = true;
             orderService.Update(order);
 
 

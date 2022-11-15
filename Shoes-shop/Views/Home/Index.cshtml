@@ -1,34 +1,161 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-<div class="row">
-    <div class="col-12">
-        @*<div class="slider">*@
+<partial name="_Slideshow" />
 
+@*about section start*@
+<div style="margin-left:150px;margin-right:150px;">
+<div style="margin-bottom:70px;margin-top:120px;">
+    <h1 class="text-center fw-bold">ABOUT US</h1>
+
+    <hr />
+    <div class="col-12" style="margin-top:50px">
+        <div class="row">
+            <div class="col-4 about-us">
+                    <h4 style=" font-family: serif;text-align: center;display: inline;" class="ele">
+                        We offer on our site the best international brands of men's, women's and sports shoes, in addition to the best prices. Shop now
+
+                        Discover Women's Ankle Boots Now. 
+                        Get Exclusive Discounts & New Products at First Time.
+                        Explore your fancy styles with great price in Shop Shoes. 14 Days Return Policy.
+
+                </h4>
+            </div>
+            <div class="col-4 about-us">
+                    <h4 style=" font-family: serif;  text-align: center;display: inline;">
+                        When an order is made from our website, you will pay the cost upon receipt, knowing that shipping is free
+                        Find Shoes for sale online at
+                        QuicklySeek. Find Shoes for sale online. Updated Info.
+                        Find it Now.
+                        Get Exclusive Discounts & New Products at First Time.
+
+
+                </h4>
+            </div>
+            <div class="col-4 about-us">
+                    <h4 style=" font-family: serif;  text-align: center;display: inline;">
+                        Enjoy the best discounts and offers on shoes. Add to the cart everything you like and place an order at any time you want.
+                        Get More Results. Fast Response. Good Results. Find it Here. Latest Today.
+                        Shop from the Best Collection of Shoes for Women Today - Buy Best Women Shoes.
+                </h4>
+            </div>
         </div>
+    </div>
+</div>
+</div>
+@*about section end*@
 
-        <div>
-            <div class="col-12">
-                <div class="row">
-                <div class="col-6">
+<div style="width:100%">
 
-                </div>
-                <div class="col-6">
-
-                </div>
-            </div>
-            </div>
+<div class="col-12">
+    <div class="row">
+        <div class="col-6">
+            <img src="~/images/b4.png" style="width:100%;border-radius:18px;">
+        </div>
+        <div class="col-6">
+            <img src="~/images/b1.png" style="width:100%;margin-bottom:5px;border-radius:18px;" />
+            <img src="~/images/b2.png" style="width:100%;border-radius:18px;" />
 
         </div>
     </div>
+</div>
+</div>
+@*comment*@
 
-<style>
-    .slider{
-        position: absolute;
-        width: 500%;
-        height: 450px;
-        top: 0;
-        left: 20;
-        right:20;
-    }
-</style>
+@*start category*@
+<div style="width:100%;margin-top:120px;margin-bottom:70px">
+    <div class="col-12">
+    <h1 class="text-center fw-bold" style="margin-bottom:50px" >CATEGOREIS</h1>
+        <div class="row">
+            <div class="col-6">
+                 <div class="parent_text">
+
+                    <img src="~/images/b10.png" style="width:100%;margin-bottom:5px;border-radius:18px;" />
+                    <div class="center_text">
+                        <h1 style="font-weight:bold;">PUMA</h1>
+                        <p>NEW COLLECTION</p>
+                        <a asp-action="Shop" asp-route-filterByCategory="2" style="height:50px;width:200px;padding:5px" class="btn btn-dark">MORE</a>
+                    </div>
+                </div>
+
+                <div class="parent_text">
+
+                    <img src="~/images/b7.png" style="width:100%;margin-bottom:5px;border-radius:18px;" />
+                    <div class="center_text">
+                        <h1 style="font-weight:bold;">ANTA</h1>
+                        <p>NEW COLLECTION</p>
+                        <a asp-action="Shop" asp-route-filterByCategory="3" style="height:50px;width:200px;padding:5px" class="btn btn-dark">MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="parent_text">
+                    
+                    <img src="~/images/b8.png" style="width:100%;margin-bottom:5px;border-radius:18px;" />
+                    <div class="center_text">
+                        <h1 style="font-weight:bold;">ADIDAS</h1>
+                        <p>NEW COLLECTION</p>
+                        <a asp-action="Shop" asp-route-filterByCategory="1" style="height:50px;width:200px;padding:5px" class="btn btn-dark">MORE</a>
+                    </div>
+                </div>
+
+                <div class="parent_text">
+
+                    <img src="~/images/b11.png" style="width:100%;border-radius:18px;" />
+                    <div class="center_text">
+                        <h1 style="font-weight:bold;">NIKE</h1>
+                        <p>NEW COLLECTION</p>
+                        <a asp-action="Shop" asp-route-filterByCategory="1" style="height:50px;width:200px;padding:5px" class="btn btn-dark">MORE</a>
+                    </div>
+                </div>
+                  
+            </div>
+        </div>
+    </div>  
+</div>
+@*end category*@
+
+@*start giv
+*@
+<div style="width:100%;margin-top:70px;margin-bottom:120px;">
+    <h1 class="text-center fw-bold" style="margin-bottom:50px">DISCOVER MORE</h1>
+
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6">
+                <img src="~/images/b12.gif" style="width:100%;border-radius:18px;">
+            </div>
+            <div class="col-3">
+                <h4 style=" font-family: serif;  text-align: center;display: inline;">
+                    Enjoy the best discounts and offers on shoes. Add to the cart everything you like and place an order at any time you want. Get More Results. Fast Response. Good Results. Find it Here. Latest Today.
+                    Shop from the Best Collection of Shoes for Women 
+                    Today - Buy Best Women Shoes.
+                    We offer on our site the best international brands of men's, women's and sports shoes
+                </h4>
+                <hr />
+                <img src="~/images/12.png" style="width:100%;border-radius:18px;margin-bottom:5px;">
+                <img src="~/images/b15.png" style="width:100%;border-radius:18px;">
+
+
+
+
+            </div>
+             <div class="col-3">
+                <h4 style=" font-family: serif;  text-align: center;display: inline;margin:10px;">
+                    We offer on our site the best international brands of men's, women's and
+                    sports shoes, in addition to the best prices. Shop now Discover Women's. 
+                    We offer on our site the best international brands of men's, women's and sports shoes
+                    Ankle Boots Now. Get Exclusive Discounts & New Products at First Time. Explore your
+                    fancy styles with great price in Shop Shoes. 14 Days Return Policy.
+                </h4>
+                <hr/>
+                <img src="~/images/b14.png" style="width:100%;border-radius:18px;margin-bottom:50px;">
+                <img src="~/images/b16.png" style="width:100%;border-radius:18px;">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="_Footer"/>

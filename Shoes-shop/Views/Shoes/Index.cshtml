@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "Shoes List";
+    ViewData["Controller"] = "Shoes";
+    ViewData["Action"] = "Index";
+
 }
 
 
@@ -33,7 +36,7 @@
     <div class="col-3">
      <form asp-action="Index" method="get">
           <div class="input-group">
-                <select class="form-control rounded" name="filterByCategory" asp-items="ViewBag.CategoryId" required>
+                 <select class="form-control rounded" name="filterByCategory"  asp-items="ViewBag.CategoryId" required>
                     <option value="">Select Category..</option>
                 </select>
                 <button type="submit" class="btn btn-outline-primary">Filter</button>
@@ -143,20 +146,4 @@
 }
 <hr />
 
- <cs-pager 
-        cs-paging-pagenumber=(int)Model.PageNumber
-        cs-paging-totalitems=(int)Model.TotalItems
-        cs-paging-pagesize=(int)Model.PageSize
-        cs-pagenumber-param="pageNumber"
-        asp-route-sortOrder="@ViewBag.CurrentSortOrder"
-        asp-route-searchString="@ViewBag.CurrentSearchFilter"
-        asp-route-filterByCategory="@ViewBag.CurrentFilterByCategory"
-        asp-controller="Shoes"
-        asp-action="Index"
-        cs-pager-li-current-class="page-item active"
-        cs-pager-li-other-class="page-item"
-        cs-pager-li-non-active-class="page-item disabled"
-        cs-pager-link-current-class="page-link"
-        cs-pager-link-other-class="page-link">
-
- </cs-pager>
+<partial name="_pagingAndFilter" model="Model"/>

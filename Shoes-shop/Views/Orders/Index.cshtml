@@ -15,8 +15,8 @@
 
     @foreach (var order in Model)
     {
-  <div class="card my-3" style=" border-radius: 14px;">
-    <h5 class="card-header h3">Order Number: @order.Id</h5>
+      <div class="card my-3" style=" border-radius: 14px;background-color:#FEFAFA;">
+                <h5 class="card-header h3" style="background-color:#342E2E;color:#fff;">Order Number: @order.Id</h5>
         <div class="card-body">
 
          <div class="row">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="my-2">
 
-                  <a href="@Url.Action("EdieShipping", "Orders", new { id = @order.Id })" class="btn btn-secondary col-3" style="border-radius:25px;font-size:24px;">Edit Shipping</a>
+                  <a href="@Url.Action("EdieShipping", "Orders", new { id = @order.Id })" class="btn btn-dark col-3" style="border-radius:25px;font-size:24px;">Edit Shipping</a>
                  </div>
         </div>
                     <div class="row">
@@ -93,7 +93,7 @@
 
                     </div>
                 @*shipping info*@                   
-                    <ul class="text-info">
+                    <ul >
                         <li>
                             <p>Shipping is free, but if the order is returned, you will paid EGP 30. </p>
                         </li>
@@ -143,6 +143,7 @@
 }
 
 </div>
+<partial name="_Footer" />
 <style>
     ol.progtrckr {
         margin: 0;

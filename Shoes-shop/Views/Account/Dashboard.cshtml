@@ -56,15 +56,15 @@
         </div>
         <div class="col-4 my-3">
             <div class="card card-4">
-                <a asp-action="ConfirmedOrders" asp-controller="OrderAdmin" class="dash_card">
+                <a asp-action="OrderReports" asp-controller="OrderAdmin" class="dash_card">
 
                     <div class="card-body ">
                         <h5>
-                            <i class="fa fa-truck" aria-hidden="true"></i>
-                            Confirmed Orders
+                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                            Order Reports
                         </h5>
                         <h1> @ViewBag.orderConfirmedCount </h1>
-                        <p class="card-text">Manage Confirmed Orders</p>
+                        <p class="card-text">Manage Order Reports</p>
                     </div>
                 </a>
             </div>
@@ -72,7 +72,7 @@
         <div class="col-4 my-3">
             <div class="card card-5">
 
-            <a asp-action="ConfirmedOrders" asp-controller="OrderAdmin" class="dash_card">
+                <a asp-action="Index" asp-controller="OrderAdmin" class="dash_card">
 
                 <div class="card-body ">
                     <h5>

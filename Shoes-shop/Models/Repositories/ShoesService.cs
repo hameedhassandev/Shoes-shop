@@ -54,7 +54,10 @@ namespace Shoes_shop.Models.Repositories
             return Context.Shoes.Include(p => p.Category)
                 .Where(p=>p.Name.Contains(query) ||
                 p.ShortDescription.Contains(query) ||
-                p.Category.Name.Contains(query)).ToList();
+                p.Category.Name.Contains(query) /*||
+                p.Price == int.Parse(query) ||
+                p.Size == int.Parse(query)*/
+                ).ToList();
 
         }
 

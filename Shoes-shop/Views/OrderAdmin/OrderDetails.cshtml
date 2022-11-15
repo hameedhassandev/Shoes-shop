@@ -5,6 +5,7 @@
     ViewData["Title"] = "Order Details";
 }
 <h4><span class="fw-bold">Name :</span> @Model.FullNam</h4>
+<h4><span class="fw-bold">Email :</span> @Model.Email</h4>
 <h4><span class="fw-bold">Gender :</span> @Model.Gender</h4>
 <h4><span class="fw-bold">Shipping Address :</span> @Model.ShippingAddress</h4>
 <h4><span class="fw-bold">Contact Dial :</span> @Model.Contact</h4>
@@ -52,7 +53,12 @@
     }
     else if(!Model.IsShippedAndPay)
     {
-        <a asp-action="ConfirmOrder" class="btn btn-outline-info" asp-route-id="@OrderID">Shipped & pay
+        <h5 class="text-success">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Confirmed
+        </h5>
+        <a asp-action="ShippedOrder" class="btn btn-outline-info" asp-route-id="@OrderID">
+            Shipped & pay
         </a>
 
     }else{

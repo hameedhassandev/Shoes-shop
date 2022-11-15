@@ -9,6 +9,7 @@ namespace Shoes_shop.ViewModels
         public DateTime dateTime { get; set; }
         public double TotalPrice { get; set; }
         public string FullNam { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public string ShippingAddress { get; set; } = string.Empty;
         public string Gender { get; set; } = string.Empty;
 

@@ -2,30 +2,32 @@
 @{
     ViewData["Title"] = "Shop";
 }
+
+
+
 <div class="right-filter-panel">
     <div class="col-12">
-         <form asp-action="Index" method="get">
+        <form asp-action="Shop" method="get">
              <div class="col-10">
                  <h4 class="my-4">Filter By Category</h4>
                 <div class="input-group">
-                    <select class="form-select">
-                        <option selected>Select Category</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <select class="form-control rounded" name="filterByCategory" asp-items="ViewBag.CategoryId">
+                    <option value="">Select Category..</option>
+                </select>
                  </div>
             </div>
             <div class="col-6">
                 <h4 class="my-4">Filter By Size</h4>
                 <div class="input-group">
-                    <select class="form-select" >
-                        <option selected>Select Size</option>
+                    <select class="form-select" name="filterBySize">
+                        <option >Select Size</option>
                         @for (int i = ViewBag.minSize; i <= ViewBag.maxSize; i++)
                         {
                             <option value="@i">@i</option>
                          
                         }
+
+
                     </select>
                 </div>
             </div>
@@ -48,17 +50,41 @@
                 </div>
       
                
-                <input type="hidden" id="demo2" value="" />
+                <input type="hidden" id="demo2" value="0" name="filterByPrice" />
+
+                <div class="input-group">
+                    <button type="submit" class="btn btn-outline-primary">
+                        <i class="fa fa-filter"></i> Filter</button>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <a asp-action="Shop" class="btn btn-outline-success">Clear Filter</a>
+
+                </div>
 
             </div>
 
         </form>
     </div>
 </div>
+@if (!Model.Data.Any())
+{
+    <div style="min-height: 800px;margin-right:200px;padding:350px 0; display: flex;justify-content: center;">
+            @*<img src="~/images/not_found.png" width="500" height="500" alt="result not found" />*@
+        <h1 style="color:#E52222;">
+            Sorry! No results found ... <i class="fa fa-search" aria-hidden="true"></i>
+        </h1>
+
+    </div>
+}
+else
+{
 <div class="shop-body">
     <cs-pager cs-paging-pagenumber=(int)Model.PageNumber
               cs-paging-totalitems=(int)Model.TotalItems
               cs-paging-pagesize=(int)Model.PageSize
+              asp-route-filterByCategory="@ViewBag.filterByCategory"
+              asp-route-filterBySize="@ViewBag.filterBySize"
               cs-pagenumber-param="pageNumber"
               asp-controller="Home"
               asp-action="Shop"
@@ -70,6 +96,7 @@
 
     </cs-pager>
 <br/>
+
     <div class="row">
         @foreach (var item in Model.Data)
         {
@@ -80,7 +107,9 @@
                 <div class="card-body">
                     <h5 class="card-title">@item.Name</h5>
                     <p class="card-text">@item.ShortDescription</p>
-                    <h4><sup style="font-size: 12px;">EGP</sup> @item.Price</h4>
+                        <h4 style="color:#F41C1C"><sup style="font-size: 12px;">EGP</sup> @item.Price</h4>
+                        <h4><sub style="font-size: 12px;">Size</sub> @item.Size</h4>
+
                     <p class="text-info">Brand: @item.Category.Name</p>
                 </div>
                     @*<input id="shoesId" value="@item.Id" type="number" />*@
@@ -96,21 +125,10 @@
 
     </div>
     <br />
-    <cs-pager cs-paging-pagenumber=(int)Model.PageNumber
-              cs-paging-totalitems=(int)Model.TotalItems
-              cs-paging-pagesize=(int)Model.PageSize
-              cs-pagenumber-param="pageNumber"
-              asp-controller="Home"
-              asp-action="Shop"
-              cs-pager-li-current-class="page-item active"
-              cs-pager-li-other-class="page-item"
-              cs-pager-li-non-active-class="page-item disabled"
-              cs-pager-link-current-class="page-link"
-              cs-pager-link-other-class="page-link">
-
-    </cs-pager>
+   
 </div>
-
+}
+<partial name="_Footer" />
 <style>
 
     .animate{
@@ -132,21 +150,24 @@
     }
 
     .shop-body {
+        height:100%;
+        min-height: 800px;
         margin-left: 100px;
         margin-right: 500px;
         font-size: 18px;
         padding: 25px;
+        
     }
 
 
     .right-filter-panel {
         float: right;
         border: 2px solid #CFC8C8;
-        height: 60%;
+        height: 650px;
         width: 500px;
         position: absolute;
         right: 30px;
-        top: 170px;
+        top: 250px;
         padding-top: 40px;
         background-color: #FFFCFC;
         border-radius: 16px;
@@ -184,7 +205,7 @@
                 url: `/Carts/AddOneToCart/${shoesId}`,
                 type: 'GET',
                 success: function (data) {
-                    alert("shoes id : "+shoesId);
+                    alert("Added To Cart Successfully");
                
                 },
                 error: function (error) {
@@ -197,7 +218,7 @@
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
         output.innerHTML = slider.value; // Display the default slider value
-        document.getElementById("demo2").value = slider.value;
+       // document.getElementById("demo2").value = slider.value;
         // Update the current slider value (each time you drag the slider handle)
 
         slider.oninput = function () {

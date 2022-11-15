@@ -40,6 +40,9 @@
                 <li>
                     <a asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
                 </li>
+
+               
+               
               
                 @if (User.IsInRole(RolesName.UserRole))
                 {
@@ -52,7 +55,15 @@
                     </li>
 
                 }
+                    <li>
+                        <form asp-controller="Home" asp-action="Shop" method="get">
+                            <input type="search" placeholder="Search.." value="@ViewBag.search_query" name="search_query" class="search_bar" required autocomplete="off" />
+                            <button type="submit" style=" border-radius: 50%;" class="btn btn-dark search_btn"><i class="fa fa-search"></i></button>
+                        </form>
+                        
+                    </li>
                 }
+
             </ul>
             <partial name="_LoginPartial" />
 
@@ -71,11 +82,11 @@
         <div>
             @RenderBody()
         </div>
-        <footer class="border-top footer text-muted">
+@*        <footer class="border-top footer text-muted">
             <div class="body-text">
                 &copy; 2022 - Shoes_shop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
-        </footer>
+        </footer>*@
     }
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

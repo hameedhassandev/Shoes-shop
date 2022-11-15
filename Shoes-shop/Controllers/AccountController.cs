@@ -38,7 +38,7 @@ namespace Shoes_shop.Controllers
             var shoesCount = shoesService.All().Count();
             var categoryCount = CategoryService.All().Count();
             var orderCount = orderService.All().Count();
-            var orderConfirmedCount = orderService.AllConfirmed().Count();
+            var orderConfirmedCount = orderService.OrderReports().Count();
             ViewBag.shoesCount = shoesCount;
             ViewBag.categoryCount = categoryCount;
             ViewBag.orderCount = orderCount;

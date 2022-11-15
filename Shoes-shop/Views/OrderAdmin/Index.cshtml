@@ -2,10 +2,10 @@
 
 
 @{
-    ViewData["Title"] = "All User's Order";
+    ViewData["Title"] = "All Orders";
 }
 
-<h2>Orders Waiting For Confirmation</h2>
+<h2>Manage Orders</h2>
 <hr/>
 
  
@@ -13,7 +13,7 @@
 @if(!Model.Any()){
 
     <div class="alert alert-warning">
-        No Orders under revision yet, check confiermed order or shipped and pay order!
+        No Orders under revision yet!
     </div>
 }
 else{
