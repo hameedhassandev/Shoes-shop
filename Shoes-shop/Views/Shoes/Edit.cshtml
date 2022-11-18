@@ -1,7 +1,7 @@
 ﻿@model Shoes_shop.Models.Shoes
 
 @{
-    ViewData["Title"] = "Shoes | Edit";
+    ViewData["Title"] = "Edit Shoes";
 }
 
 <div class="content mt-5">
@@ -53,7 +53,7 @@
                     <div class="form-group my-3">
                         <label asp-for="ImageFile" class="control-label"></label>
                         <div class="custom-file">
-                            <input asp-for="ImageFile" class="custom-file-input"
+                            <input asp-for="ImageFile" type="file"
                                    onchange="document.getElementById('FrontImage').src= window.URL.createObjectURL(this.files[0])" />
                         </div>
 
@@ -73,7 +73,7 @@
 
             </div>
             <div class="col-6">
-                <img id="FrontImage" src="~/images/@Model.ImageURL" alt="shoes_img" width="500" height="500" style="border:1px;margin-top:20px;margin-left:120px;" />
+                <img id="FrontImage" src="~/images/@Model.ImageURL" alt="shoes_img" width="700" height="600" style="border:1px;margin-top:20px;margin-left:120px;" />
 
             </div>
         </div>

@@ -2,13 +2,12 @@
 @{
     ViewData["Title"] = "My Carts";
 }
-<div class="user-body" style="margin-bottom:120px;">
+<div class="user-body" style="min-height:600px;margin-bottom:120px;">
 <h1>
     <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
 </h1>
 <hr />
 <section class="spad">
-
     <div class="container" id="cartView">
     </div>
 </section>
@@ -103,6 +102,27 @@
                 }
             });
         }
+
+
+
+
+     /*   carCount();
+
+        function carCount() {
+            $.ajax({
+                url: `Carts/Count-Cart/`,
+                method: 'GET',
+                success: function (response) {
+
+                    $("#cart_number").html(response);
+
+                    console.log('counted success')
+                },
+                error: function (error) {
+                    alert("error in my cart : " + error.statusText);
+                }
+            });
+        }*/
     </script>
 
 }

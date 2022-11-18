@@ -1,10 +1,10 @@
 ﻿@model Shoes_shop.Models.Shoes
 
 @{
-    ViewData["Title"] = "Shoes | Create";
+    ViewData["Title"] = "Create Shoes";
 }
 
-<div class="content mt-5">
+<div class="content mt-9">
     <div class="container">
       <h2>Create a new shoes</h2>
         <hr />
@@ -55,7 +55,7 @@
                         <label asp-for="ImageFile" class="control-label"></label>
                         <div class="custom-file">
                             <input asp-for="ImageFile" type="file"
-                                   onchange="document.getElementById('FrontImage').src= window.URL.createObjectURL(this.files[0])" />
+                                   onchange="document.getElementById('FrontImage').src= window.URL.createObjectURL(this.files[0])"  required/>
                         </div>
 
                         <span asp-validation-for="ImageFile" class="text-danger"></span>
@@ -70,7 +70,7 @@
 
             </div>
             <div class="col-6">
-                <img id="FrontImage" src="~/images/defult.png" alt="shoes_img" width="600" height="600" style="border:1px;margin-top:20px;margin-left:120px;" />
+                <img id="FrontImage" src="~/images/defult.png" alt="shoes_img" width="700" height="600" style="border:1px;margin-top:20px;margin-left:120px;" />
 
             </div>
         </div>

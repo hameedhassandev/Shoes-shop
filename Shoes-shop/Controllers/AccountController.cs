@@ -80,5 +80,65 @@ namespace Shoes_shop.Controllers
             }
             return View(model);
         }
+
+
+        public IActionResult Registration()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Registration(RegistrationViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var user = new ApplicationUser()
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FullName  = model.FullName,
+                    Address = model.Address,
+                    Contact = model.Contact,
+                    Gender = model.Gender
+                    
+                };
+
+                var result = await UserManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    //to assign role to user where register
+                    await UserManager.AddToRoleAsync(user, RolesName.UserRole);
+
+                    return RedirectToAction(nameof(Login));
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+
+
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogOut()
+        {
+            await SignInManager.SignOutAsync();
+
+            return RedirectToAction("Index","Home");
+        }
+
+
+
+
+
+
     }
 }

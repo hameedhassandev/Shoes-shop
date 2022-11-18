@@ -8,6 +8,7 @@ using Shoes_shop.Models;
 using Shoes_shop.Models.Repositories;
 using Shoes_shop.ViewModels;
 using cloudscribe.Pagination.Models;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace Shoes_shop.Controllers
 {
@@ -24,6 +25,8 @@ namespace Shoes_shop.Controllers
         public readonly ICartService CartService;
         private readonly IImageHelper ImageHelper;
         private readonly SignInManager<ApplicationUser> SignInManager;
+        public INotyfService _notifyService { get; }
+
 
 
         public ShoesController(IMapper mapper, IShoesService repositoryy,
@@ -31,7 +34,7 @@ namespace Shoes_shop.Controllers
             IImageHelper _ImageHelper, ICartService _CartService,
             UserManager<ApplicationUser> _UserManager,
             SignInManager<ApplicationUser>
-            _SignInManager)
+            _SignInManager, INotyfService notifyService)
         {
             UserManager = _UserManager;
             ImageHelper = _ImageHelper;
@@ -40,6 +43,8 @@ namespace Shoes_shop.Controllers
             SignInManager = _SignInManager;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             ShoesRepository = repositoryy ?? throw new ArgumentNullException(nameof(repositoryy));
+            _notifyService = notifyService;
+
         }
 
 
@@ -48,6 +53,8 @@ namespace Shoes_shop.Controllers
             string sortOrder, int filterByCategory,
             int pageSize = 5, int pageNumber = 1)
         {
+            _notifyService.Success("List All Shoeses Successfully!", 5);
+
 
             ViewBag.PriceSortParam = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
             ViewBag.SizeSortParam = String.IsNullOrEmpty(sortOrder) ? "size_desc" : "";
@@ -114,6 +121,8 @@ namespace Shoes_shop.Controllers
         //get shoes details by id
         public IActionResult Details(int id)
         {
+            _notifyService.Information("Shoes Details", 5);
+
             var shoes = ShoesRepository.Get(id);
 
             if (shoes == null)
@@ -134,6 +143,8 @@ namespace Shoes_shop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Shoes shoes)
         {
+            _notifyService.Information("Shoes Added Successfully", 7);
+
             if (ModelState.IsValid)
             {
                 string UniqueName = ImageHelper.UploadImage(shoes);
@@ -152,6 +163,7 @@ namespace Shoes_shop.Controllers
         //get shoes edit form by id
         public IActionResult Edit(int id)
         {
+
             var shoes = ShoesRepository.Get(id);
             if (shoes == null)
                 return NotFound();
@@ -166,6 +178,8 @@ namespace Shoes_shop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Shoes shoes)
         {
+            _notifyService.Information("Shoes Updated Successfully", 7);
+
             if (id == null)
                 return NotFound();
 
@@ -202,6 +216,8 @@ namespace Shoes_shop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirm(int id)
         {
+            _notifyService.Error("Shoes Deleted Successfully", 7);
+
 
             var shoes = ShoesRepository.Get(id);
             if (shoes == null)

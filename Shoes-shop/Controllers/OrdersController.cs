@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Shoes_shop.Helpers;
@@ -16,27 +17,25 @@ namespace Shoes_shop.Controllers
         private readonly IOrderDetailsService orderDetailsService;
         private readonly UserManager<ApplicationUser> UserManager;
         private static string userId = "";
-        public OrdersController(IOrderService _orderService, UserManager<ApplicationUser> _UserManager, IOrderDetailsService _orderDetailsService)
+
+        public INotyfService _notifyService { get; }
+
+        public OrdersController(IOrderService _orderService, UserManager<ApplicationUser> _UserManager, 
+            IOrderDetailsService _orderDetailsService, INotyfService notifyService)
         {
             orderService = _orderService;
             UserManager = _UserManager;
             orderDetailsService = _orderDetailsService;
+            _notifyService = notifyService;     
         }
         public async Task<IActionResult> Index()
         {
+            _notifyService.Success("Welcom In Your Orders..!", 5);
+
             var user = await UserManager.FindByNameAsync(User.Identity.Name);
             userId = user.Id;
             var model = orderService.Find(userId);
             return View(model);          
-        }
-
-        public IActionResult Details (int id)
-        {
-          var OrderDetails = orderDetailsService.Find(id);
-            if (OrderDetails == null)
-
-                return NotFound();
-            return View(OrderDetails);
         }
 
 

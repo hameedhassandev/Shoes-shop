@@ -9,6 +9,8 @@
         public void DecreaseItemByOne(string userId, int shoesID);
         public void ClearCart(string userId);
         public void ToOrder(string userId, string userAdress, string UserContact);
-            
-            }
+        public bool existIncart(int shoesID, string userId);
+        public int UserCartCount(string userId);
+        object existIncart(int shoesId, Task<string> userid);
+    }
 }

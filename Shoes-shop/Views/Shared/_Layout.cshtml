@@ -51,8 +51,9 @@
                         <a asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
                     </li>
                     <li>
-                            <a asp-area="" asp-controller="Carts" asp-action="Index"><i class="fa fa-shopping-cart" style="font-size:24px;" aria-hidden="true"></i> <sup id="cart_number" class="CartNo">0</sup></a>
+                            <a asp-area="" asp-controller="Carts" asp-action="Index"><i class="fa fa-shopping-cart" style="font-size:24px;" aria-hidden="true"></i> <sup id="cart_number"></sup></a>
                     </li>
+
 
                 }
                     <li>
@@ -99,5 +100,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("Notyf")
+
 </body>
 </html>

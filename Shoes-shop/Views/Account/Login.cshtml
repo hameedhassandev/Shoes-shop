@@ -7,10 +7,10 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/css/Login.css">
+    <link rel="stylesheet" href="~/css/Account.css">
 </head>
 <body>
-  <div class="login_body">
+    <div class="account_body">
            <div class="col-12">
             <div class="row">
 
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-6">
                    <h1>Login</h1>
-                    <h4>Don't have an account yet? <a href="">Sign Up</a> </h4>
+                    <h4>Don't have an account yet? <a asp-action="Registration">Sign Up</a> </h4>
                    <hr />
                     <form asp-controller="Account" asp-action="Login" method="POST">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>

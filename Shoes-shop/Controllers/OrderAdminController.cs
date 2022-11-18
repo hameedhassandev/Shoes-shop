@@ -37,7 +37,8 @@ namespace Shoes_shop.Controllers
             if (model == null)
                 return NotFound();
             var orderDetails = orderDetailsService.Find(id).ToList();
-            var user = await UserManager.FindByNameAsync(User.Identity.Name);
+         
+            var user = await UserManager.FindByIdAsync(model.UserId);
             var fullName = user.FullName;
             var userMail = user.Email;
             var gender = user.Gender;

@@ -29,7 +29,6 @@ namespace Shoes_shop.Models
         public bool IsShoesOfTheWeek { get; set; }
 
         [NotMapped]
-        [Required]
         [Display(Name = "Upload Image")]
         public IFormFile? ImageFile { get; set; }
 

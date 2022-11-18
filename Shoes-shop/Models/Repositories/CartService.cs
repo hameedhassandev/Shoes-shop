@@ -22,15 +22,21 @@ namespace Shoes_shop.Models.Repositories
             return shoesService.Get(shoesId).NumberInStock >= qty;
         }
 
+
+        public bool existIncart(int shoesID, string userId)
+        {
+            var existInCart = context.Carts.FirstOrDefault(c => c.ShoesId == shoesID && c.UserId == userId) != null;
+            if (existInCart)
+                return true;
+
+            return false;
+        }
+
         public void AddItem(string userId, int shoesID, int qty)
         { 
             var shoes = context.Shoes.FirstOrDefault(s=>s.Id == shoesID);
 
             if (shoes == null || !IsAvailableShoes(shoesID, qty))
-                return;
-
-            var existInCart = context.Carts.FirstOrDefault(c => c.ShoesId == shoesID && c.UserId == userId) != null;
-            if (existInCart)
                 return;
 
             Cart cart = new Cart();
@@ -135,6 +141,15 @@ namespace Shoes_shop.Models.Repositories
             context.SaveChanges(true);
         }
 
-  
+
+        public int UserCartCount(string userId)
+        {
+            return context.Carts.Where(c=>c.UserId == userId).Count();
+        }
+
+        public object existIncart(int shoesId, Task<string> userid)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

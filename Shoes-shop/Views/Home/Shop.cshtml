@@ -1,7 +1,9 @@
-﻿@model cloudscribe.Pagination.Models.PagedResult<Shoes>
+﻿
+@model cloudscribe.Pagination.Models.PagedResult<Shoes>
 @{
     ViewData["Title"] = "Shop";
 }
+
 
 
 
@@ -197,6 +199,7 @@ else
     }
 </style>
 @section Scripts {
+    <script src="~/js/site.js"></script>
     <script>
 
         function addToCart(shoesId) {
@@ -204,12 +207,15 @@ else
             $.ajax({
                 url: `/Carts/AddOneToCart/${shoesId}`,
                 type: 'GET',
-                success: function (data) {
-                    alert("Added To Cart Successfully");
-               
+                success: function (response) {
+                   alert(response);
+                   
+
                 },
                 error: function (error) {
                     alert("error in adding: " + error.statusText);
+                   
+                    
                 }
             });
         }
@@ -227,5 +233,5 @@ else
 
         }
 
-    </script>
+</script>
 }

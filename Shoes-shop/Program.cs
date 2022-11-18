@@ -4,6 +4,8 @@ using Shoes_shop.Data;
 using Shoes_shop.Models.Repositories;
 using Shoes_shop.Models;
 using Shoes_shop.Helpers;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +33,8 @@ builder.Services.AddScoped<IOrderDetailsService, OrderDetailsService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IImageHelper, ImageHelper>();
 
+
+builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
 
 var app = builder.Build();
 
@@ -64,3 +68,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+app.UseNotyf();

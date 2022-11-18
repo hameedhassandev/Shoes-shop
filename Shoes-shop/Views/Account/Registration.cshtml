@@ -1,0 +1,96 @@
+﻿@model Shoes_shop.ViewModels.RegistrationViewModel
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/Account.css">
+</head>
+<body class="register_body">
+    <div class="account_body">
+        <div class="col-12">
+            <div class="row">
+
+                <div class="col-6">
+                    <img src="~/images/register.png" alt="login" class="register_img" />
+                </div>
+                <div class="col-6">
+                    <h1>Sign Up</h1>
+                    <h4>have an account? <a asp-action="Login">Login</a> </h4>
+                    <hr />
+                    <form asp-controller="Account" asp-action="Registration" method="POST">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label class="h4" asp-for="FullName"></label>
+                            <input class="h4" asp-for="FullName" placeholder="Enter your Full Nme" type="text" required />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="h4" asp-for="Email"></label>
+                            <input class="h4" asp-for="Email" placeholder="Enter your Email" type="email" required />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="h4" asp-for="Password"></label>
+                            <input class="h4" asp-for="Password" placeholder="Enter your Password" type="password" required />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="h4" asp-for="ConfirmPassword"></label>
+                            <input class="h4" asp-for="ConfirmPassword" placeholder="Enter your Confirm Password" type="password" required />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                      
+
+                        <div class="form-group">
+                            <label class="h4" asp-for="Address"></label>
+                            <input class="h4" asp-for="Address" placeholder="Enter your Address" type="text" required />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                    
+
+                        <div class="form-group">
+                            <label class="h4" asp-for="Contact"></label>
+                            <input class="h4" asp-for="Contact" placeholder="Enter your Nobile Number" type="text" required />
+                            <span asp-validation-for="Contact" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="h4">Male</label>
+                            <input class="h4" asp-for="Gender"  type="radio" value="Male" />
+                            <label class="h4">Female</label>
+
+                            <input class="h4" asp-for="Gender" type="radio" value="Female" />
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success col-12 login_btn">Sign Up</button>
+                        </div>
+                        <div class="form-group">
+                            <a href="#" class="btn btn-danger col-12 login_btn">Register Using Gmail</a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+}

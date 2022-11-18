@@ -21,21 +21,21 @@
             </li>
         
             <li>
-                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <form asp-action="LogOut" asp-controller="Account">
                     <button type="submit" class="nav-btn">Logout</button>
                 </form>
             </li>
         }
         else if (User.IsInRole(RolesName.AdminRole)){
-      
-            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+
+            <form asp-action="LogOut" asp-controller="Account">
                 <button type="submit" class="nav-btn">Logout</button>
             </form>
         }
         
         }else{
             <li>
-                <a  asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a asp-action="Registration" asp-controller="Account" >Register</a>
             </li>
             <li >
                   <a asp-action="Login" asp-controller="Account" >Login</a>

@@ -17,7 +17,7 @@
        <div class="col-12">
         <div class="row">
             <div class="col-6">
-                <img class="zoom" src="~/images/@Model.ImageURL" alt="shoes_img" width="500" height="500" />
+                <img class="zoom" src="~/images/@Model.ImageURL" alt="shoes_img" width="600" height="500" />
             </div>
             <div class="col-6">
                 <p class="text-info">Brand: @Model.category.Name</p>
@@ -35,8 +35,8 @@
                     <h5 class="font-weight-bold my-4">Available : @Model.NumberInStock pieces</h5>
                 }
                 <div class="my-4">
-                    <form asp-controller="Carts" asp-action="AddToCart">
-                        <input asp-for="@Model.Quantity" class="col-1 form-control" required/>
+                    <form asp-controller="Carts" asp-action="AddToCart" method="post">
+                        <input asp-for="@Model.Quantity" max="@Model.NumberInStock" min="0" class="col-1 form-control" required/>
                         <input asp-for="@Model.Id" type="hidden"/>
 
                         <h5 class="my-4">&<span class="text-info">FREE Returns</span>, All prices include VAT.</h5>

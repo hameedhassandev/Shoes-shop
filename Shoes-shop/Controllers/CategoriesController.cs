@@ -21,7 +21,7 @@ namespace Shoes_shop.Controllers
             _context = context; 
         }
 
-        public IActionResult Index(int pageSize = 1, int pageNumber = 1)
+        public IActionResult Index(int pageSize = 4, int pageNumber = 1)
         {
             int excludeRecords = (pageSize * pageNumber) - pageSize;
             var categories = _context.All().Skip(excludeRecords).Take(pageSize);
