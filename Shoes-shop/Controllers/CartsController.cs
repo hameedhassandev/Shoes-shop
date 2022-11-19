@@ -65,9 +65,10 @@ namespace Shoes_shop.Controllers
             }
 
             var isExist =  cartService.existIncart(shoesId, user.Id);
-            if(isExist)
+            if (isExist) {
                 return Json("Alerdy in your cart!");
-
+            }
+          
 
             // var result =  cartService.AddItem('0288af05-f000-4e3c-b70d-e1d4b3e3c14e', c.ShoesId, c.Qty);
             cartService.AddItem(user.Id, shoesId, 1);
@@ -142,7 +143,7 @@ namespace Shoes_shop.Controllers
             return Ok();
         }
 
-        [Route("Carts/Count-Cart/")]
+        [Route("/Carts/Count-Cart/")]
 
         public async Task<JsonResult> UserCartCount()
         {

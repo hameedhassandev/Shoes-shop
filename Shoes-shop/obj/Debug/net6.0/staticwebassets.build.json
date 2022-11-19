@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IZAWFv4r+DFKcPEW3u8se1WqRy51DHrHScN7JWNBbeY=",
+  "Hash": "8Dfo8LVKWoiuM7hbl9QHbW/tqRwH3Uzv52IdiF0igaA=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1256,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\36d3ccd9-095c-40c6-8072-fe92c39db535_Budapester1.png"
+    },
+    {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\9f6d0012-4746-469a-9b6f-d48c23040c5c_b79d48cb-682d-42ae-9509-0aec3e79e1af_s5.PNG",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/9f6d0012-4746-469a-9b6f-d48c23040c5c_b79d48cb-682d-42ae-9509-0aec3e79e1af_s5.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\9f6d0012-4746-469a-9b6f-d48c23040c5c_b79d48cb-682d-42ae-9509-0aec3e79e1af_s5.PNG"
     },
     {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\admin.PNG",

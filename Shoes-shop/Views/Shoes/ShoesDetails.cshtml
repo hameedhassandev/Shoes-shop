@@ -1,4 +1,9 @@
-﻿@using Shoes_shop.ViewModels
+﻿@using Microsoft.AspNetCore.Identity
+@using Shoes_shop.Helpers
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@using Shoes_shop.ViewModels
 @model ShoesViewModel
 @{
     ViewData["Title"] = Model.Name;
@@ -64,3 +69,13 @@
 
    
 </style>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @section Scripts {
+    <script>
+        carCount();
+    </script>
+
+}
+}

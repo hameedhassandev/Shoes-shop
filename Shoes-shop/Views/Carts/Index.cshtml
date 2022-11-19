@@ -17,7 +17,7 @@
     <script>
 
         myCart();
-        carCount();
+      
 
         function myCart() {
             $.ajax({
@@ -43,7 +43,7 @@
                     //MyCart();
                     console.log('success removed');
                     myCart();
-
+                    carCount();
                 },
                 error: function (error) {
                     alert("error in remove: " + error.statusText);
@@ -97,6 +97,7 @@
                     //MyCart();
                     console.log('success clear cart');
                     myCart();
+                    carCount();
                 },
                 error: function (error) {
                     alert("error in clear cart: " + error.statusText);
@@ -104,7 +105,7 @@
             });
         }
 
-
+        carCount();
 
 
      /*   carCount();

@@ -8,7 +8,7 @@
 
 function carCount() {
     $.ajax({
-        url: `Carts/Count-Cart/`,
+        url: `/Carts/Count-Cart/`,
         method: 'GET',
         success: function (response) {
 

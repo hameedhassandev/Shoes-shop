@@ -1,4 +1,8 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@using Shoes_shop.Helpers
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 @model cloudscribe.Pagination.Models.PagedResult<Shoes>
 @{
     ViewData["Title"] = "Shop";
@@ -197,23 +201,29 @@ else
         font-size:25px;
         font-weight:bold;
     }
+
 </style>
+
+@if (SignInManager.IsSignedIn(User))
+{
 @section Scripts {
-    <script src="~/js/site.js"></script>
     <script>
+
         carCount();
+
         function addToCart(shoesId) {
 
             $.ajax({
                 url: `/Carts/AddOneToCart/${shoesId}`,
                 type: 'GET',
                 success: function (response) {
-                   alert(response);
+                    alert(response);
+                    carCount();
                    
-
                 },
                 error: function (error) {
-                    alert("error in adding: " + error.statusText);
+                    console.log(error);
+
                    
                     
                 }
@@ -233,5 +243,30 @@ else
 
         }
 
+
+
 </script>
+}
+}else{
+    @section Scripts {
+    <script>
+
+        function addToCart(shoesId) {
+            alert("You not auth sign up!")
+        }
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value; // Display the default slider value
+       // document.getElementById("demo2").value = slider.value;
+        // Update the current slider value (each time you drag the slider handle)
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            document.getElementById("demo2").value = this.value;
+
+        }
+
+</script>
+}
 }

@@ -1,4 +1,9 @@
-﻿@model IEnumerable<Shoes_shop.Models.Order>
+﻿@using Microsoft.AspNetCore.Identity
+@using Shoes_shop.Helpers
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@model IEnumerable<Shoes_shop.Models.Order>
 
 @{
     ViewData["Title"] = "My Orders";
@@ -66,7 +71,7 @@
                                             <td>
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <img src="~/images/@i.Shoes.ImageURL" width="100" height="100" alt="shoes_img" />
+                                                        <img src="~/images/@i.Shoes.ImageURL" width="130" height="100" alt="shoes_img" />
                                                     </div>
                                                     <div class="col-8">
                                                         <h3 class="card-title"> @i.Shoes.Name</h3>
@@ -234,4 +239,12 @@
 
 </style>
 
+@if (SignInManager.IsSignedIn(User))
+{
+    @section Scripts {
+    <script>
+        carCount();
+    </script>
 
+}
+}

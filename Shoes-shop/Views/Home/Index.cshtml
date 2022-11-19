@@ -1,4 +1,9 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using Shoes_shop.Helpers
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Home";
 }
 <partial name="_Slideshow" />
@@ -158,4 +163,17 @@
     </div>
 </div>
 
+
+
 <partial name="_Footer"/>
+
+
+ @if (SignInManager.IsSignedIn(User))
+{ 
+    @section Scripts {
+    <script>
+        carCount();
+    </script>
+
+}
+}
