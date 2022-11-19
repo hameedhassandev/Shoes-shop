@@ -34,9 +34,7 @@
                 <li>
                     <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
-                <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                </li>
+              
                 <li>
                     <a asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
                 </li>
@@ -46,6 +44,7 @@
               
                 @if (User.IsInRole(RolesName.UserRole))
                 {
+
                   
                     <li>
                         <a asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>

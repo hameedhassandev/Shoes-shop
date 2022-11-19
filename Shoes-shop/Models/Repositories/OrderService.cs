@@ -26,10 +26,17 @@ namespace Shoes_shop.Models.Repositories
             return Context.orders.Include(o=>o.User).OrderByDescending(o=>o.dateTime).ToList();
         }
 
+        public IEnumerable<Order> OrderPdfReports()
+        {
+            return Context.orders.Include(o => o.User)
+                .Where(o => o.IsShippedAndPay && o.IsConfirmed)
+                .OrderByDescending(o => o.dateTime)
+                .ToList();
+        }
         public IEnumerable<Order> OrderReports()
         {
             return Context.orders.Include(o => o.User)
-                .Include(o=>o.OrderDetails)
+                .Include(o => o.OrderDetails)
                 .ThenInclude(o => o.Shoes)
                 .Where(o => o.IsShippedAndPay && o.IsConfirmed)
                 .OrderByDescending(o => o.dateTime)

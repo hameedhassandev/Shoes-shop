@@ -86,3 +86,6 @@ D:\newDotNetProject\Shoes-shop\obj\Debug\net6.0\ref\Shoes-shop.dll
 D:\newDotNetProject\Shoes-shop\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.Views.dll
 D:\newDotNetProject\Shoes-shop\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.dll
 D:\newDotNetProject\Shoes-shop\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\newDotNetProject\Shoes-shop\bin\Debug\net6.0\Syncfusion.Compression.Portable.dll
+D:\newDotNetProject\Shoes-shop\bin\Debug\net6.0\Syncfusion.Licensing.dll
+D:\newDotNetProject\Shoes-shop\bin\Debug\net6.0\Syncfusion.Pdf.Portable.dll

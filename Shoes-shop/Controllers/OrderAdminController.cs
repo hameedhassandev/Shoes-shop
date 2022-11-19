@@ -5,6 +5,11 @@ using Shoes_shop.Helpers;
 using Shoes_shop.Models.Repositories;
 using Shoes_shop.Models;
 using Shoes_shop.ViewModels;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Drawing;
+using System.IO;
+using Syncfusion.Pdf.Grid;
 
 namespace Shoes_shop.Controllers
 {
@@ -93,6 +98,43 @@ namespace Shoes_shop.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+
+
+        public IActionResult CreateDocument()
+        {
+
+            //Generate a new PDF document.
+            PdfDocument doc = new PdfDocument();
+            //Add a page.
+            PdfPage page = doc.Pages.Add();
+            //Create a PdfGrid.
+            PdfGrid pdfGrid = new PdfGrid();
+            //Add values to list
+            var allOrder = orderService.OrderPdfReports();
+
+         
+            //Add list to IEnumerable
+            IEnumerable<object> dataTable = allOrder;
+            //Assign data source.
+            pdfGrid.DataSource = dataTable;
+            //Draw grid to the page of PDF document.
+            pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+            //Write the PDF document to stream
+            MemoryStream stream = new MemoryStream();
+            doc.Save(stream);
+            //If the position is not set to '0' then the PDF will be empty.
+            stream.Position = 0;
+            //Close the document.
+            doc.Close(true);
+            //Defining the ContentType for pdf file.
+            string contentType = "application/pdf";
+            //Define the file name.
+            string fileName = "Output.pdf";
+            //Creates a FileContentResult object by using the file contents, content type, and file name.
+            return File(stream, contentType, fileName);
+        }
+
 
 
     }

@@ -1,10 +1,12 @@
 ﻿using cloudscribe.Pagination.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Shoes_shop.Helpers;
 using Shoes_shop.Models;
 using Shoes_shop.Models.Repositories;
+using System.Data;
 using System.Diagnostics;
 
 namespace Shoes_shop.Controllers

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vkh7HIJdAe8hJfb5ZjA4jXmqXKuj+TR7/hvWD4zAIjs=",
+  "Hash": "IZAWFv4r+DFKcPEW3u8se1WqRy51DHrHScN7JWNBbeY=",
   "Source": "Shoes-shop",
   "BasePath": "_content/Shoes-shop",
   "Mode": "Default",
@@ -1241,6 +1241,23 @@
       "OriginalItemSpec": "wwwroot\\images\\20200513_190751.jpg"
     },
     {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\36d3ccd9-095c-40c6-8072-fe92c39db535_Budapester1.png",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/36d3ccd9-095c-40c6-8072-fe92c39db535_Budapester1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\36d3ccd9-095c-40c6-8072-fe92c39db535_Budapester1.png"
+    },
+    {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\admin.PNG",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1530,6 +1547,40 @@
       "OriginalItemSpec": "wwwroot\\images\\back1.webp"
     },
     {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\bf0e984a-9270-45ff-a7d3-ccd7eedaacca_László.png",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/bf0e984a-9270-45ff-a7d3-ccd7eedaacca_László.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bf0e984a-9270-45ff-a7d3-ccd7eedaacca_László.png"
+    },
+    {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\Budapester1.png",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/Budapester1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Budapester1.png"
+    },
+    {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\c53bbbf4-497b-45a6-8536-f96b86464671_s1.PNG",
       "SourceId": "Shoes-shop",
       "SourceType": "Discovered",
@@ -1613,6 +1664,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\err.png"
+    },
+    {
+      "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\László.png",
+      "SourceId": "Shoes-shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\",
+      "BasePath": "_content/Shoes-shop",
+      "RelativePath": "images/László.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\László.png"
     },
     {
       "Identity": "D:\\newDotNetProject\\Shoes-shop\\wwwroot\\images\\login.jpg",

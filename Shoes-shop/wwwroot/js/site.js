@@ -4,7 +4,7 @@
 // Write your JavaScript code.
 
 
-carCount();
+//carCount();
 
 function carCount() {
     $.ajax({

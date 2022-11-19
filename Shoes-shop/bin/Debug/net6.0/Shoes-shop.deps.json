@@ -16,6 +16,7 @@
           "Microsoft.AspNetCore.Identity.UI": "6.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.7",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.7",
+          "Syncfusion.Pdf.Net.Core": "20.3.0.57",
           "cloudscribe.Pagination.Models": "1.1.0",
           "cloudscribe.Web.Pagination": "6.0.0"
         },
@@ -536,6 +537,35 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "4.6.25512.1"
+          }
+        }
+      },
+      "Syncfusion.Compression.Net.Core/20.3.0.57": {
+        "runtime": {
+          "lib/net6.0/Syncfusion.Compression.Portable.dll": {
+            "assemblyVersion": "20.3600.0.57",
+            "fileVersion": "20.3600.0.57"
+          }
+        }
+      },
+      "Syncfusion.Licensing/20.3.0.57": {
+        "runtime": {
+          "lib/net6.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "20.3.0.57",
+            "fileVersion": "20.3.0.57"
+          }
+        }
+      },
+      "Syncfusion.Pdf.Net.Core/20.3.0.57": {
+        "dependencies": {
+          "Syncfusion.Compression.Net.Core": "20.3.0.57",
+          "Syncfusion.Licensing": "20.3.0.57",
+          "System.Text.Encoding.CodePages": "4.7.0"
+        },
+        "runtime": {
+          "lib/net6.0/Syncfusion.Pdf.Portable.dll": {
+            "assemblyVersion": "20.3600.0.57",
+            "fileVersion": "20.3600.0.57"
           }
         }
       },
@@ -1263,6 +1293,27 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "Syncfusion.Compression.Net.Core/20.3.0.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CBRYDwR38HVWGT19Jtw1yzoiS9XzcKF0bMcnudTZkXfyLJtBc9dBJcY/CV8VeDIORr/XE9JUjPb5YnRYfCw7Rg==",
+      "path": "syncfusion.compression.net.core/20.3.0.57",
+      "hashPath": "syncfusion.compression.net.core.20.3.0.57.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/20.3.0.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l/V7HuB/ZgYaSP0+hfvULMKfn5tJxITv6qCj1bwhAcIjKpHcf2wzQ3FHb/IdD5iCnzvAFdubRddJyHbzG+6ieA==",
+      "path": "syncfusion.licensing/20.3.0.57",
+      "hashPath": "syncfusion.licensing.20.3.0.57.nupkg.sha512"
+    },
+    "Syncfusion.Pdf.Net.Core/20.3.0.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QsZV62BanLvHbU9L+7YWmG9QNR+oboy3kv/KLKOeQvNTMsveuXSIkY7nEI36gp3DbHLvXBTKpmvTrg1GZ5O9WA==",
+      "path": "syncfusion.pdf.net.core/20.3.0.57",
+      "hashPath": "syncfusion.pdf.net.core.20.3.0.57.nupkg.sha512"
     },
     "System.CodeDom/4.6.0": {
       "type": "package",

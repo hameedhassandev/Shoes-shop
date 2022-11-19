@@ -7,13 +7,21 @@
 
 <h2>Shipped And Pay Order Reports</h2>
 <hr />
+@*start button*@
 
-<div class="text-white">
-    <a href="#" class="btn btn-dark" style="border-radius: 25px;">
-        <i class="fa fa-download" aria-hidden="true"></i>
-        Generate pdf report
-    </a>
-</div>
+
+@{
+    Html.BeginForm("CreateDocument", "OrderAdmin", FormMethod.Get);
+    {
+        <div>
+
+            <input type="submit" value="Generate pdf report" class="btn btn-dark" style="border-radius: 25px;" />
+        </div>
+    }
+    Html.EndForm();
+}
+@*end button*@
+
 <br />
 @if (!Model.Any())
 {

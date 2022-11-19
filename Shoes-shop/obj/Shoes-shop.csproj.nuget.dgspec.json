@@ -72,6 +72,10 @@
               "target": "Package",
               "version": "[6.0.7, )"
             },
+            "Syncfusion.Pdf.Net.Core": {
+              "target": "Package",
+              "version": "[20.3.0.57, )"
+            },
             "cloudscribe.Pagination.Models": {
               "target": "Package",
               "version": "[1.1.0, )"
