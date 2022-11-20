@@ -3,6 +3,10 @@
 - Tools: ASP.Net MVC Core, ASP.NET Identity User, Entity Framework, Bootstrap, JQuery
 - Repository design pattern
 - Automapper
+
+# Video 
+https://www.linkedin.com/feed/update/urn:li:activity:6999714551600431104/
+
 # Initial Demo 
 - Login
 ![logn](https://user-images.githubusercontent.com/57669085/202851009-671a84a1-b835-497e-9a8a-2652ad7ecd91.PNG)
